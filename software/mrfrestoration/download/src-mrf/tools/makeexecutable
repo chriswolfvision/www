@@ -1,0 +1,343 @@
+#!/usr/bin/ruby
+# **************************************************************************
+# makeexecutable
+# Written by Christian Wolf
+# 
+# **************************************************************************
+# This program is free software; you can redistribute it and/or modify  
+# it under the terms of the GNU General Public License as published by  
+# the Free Software Foundation; either version 2 of the License, or     
+# (at your option) any later version.                                   
+#                                                                         
+# This program is distributed in the hope that it will be useful,       
+# but WITHOUT ANY WARRANTY; without even the implied warranty of        
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         
+# GNU General Public License for more details.                          
+#                                                                         
+# You should have received a copy of the GNU General Public License     
+# along with this program; if not, write to the                         
+# Free Software Foundation, Inc.,                                       
+# 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.   
+# **************************************************************************
+# Changelog:
+# 2.03 11.04.2008:  -Port to windows: use explicit ruby calls to launch scripts
+# 2.02 06.02.2008: -Bugfix: for modules w/ Makefile, the module itself
+#                   is not included into Makefile.submodules
+# 2.01 11.05.2007: -Fixed minor type in a constant string
+# 2.00 28.04.2007: -Complete rewrite in ruby
+# 1.00 ??.??.2002: -Start of project, initial version written in 
+#                   UNIX korn shell, sed, awk
+# **************************************************************************
+
+#Include the directory containing the script to the search path
+$LOAD_PATH << File.expand_path(File.dirname(__FILE__))
+
+require 'tempfile'
+require 'settings.rb'
+require 'lib.rb'
+
+$ToolPath=File.expand_path(File.dirname(__FILE__))
+
+# **************************************************************************
+# Add two arrays, but avoid doubles
+# **************************************************************************
+
+def addWithoutDoubles(arr0,arr1)
+	arr1.each do |toadd|
+		arr0.push(toadd) if not arr0.include? toadd	
+	end
+end
+
+# **************************************************************************
+# Array 2 string with include prefixes
+# **************************************************************************
+
+def arr2includes(arr)
+	rv=""
+	arr.each do |i|
+		rv=rv+"-I../"+i+" "
+	end
+	return rv
+end
+
+# **************************************************************************
+# Extract the dependencies for a given module
+# **************************************************************************
+
+def getDepsSingleRun(modulename,begSection,endSection)
+	begin
+		file = File.open("DEPENDENCIES") 
+	rescue
+		$stderr.printf "cannot open file DEPENDENCIES for reading!\n"
+		exit 1
+	end
+	
+	rv=Array.new
+	inSection=false
+	file.each_line do |line|
+	
+		inSection=true if line.include? begSection
+		inSection=false if (endSection!=nil)and (line.include?(endSection))
+		
+		if inSection and line[0]!='#'
+			a=line.split
+			if a.shift==modulename
+				rv=rv+a
+			end
+		end
+	end
+	file.close
+	return rv
+end
+
+# **************************************************************************
+# Extract the dependencies for a given module, and do it recursively
+# for the extracted modules
+# **************************************************************************
+
+def getDeps(modulename,begSection,endSection)
+	arr=Array.new
+	arr.push(modulename)
+	index=0	
+	while index<arr.length		
+		addWithoutDoubles(arr,getDepsSingleRun(arr[index],begSection,endSection))		
+		index=index+1
+	end
+	
+	# move the name of the module itself to the end of the list
+	arr.push(arr.shift)
+	return arr
+end
+
+# **************************************************************************
+# Get the dependencies on macros for a given module
+# **************************************************************************
+
+def getDepsOnMacros(modulename)
+	return getDeps(modulename,"DEPENDENCIES_ON_MACROS","DEPENDENCIES_ON_MODULES")
+end	
+
+# **************************************************************************
+# Check whether a module may be compiled or if the macro definitions 
+# forbid it
+# **************************************************************************
+
+def moduleIsCompilableAcc2Macros(modulename,cflags)
+	rv=true	
+	getDepsOnMacros(modulename).each do |macro|
+		cflags.each do |i|
+			rv = false if not i<=>("-D"+macro)
+		end
+	end
+	return rv
+end
+
+# **************************************************************************
+
+# **************************************************************************
+
+def getDepsOnModules(modulename,cflags)
+	mlist = getDeps(modulename,"DEPENDENCIES_ON_MODULES",nil)	
+	#printf("DEPS for module (%s) : before macros (%s)\n",modulename,arr2str(mlist))
+		
+	rv=Array.new
+	mlist.each do |modulecand|
+		if moduleIsCompilableAcc2Macros(modulecand,cflags)
+			rv.push(modulecand) 
+		else
+			printf("\n*** removing module "+modulecand+" because of missing macro.\n\n")
+		end
+	end
+	
+	#printf("DEPS for module (%s) : after macros (%s)\n",modulename,arr2str(rv))	
+	return rv
+end	
+
+# **************************************************************************
+#
+# **************************************************************************
+
+def makeModule(moduleName,cflags)
+	print "\t*******************************************************\n"
+	print "\tMAKING module: "+moduleName+"\n"
+	print "\t*******************************************************\n"
+	$stdout.flush
+
+	#printf "MAKEMODULE %s (%s) (%s)\n",moduleName,arr2str(cflags),arr2str(lflags)
+	if not moduleIsCompilableAcc2Macros(moduleName,cflags)
+		echo "\t****************************************************************"
+		echo "\tModule "+moduleName+" is not compiled since it demands the"
+		echo "\tmacro $i to be set in the main makefile."		
+		echo "\t****************************************************************"
+		return
+	end
+		
+	hasMakefile=false
+	hasMakefile=true if File.exist?(moduleName+"/Makefile")
+	hasMakefile=true if File.exist?(moduleName+"/makefile")
+	
+	# The module directory contains a makefile, so use it. But adapt it to 
+	# include the global compiler flags and the includes for the module
+	# dependencies
+	if hasMakefile
+		printf "Proprietary Makefile detected in the directory. Using it.\n."
+		tmpf=Tempfile.new("makeexecutable")
+		begin
+			makf = File.open(moduleName+"/Makefile") 
+		rescue
+			$stderr.printf "cannot open file "+moduleName+"/Makefile for reading!\n"
+			exit 1
+		end		
+		tmpf.printf "MODULE_DEPS = %s\n", arr2includes(getDepsOnModules(moduleName,cflags))
+		tmpf.printf "CFLAGS_GLOBAL = %s\n",arr2str(cflags)
+		makf.each_line { |i| tmpf.printf i }
+		tmpf.flush
+		
+		runCom "( cd "+moduleName+" &&  make -f "+tmpf.path+" )",true		
+		tmpf.close		
+	else
+	
+	# The module directory does not contain a makefile, so just call a 
+	# generic makedefault with the cflags and the generated dependencies    
+		com="#{$RubyPath} #{$ToolPath}/makedefault module.o "
+		com=com+"#{arr2str(cflags)} #{arr2includes(getDepsOnModules(moduleName,cflags))}"
+    Dir.chdir(moduleName)		        
+		runCom(com,true)
+    Dir.chdir("..")
+	end
+	
+end
+
+# **************************************************************************
+# Create an executable - no makefile needed, it is created automatically
+# **************************************************************************
+
+def makeExecutable(moduleName,execName,cflags,lflags)	
+	
+	mods=getDepsOnModules(moduleName,cflags)
+	
+	# Make the sub modules
+	mods.each do |i|
+		makeModule(i,cflags)
+	end
+	
+	# Make the main module
+	makeModule(moduleName,cflags)
+	
+	# ********************************************************************
+	# Link the executable
+	# ********************************************************************
+	
+	print "\t*******************************************************\n"
+	print "\tLINKING executable: "+execName+"\n"
+	print "\t*******************************************************\n"
+	$stdout.flush
+	
+	com=$COMPILER+" -o "+execName+" "+moduleName+"/module.o "
+	mods.each do |i|
+		com=com+i.to_s+"/module.o "
+	end
+	cflags.each do |i|
+		com=com+i+" "
+	end
+	com=com+arr2str(lflags)
+
+	runCom com,true	
+end	
+
+# **************************************************************************
+# Create an executable with an existing makefile
+# **************************************************************************
+
+def makeExecutableWithMakefile(moduleName,execName,cflags,lflags)
+	printf "Creating an executable based on an existing makefile\n"
+		
+	mods=getDepsOnModules(moduleName,cflags)
+		
+	# In case the make file of the directory needs the dependent modules,
+	# we create a file containing them
+	begin
+		of=File.open(moduleName+"/Makefile.submodules","w")
+	rescue					
+		$stderr.printf "*** Cannot open file %s",moduleName+"/Makefile.submodules"
+		exit 1
+	end
+
+	mods.each do |i|
+		if i!=moduleName
+			of.printf "../"+i+"/module.o "
+		end
+	end
+	of.printf "\n"
+	of.close
+	
+	# Make the sub modules
+	mods.each do |i|
+		makeModule(i,cflags)		
+	end	
+		
+	# Make the main module 
+	# the makefile is detected in the makeModule function
+	makeModule(moduleName,cflags)
+end	
+
+# **************************************************************************
+# MAIN ROUTINE
+# **************************************************************************
+
+$DoQT=false
+$DoWithMakefile=false
+
+while ARGV[0][0,1]=="-"
+	$DoQT=true if ARGV[0]=="-q"
+	$DoWithMakefile=true if ARGV[0]=="-m"
+	ARGV.shift
+end
+
+if ARGV.length<2 
+	printf "usage: makeexecutable [-q] modulename executable-name-and-path [ compilerflags [, linkerflags] ]\n"
+	printf "\t[-q] ... link the QT libraries.\n"
+	exit 1		
+end
+	
+# **************************************************************************
+# Separate the compiler flags from the linker flags
+# **************************************************************************
+
+cflags=Array.new
+lflags=Array.new
+moduleName=ARGV.shift
+execName=ARGV.shift
+inL=false
+ARGV.each do |a|
+	if inL
+		lflags.push(a)
+	else
+		if a==","
+			inL=true
+		else
+			cflags.push(a)
+		end
+	end
+end
+
+# Add the QT libraries if necessary
+if $DoQT
+	lflags=lflags+$QTLIBS.split
+end
+
+# Check if there is Makefile.lflags file with additional linker flags
+begin
+	file = File.open(moduleName+"/Makefile.lflags") 
+ 	file.each_line { |line| lflags=lflags+line.split }
+	file.close
+rescue
+end
+
+#printf "CFLAGS: %s\n",arr2str(cflags)
+#printf "LFLAGS: %s\n",arr2str(lflags)
+if $DoWithMakefile
+	makeExecutableWithMakefile(moduleName,execName,cflags,lflags)
+else
+	makeExecutable(moduleName,execName,cflags,lflags)
+end

@@ -1,0 +1,126 @@
+<!-- ****************************************************************************************
+  Author: Christian Wolf
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>Christian Wolf - Software</title>
+	<link rel=stylesheet href="../main.css" type="text/css">
+	<link rel=stylesheet href="software.css" type="text/css">
+	<link rel="shortcut icon" href="../graphics/favicon.ico">
+</head>
+<body>
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+<!-- ****************************************************************************************
+  The nav menu box
+  ******************************************************************************************* -->
+
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="../index.html">Main</a></li>
+		<li> <a href="../research/index.html">Research</a></li>
+		<li> <a href="../teaching/index.html">Teaching</a></li>
+		<li> <a href="../cv/index.html">CV</a></li>
+		<li> <a href="../publications/index_bydate.html">Publications</a></li>
+		<li> <a href="../publications/pres.html">Presentations</a></li>
+		 
+		<li> <a href="../software/index.html">Software</a></li>
+		<li> <a href="http://mady.n.free.fr/chris/noah">Private</a></li>
+	</ul>
+</div>  
+
+<h1>Software</h1>
+
+<div class="centerbox">
+A couple of programs I wrote. 
+</div>
+
+<table>  
+  
+  <!-- ************************************************************ -->
+  <tr>
+	<td> 
+	  <a href="deteval/index.html"><img src="screenshots/ss_deteval.gif"></a>	  
+    </td>
+    <td align="left" valign="top"> 
+      <p><a href="deteval/index.html">DetEval</a> is software for the evaluation of object detection algorithms. It reads XML files containing the detection results as well as the ground truth information and writes the evaluation output in XML or LaTeX format (details in the <a href="../publications/index.html#ijdar2006">paper</a>).
+	  </p>	
+    </td>
+  </tr>
+
+  <!-- ************************************************************ -->
+  <tr>
+	<td> 
+	  <a href="binarize/index.html"><img src="screenshots/ss_binarize.png"></a>	  
+    </td>
+    <td align="left" valign="top"> 
+      <p>Executables and <a href="binarize/index.html">C++</a> code for a document image binarization method ranked 5th/43 at the DIBCO 2009 competition).
+	  </p>	
+    </td>
+  </tr>
+
+  <!-- ************************************************************ -->
+  <tr>
+	<td> 
+	  <a href="zernike/index.html"><img src="screenshots/ss_zernike.png"></a>	  
+    </td>
+    <td align="left" valign="top"> 
+      <p>Matlab code for the robust calculation of <a href="zernike/index.html">Zernike moments</a> from binary images.
+	  </p>	
+    </td>
+  </tr>
+    
+    <!-- ************************************************************ -->
+  <tr> 
+    <td> 
+	  <a href="eplot/index.html"><img src="screenshots/ss_eplot.gif"></a>	  
+    </td>
+    <td align="left" valign="top"> 
+      <p><a href="eplot/index.html">eplot</a> ("easy gnuplot") is a <a href="http://www.ruby-lang.org/en">ruby</a> script which allows to pipe data easily through <a href="http://www.gnuplot.info">gnuplot</a> and create plots quickly, which can be saved in postscript, PDF, PNG or EMF files. Plotting of multiple files into a single diagram is supported.
+	  </p>	
+    </td>
+  </tr>
+  
+  <!-- ************************************************************ -->
+  <tr> 
+    <td> 
+	  <a href="makedefault/index.html"><img src="screenshots/ss_makedefault.gif"></a>	  
+    </td>
+    <td align="left" valign="top"> 
+      <p>
+Tired of writing makefiles? <a href="makedefault/index.html">Makedefault</a> is a ruby script which compiles a set files given in the current directory and creates either a single object file containing all code, or a single executable.
+The script automatically creates a makefile based on the sources in the current directory. It uses the compiler to search for dependencies in your sources and includes them into your makefile. Managing several projects depending on different and possibly overlapping sub projects can be done with <a href="makedefault/index.html#makeexecutable">makeexecutable</a>.
+	</p>
+    </td>
+  </tr>
+  
+  <!-- ************************************************************ -->
+  <tr> 
+    <td> 
+	  <a href="batchcmd/index.html"><img src="screenshots/ss_batchcmd.gif"></a>	  
+    </td>
+    <td align="left" valign="top"> 
+      <p>
+		<a href="batchcmd/index.html">Batchcmd</a> applies the same command to a bunch of files. The name of each input file can be adapted and changed using wild cards in order to produce output files or other names adapted to each input file.
+		</p>
+    </td>
+  </tr>
+	
+  </tr>
+</table>
+
+</body>
+</html>

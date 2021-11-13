@@ -1,0 +1,19 @@
+li{
+  margin: 10px 0;
+}
+
+span.student {
+	font-weight:bold; 	
+}
+
+span.type {
+	font-weight:bold; 	
+}
+span.student-sup {
+	font-weight:bold; 	
+	color: #1b8ac0;
+}
+
+span.committee {
+	font-style:italic;
+}

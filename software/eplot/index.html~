@@ -1,0 +1,196 @@
+<!-- ****************************************************************************************
+  eplot
+  Author: Christian Wolf
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>eplot</title>
+	<link rel=stylesheet href="../../main.css" type="text/css">
+	<link rel=stylesheet href="../software.css" type="text/css">
+	<link rel="shortcut icon" href="../../graphics/favicon.ico">
+</head>
+<body>
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+<p>
+
+<!-- ****************************************************************************************
+  The nav menu box
+  ******************************************************************************************* -->
+
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="../../index.html">Main</a></li>
+		<li><a href="../index.html">Other software</a></li>
+		<li> <a href="#manual">Manual</a></li>
+		<li> <a href="#download">Download</a></li>
+		<li> <a href="#requirements">Requirements</a></li>
+		<li> <a href="#author">Credits</a></li>
+		<li> <a href="#license">License</a></li>
+	</ul>
+</div>  
+
+<h1>eplot - a gnuplot wrapper</h1>
+
+eplot ("easy gnuplot") is a <a href="http://www.ruby-lang.org/en">ruby</a> script which allows to pipe data easily through <a href="http://www.gnuplot.info">gnuplot</a> and create plots quickly, which can be saved in postscript, PDF, PNG or EMF files. Plotting of multiple files into a single diagram is supported.
+
+<h2 id="manual">Manual</h2>
+
+eplot can take the data either from standard input, if no file is specified, or from one or more files specified on the command line. 
+
+<h3>One plot per diagram</h3>
+The easiest way is to pipe the data through the program. Let's assume that you have a file called data.txt, the syntax would be:
+
+<pre>
+cat data.txt | eplot
+</pre>
+
+Which will give a result looking like this:
+
+<img src="eplot_single.gif">
+
+<p>
+If the input data is available in a file (as opposed to being the output of another program), then you may as well give its name as an argument to eplot. This works with several data files, which will be opened in seperate windows:
+</p>
+
+<pre>
+eplot file1
+eplot file1 file2 file3
+</pre>
+
+<h3>Multiple plots in a single diagram</h3>
+
+There are several ways to create multiple plots on a single diagramm:
+<ul>
+<li>-m: Several input files: Just give the name of the files on the command line together with the -m option </li>
+<li>-M: A single file, the data for the different curves are in different columns: give the name of the file on the command line or pipe the data through standard in, and set the -M option </li>
+<li>-S: A single file, the data for the different curves are in the same column, but the curves are separated by blank lines: give the name of the file on the command line or pipe the data through standard in, and set the -S option </li>
+</ul>
+
+Examples:
+
+<pre>
+eplot -m 'Measured A' 'Measured B' 'Measured C' 'Simulated A' 'Simulated B' 'Simulated C'
+eplot -M singlefile.dat
+</pre>
+
+Which will give a result looking like this:
+
+<img src="eplot_multiple.gif">
+
+<h3>Customize the plot</h3>
+
+A couple of options allow to change various settings:
+
+<table class="graybox">
+<tr><td>-r intervals </td><td>(e.g. -r [5:10][0:100])</td><td>Change the range of the x and the y axis</td></tr>
+<tr><td>-R aspect-ratio </td><td>(e.g. -R 0.8)</td><td>Change the aspect ratio of the plot</td></tr>
+<tr><td>-s size-factor </td><td>(e.g. -s 1.5)</td><td>Change the size (resolution) of the plot</td></tr>
+<tr><td>-l curve-type  </td><td>(e.g. -l points)</td><td>Change the type of curve</td></tr>
+<tr><td>-w line-width  </td><td>(e.g. -w 2)</td><td>Change the line width (default: 1)</td></tr>
+<tr><td>-t title </td><td>(e.g. -t 'Error Rate@Recall@Precision')</td><td>Change the title(s) of the curve(s) (separated by @)</td></tr>
+<tr><td>-x x-options </td><td>(e.g. -x 'sigma')</td><td>Change options of the x-axis, e.g. the label but also other options.</td></tr>
+<tr><td>-y y-options </td><td>(e.g. -y 'error rate'))</td><td>Change options of the y-axis, e.g. the label but also other options.</td></tr>
+<tr><td>-B pos,height </td><td>(e.g. -B 100,0.1)</td><td>Add a vertical bar at position pos with height height. Several bars may be added, separated by @</td></tr>
+</table>
+
+For example, creating a plot of three curves (three types of classification accuracy measures in this case) which are stored as three different columns in the file data.txt, with a custmozed x-axis label and customized plot titles as well as a manual setting of the x and y range, can be done with this command:
+
+<pre>
+cat data.txt | eplot -M -x 'number of neighbors' -r [1:20][0:1] -t 'Accuracy@Precision@Recall'
+</pre>
+
+<h3>Saving into external files</h3>
+
+Various options allow to save a plot into diffrent formats. The filename cannot be specified, it is fixed to "foo.XXX", XXX being the extention of the respective file format:
+
+<ul>
+<li>-P Save into a PNG image (foo.png)</li>
+<li>-p Save into a postscript image (foo.ps)</li>
+<li>-a Save into a PDF image (foo.pdf)</li>
+<li>-e Save into a EMF image (foo.emf)</li>
+</ul>
+
+<h3>Selecting rows</h3>
+
+In some situations you might want to plot data from a file but ignore part of the file contents. If the file is organized in columns, i.e. you will plot it using the -M option to eplot, then the selection of a subset of the file's columns can be done using the <a href="download/ec">ec</a> tool (say "extract column"). Just add it as a filter between the data and the eplot command. For instance, if you want to plot columns 2 and 3 only:
+
+<pre>
+cat data.txt | ec 2 3 | eplot -M
+</pre>
+
+ec is also usefull if the columns in the original file are not separated by whitespace but by another character. The character separater used by ec can configured by adding it on the command line preceeded by a dash. The output character separater is always whitespace, as requested by eplot. If, for example, you have a file whose columns are seperated by a semicolon and you want to plot columns 5 and 3, use the command:
+
+<pre>
+cat data.txt | ec -; 5 3 | eplot -M
+</pre>
+
+
+<h2 id="download">Download</h2>
+
+No setup is necessary. Just download the script files (<a href="download/eplot">eplot</a> and <a href="download/ec">ec</a>) and put them into a directory which is in the PATH of your shell. Just be sure that the ruby shell is available as /usr/bin/ruby, else create a link or change the first line of each script (see <a href="#requirements">requirements</a>).
+
+<table class="downloadlist">
+	<tr><td>tool</td>		<td>version</td>	<td>date</td>			<td>download</td><td>remark</td></tr>
+	<tr><td>eplot</td>		<td>2.07</td>       <td>25.10.2005</td>		<td><a href="download/eplot">http</a></td><td>Current stable version</td></tr>
+	<tr><td>ec</td>			<td>2.0</td>       <td>13.10.2005</td>		<td><a href="download/ec">http</a></td><td>Current stable version</td></tr>
+	<d><td>eplot</td>		<td>1.07</td>       <td>03.07.2005</td>		<td><a href="download/version1.xx/eplot">http</a></td><td>No installation of ruby required; this version is based on ksh, sed,  awk</td></tr>
+	<tr><td>ec</td>			<td>1.0</td>       	<td>03.07.2005</td>		<td><a href="download/version1.xx/ec">http</a></td><td>No installation of ruby required; this version is based on ksh, sed,  awk</td></tr>
+</table>
+
+<h3>Older versions of gnuplot</h3>
+The standard configuration of the script only works with gnuplot 4.0 or newer, the reason being a couple of changes in the gnuplot syntax. However, the script may be adapted to older versions by a unique and simple change: set the variable "$GnuPlot4OrNewer" at the beginning of the script (in the configuration section) to "false":
+
+<pre>
+$GnuPlot4OrNewer=false
+</pre>
+
+<h2 id="requirements">Requirements</h2>
+
+<h3>Gnuplot</h3>
+eplot is based on Gnuplot and needs Gnuplot 4.0 or newer. Older versions are supported but a variable must be changed in the eplot script (see the <a href="#download">download section</a>)
+
+<h3>Ruby</h3>
+eplot and ec are completely written in the ruby programming language, so you need to have the ruby runtime package installed. Ruby comes with most Linux distributions. To install it on Fedora or Red Hat distributions type "yum install ruby". Ruby can be downloaded for a wide range of systems <a href="http://www.ruby-lang.org/en">here</a>.
+
+<h2 id="author">Credits</h2>
+
+<p>
+eplot was written by <a href="../../index.html">Christian Wolf</a>. Send comments, suggestions and bug reports to the follwing address:
+</p>
+<img src="../../graphics/emailprivate.png">
+
+
+<h2 id="license">License</h2>
+<p>
+This program is free software; you can redistribute it and/or modify  
+it under the terms of the 
+<a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a> as published by  
+the Free Software Foundation; either version 2 of the License, or     
+(at your option) any later version.                                   
+</p><p>
+This program is distributed in the hope that it will be useful,       
+but WITHOUT ANY WARRANTY; without even the implied warranty of        
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         
+GNU General Public License for more details.                          
+</p><p>
+You should have received a copy of the GNU General Public License     
+along with this program; if not, write to the                         
+Free Software Foundation, Inc.,                                       
+59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.   
+</p>
+</body>
+</html>

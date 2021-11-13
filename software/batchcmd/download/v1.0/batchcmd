@@ -1,0 +1,313 @@
+#!/usr/bin/ruby
+# **************************************************************************
+# batchcmd 
+# Written by Christian Wolf
+#
+# Reads a list of files from stdin and applies the specified command to 
+# each of them. The command may contain a couple of templates.
+#
+# **************************************************************************
+# This program is free software; you can redistribute it and/or modify  
+# it under the terms of the GNU General Public License as published by  
+# the Free Software Foundation; either version 2 of the License, or     
+# (at your option) any later version.                                   
+#                                                                         
+# This program is distributed in the hope that it will be useful,       
+# but WITHOUT ANY WARRANTY; without even the implied warranty of        
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         
+# GNU General Public License for more details.                          
+#                                                                         
+# You should have received a copy of the GNU General Public License     
+# along with this program; if not, write to the                         
+# Free Software Foundation, Inc.,                                       
+# 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.   
+# **************************************************************************
+# Changelog:
+# 1.02  21.11.2007: -Buffix: empty yyy string allowed in @[xxx=yyy]
+# 1.01  03.05.2007: -Bugfix: determination of the file suffix 
+# 1.00  14.11.2005: -Start of project
+# **************************************************************************
+
+# **************************************************************************
+# CONFIGURATION
+
+$Version="1.02 21.11.2007"
+$err="batchcmd: *** ERROR *** "
+$toolname="batchcmd"
+
+$TplGen="@"
+$TplInput=$TplGen
+$TplStrip=$TplGen+"STRIP"
+$TplEnd="$"
+$TplSuf="."
+
+$licence=<<MARKER_MESSAGE
+Written by Christian Wolf
+License: GPL; this is free software. There is absolutely NO warranty!!
+MARKER_MESSAGE
+
+# **************************************************************************
+# HELPER CLASSES
+
+class Modification
+	attr_accessor :x, :y, :type
+end
+
+
+# **************************************************************************
+# THE MAIN CLASS
+
+class Controller
+
+	# --------------------------------------------------------------------------
+	# ---- Constructor & run message in one
+	def initialize
+	
+		if ARGV.length<1
+			usage
+			exit 1
+		end
+		
+		@doexec=true
+		
+		first=true
+		ourOwnOptions=true
+		cmdstr=""
+		ARGV.each do |x|
+		
+			if ourOwnOptions
+				case x	
+					
+					when /^-h$|^--help$/
+						usage					
+						exit 0
+				
+					when /^-v$|^--version$/ 
+						$stderr.puts $toolname+" version "+$Version
+						$stderr.puts $licence
+						exit 0
+						
+					when /^-n$|^--noexec$/
+						@doexec=false
+						
+					else
+						# ---- We left the range where options are our own 
+						# ---- options. Subsequent options must be ignored,
+						# ---- they are part of the client command.
+						ourOwnOptions=false						
+				end	
+			end
+			
+			# ---- do not use the else clause ...
+			if not ourOwnOptions
+				cmdstr=cmdstr+" " if not first
+				cmdstr=cmdstr+x
+				first=false				
+			end
+		end
+		
+		run cmdstr
+	end
+	
+	# --------------------------------------------------------------------------
+	# ---- the usage message
+	def usage
+		printf "usage: %s [OPTIONS] <command>\n\n",$toolname
+		puts "Reads a list of files from stdin and applies the specified command to "
+		puts "each of them. The command may contain the following templates:\n"
+		puts "-   the template "+$TplInput+" is replaced by the current input file"
+		puts "-   the template "+$TplStrip+" is replaced by the current input file without "
+		puts "    file extension (equivalent to "+$TplGen+"[1,"+$TplSuf+"])"
+		puts "-   the template "+$TplGen+"[i,j] is replaced by the part of the current "
+		puts "    input file indexed by i and j (indices begin with 1) and:"
+		puts "    "+$TplEnd+" is replaced by the position of the last character"
+		puts "    "+$TplSuf+" is replaced by the position before the first '.'"
+		puts "-   the template "+$TplGen+"[xxx=yyy] is replaced by the current input file,"
+		puts "    where the string xxx is replaced by the string yyy"
+		printf "\nOptions:\n"
+		puts "-n  print the commands that would be executed, but do not execute them"
+		puts "-v  print version information"
+		printf "\nExamples:\n"
+		printf "ls *.ppm | %s convert %s %s.gif\n",
+			$toolname,$TplInput,$TplStrip
+		printf "ls orig*.ppm | %s threshold %s result%s[5,$]\n",
+			$toolname,$TplInput,$TplGen
+		printf "ls orig*.ppm | %s threshold %s %s[orig=result]\n",
+			$toolname,$TplInput,$TplGen
+		printf "ls orig*.ppm | %s convert %s %s[5,@].gif\n",
+			$toolname,$TplInput,$TplGen
+	end
+	
+	# --------------------------------------------------------------------------
+	# ---- Parse the parameters of the parametrized template and return them
+	def check4WildCards(index,filename)
+		case index
+			when $TplEnd
+				return (filename.length-1).to_i
+			when $TplSuf
+				pos=filename.rindex(".")
+				if pos!=nil
+					return pos.to_i-1
+				else
+					return (filename.length-1).to_i
+				end
+		end
+		begin
+			i=Integer(index)
+			return i-1
+		rescue
+			$stderr.printf("%sinvalid template '%s': must be integer!\n",$err,index)
+			exit 1
+		end		
+	end
+	
+	# --------------------------------------------------------------------------
+	# ---- Parse the parameters of the parametrized template and return them
+	def getModifParams(str,filename)
+		rv=Modification.new
+		
+		# --- extract the part in brackets
+		dummy=str+"dummy"
+		arr=dummy.split(/\[|\]/)		
+		if arr.length<3
+			printf "%sinvalid template in '%s' brackets messed up\n",$err,str
+			puts "Debug information:"
+			puts arr
+			exit 1
+		end
+		inBrackets=arr[1]
+		
+		poseq=inBrackets.index("=")
+		posco=inBrackets.index(",")
+		if poseq!=nil and posco!=nil 
+			printf "%sinvalid template in '%s': you can't have "
+			printf "',' and '=' in the same pair of brackets!",$err,str
+			exit 1
+		end
+		if poseq==nil and posco==nil 
+			printf "%sinvalid template in '%s': need  "
+			printf "',' or '=' in a pair of brackets!",$err,str
+			exit 1
+		end
+				
+		# ---- The template is a range type one
+		if posco!=nil			
+			arr=inBrackets.split(",")
+			rv.type = ","
+			rv.x=check4WildCards(arr[0],filename)
+			rv.y=check4WildCards(arr[1],filename)
+		end 
+	
+		# ---- The template is a replacement type one
+		if poseq!=nil			
+			arr=inBrackets.split("=")		
+			rv.type="="
+			rv.x=arr[0]
+			rv.y=arr[1]
+		end 
+		
+		if rv.y == nil
+			rv.y = ""
+		end
+		
+		return rv
+	end
+	
+	# --------------------------------------------------------------------------
+	# ---- Modify a template
+	def modifyTemplate(str,begr,replStr)
+		# ---- Search the template end position 
+		rest=str[begr..str.length-1]
+		endr=rest.index("]")
+		if endr==nil
+			printf "%sinvalid template in '%s' closing bracket missing!",$err,str
+			exit 1
+		end
+		endr=begr+endr
+	
+		# ---- perform the replacement
+		str[begr..endr]=replStr
+	end
+	
+	# --------------------------------------------------------------------------
+	# ---- run on a given cmd array
+	def run(cmdstr)	
+	
+		# ---- Travers all input lines, each line is a file
+		$stdin.each_line do |line|
+		
+			# ---- remove the newline
+			inputfile=line[0,line.length-1]
+		
+			# ---- remove the suffix			
+			pos=inputfile.rindex(".")
+			if pos==nil
+				inputfilenosuffix=inputfile
+			else
+				inputfilenosuffix=inputfile[0,pos]
+			end		
+		
+			# ---- Build the command: perform successive replacements
+			# ---- until all templates are replaced			
+			str=cmdstr.dup
+			begin				
+				didReplacement=false;
+										
+				# ---- TEMPLATE: inputfile without suffix
+				if str.index($TplStrip)!=nil
+					str[$TplStrip]=inputfilenosuffix 
+					didReplacement=true;
+				end	
+				
+				# ---- TEMPLATE: [] a part of the inputfile
+				begr=str.index($TplGen+"[")
+				if begr!=nil
+					
+					# ---- parse the bracket part
+					p=getModifParams(str,inputfile)					
+								
+					if p.type==","
+						modifyTemplate(str,begr,inputfile[p.x..p.y])
+					end
+					
+					if p.type=="="
+						changedinputfile=inputfile.dup
+						begin
+							changedinputfile[p.x]=p.y							
+						rescue
+							printf "%sstring '%s' not found in input item"+
+								" '%s'\n",$err,p.x,inputfile
+							exit 1
+						end	
+						modifyTemplate(str,begr,changedinputfile)
+					end
+					
+					didReplacement=true;
+				end
+				
+				# ---- TEMPLATE: inputfile
+				# ---- Since the template string is part of the other 
+				# ---- template strings, we only replace if we did not 
+				# ---- perform another replacement
+				if not didReplacement and str.index($TplInput)!=nil
+					str[$TplInput]=inputfile 
+					didReplacement=true;
+				end			
+				
+			end until not didReplacement			
+			
+			# ---- run the command
+			$stderr.printf("batchcmd: %s\n",str)
+			if @doexec			
+				if not system(str)
+					$stderr.printf "*** Error: command returned error code %d\n",$?
+					exit 1
+				end
+			end
+		end
+	end
+
+end
+
+c=Controller.new
+

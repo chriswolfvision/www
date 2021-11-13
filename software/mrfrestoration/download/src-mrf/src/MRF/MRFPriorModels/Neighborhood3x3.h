@@ -1,0 +1,30 @@
+
+#ifndef _WOLF_NEIGHBORHOOD3X3_H_
+#define _WOLF_NEIGHBORHOOD3X3_H_
+
+enum {
+	CL_INDEX_NW=0,
+	CL_INDEX_NO=1,
+	CL_INDEX_NE=2,
+	CL_INDEX_WE=3,
+	CL_INDEX_S=4,	// the center pixel
+	CL_INDEX_EA=5,
+	CL_INDEX_SW=6,
+	CL_INDEX_SO=7,
+	CL_INDEX_SE=8
+};
+
+enum {
+	CL_MASK_NW=1,
+	CL_MASK_NO=2,
+	CL_MASK_NE=4,
+	CL_MASK_WE=8,
+	CL_MASK_S=16,		// the center pixel
+	CL_MASK_EA=32,
+	CL_MASK_SW=64,
+	CL_MASK_SO=128,
+	CL_MASK_SE=256
+};
+
+#endif
+

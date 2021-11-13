@@ -1,0 +1,41 @@
+# ****************************************************************************
+# DEPENDENCIES
+#
+# Author: Christian Wolf
+#         christian.wolf@insa-lyon.fr
+#
+# THIS FILE IS USED TO COMPILE THE SOURCES!!!!!
+#
+# ****************************************************************************
+
+# ****************************************************************************
+# Mark the components which depend on compiler macros, i.e. which shall
+# be compiled and linked only if the macro is set in the main makefile
+# ****************************************************************************
+
+[DEPENDENCIES_ON_MACROS]
+
+Visualize				VISUALIZE
+
+# ****************************************************************************
+# The dependencies of the modules
+# ****************************************************************************
+
+[DEPENDENCIES_ON_MODULES]
+
+Image 			CIL
+Math			CIL 
+ImageProc  		CIL Image Math 
+Pyramid			CIL ImageProc 
+Binarization	CIL Pyramid
+Boxes			CIL Image Math
+Visualize		CIL ImageProc 
+CCA				CIL ImageProc 
+GTC				CIL ImageProc CCA
+SimpaGTC		CIL Binarization ImageProc tpSimpa CCA
+ObsModels		CIL Binarization MRF
+MRF				CIL ObsModels ImageProc tpgraphcut
+BleedThrough	CIL MRF ObsModels ImageProc CCA 
+
+# ---- Executables
+exmrf			CIL BleedThrough MRF Visualize CCA

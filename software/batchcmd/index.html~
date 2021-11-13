@@ -1,0 +1,147 @@
+<!-- ****************************************************************************************
+  batchcmd
+  Author: Christian Wolf
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>Batchcmd - apply the same command to a bunch of files</title>
+	<link rel=stylesheet href="../../main.css" type="text/css">
+	<link rel=stylesheet href="../software.css" type="text/css">
+	<link rel="shortcut icon" href="../../graphics/favicon.ico">
+</head>
+<body>
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+<p>
+
+<!-- ****************************************************************************************
+  The nav menu box
+  ******************************************************************************************* -->
+
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="../../index.html">Main</a></li>
+		<li><a href="../index.html">Other software</a></li>
+		<li> <a href="#manual">Manual</a></li>
+		<li> <a href="#download">Download</a></li>
+		<li> <a href="#requirements">Requirements</a></li>
+		<li> <a href="#author">Credits</a></li>
+		<li> <a href="#license">License</a></li>
+	</ul>
+</div>  
+
+<h1>Batchcmd - apply the same command to a bunch of files</h1>
+
+<p>
+Batchcmd is a ruby script which applies the same command to a bunch of files. The name of each input file can be adapted and changed using wild cards in order to produce output files or other names adapted to each input file.
+</p>
+
+<h2 id="manual">Manual</h2>
+
+<p>
+Batchcmd reads the list of files to which the command should be applied from standard input, the command is given as argument. At each call, the character '@' of the command is replaced by the current filename. The script is called as follows
+</p>
+
+<pre>
+Usage: batchcmd [OPTIONS] &lt;command&gt;
+
+Options:
+-n  print the commands that would be executed, but do not execute them
+-v  print version information
+</pre>
+
+<p>For instance, in order to apply 'sort' to all .txt files in the current directory, call:</p>
+
+<pre>
+/bin/ls *.txt | batchcmd sort @
+</pre>
+
+<p>
+where we used /bin/ls instead of ls in order to avoid let the eventual color codes of ls disturb the commands.
+</p>
+
+<p>
+Not all use cases are necessarily that easy. Often, an operation creates on output file whose name depends on the input file. For instance, you might want to convert all gif image files whose name begins with 'foo' to the file format png, which is possible using the @STRIP wildcard in the command. At each call, @STRIP is replaced by the current input filename w/o its file suffix:
+</p>
+
+<pre>
+/bin/ls foo*.gif | batchcmd convert @ @STRIP.png
+</pre>
+
+<p>More complex wildcards operations are supported:</p>
+
+<table class="downloadlist">
+	<tr><td>Wild card</td>		<td>Replaced by</td></tr>
+	<tr><td>@</td>		<td>the current input file</td></tr>
+	<tr><td>@STRIP</td>		<td>the current input file without 
+    file extension (equivalent to @[1,.])</td></tr>
+    <tr><td>@[i,j] </td>		<td>the part of the current 
+    input file indexed by i and j (indices begin with 1) and<br>
+    $ is replaced by the position of the last character<br>
+    . is replaced by the position before the first '.'</td></tr>
+    <tr><td>@[xxx=yyy]</td>		<td>the current input file, where the string xxx is replaced by the string yyy</td></tr> 
+</table>
+
+<p>Examples:</p>
+
+<pre>
+ls orig*.ppm | batchcmd threshold @ result@[5,$]
+ls orig*.ppm | batchcmd threshold @ @[orig=result]
+ls orig*.ppm | batchcmd convert @ @[5,$].gif
+</pre>
+
+<h2 id="download">Download</h2>
+
+No setup is necessary. Just download the file and put it into a directory which is in the PATH of your shell. Just be sure that the ruby shell is available as /usr/bin/ruby, else create a link or change the first line of the script (see <a href="#requirements">requirements</a>).
+
+<table class="downloadlist">
+	<tr><td>tool</td>		<td>version</td>	<td>date</td>			<td>download</td><td>remark</td></tr>
+	<tr><td>batchcmd</td>		<td>1.01</td>       <td>03.05.2007</td>		<td><a href="download/v1.0/batchcmd">http</a></td><td>Current stable version</td></tr>
+</table>
+
+<h2 id="requirements">Requirements</h2>
+
+<h3>Ruby</h3>
+Batchcmd is ritten in the ruby programming language, so you need to have the ruby runtime package installed. Ruby comes with most Linux distributions. To install it on Fedora or Red Hat distributions type "yum install ruby". Ruby can be downloaded for a wide range of systems <a href="http://www.ruby-lang.org/en">here</a>.
+
+<h2 id="author">Credits</h2>
+
+<p>
+Batchcmd was written by <a href="../../index.html">Christian Wolf</a>. Send comments, suggestions and bug reports to the follwing address:
+</p>
+<img src="../../graphics/emailprivate.png">
+
+
+<h2 id="license">License</h2>
+<p>
+This program is free software; you can redistribute it and/or modify  
+it under the terms of the 
+<a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a> as published by  
+the Free Software Foundation; either version 2 of the License, or     
+(at your option) any later version.                                   
+</p><p>
+This program is distributed in the hope that it will be useful,       
+but WITHOUT ANY WARRANTY; without even the implied warranty of        
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         
+GNU General Public License for more details.                          
+</p><p>
+You should have received a copy of the GNU General Public License     
+along with this program; if not, write to the                         
+Free Software Foundation, Inc.,                                       
+59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.   
+</p>
+</body>
+</html>

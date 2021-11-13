@@ -1,0 +1,218 @@
+<!-- ****************************************************************************************
+  eplot
+  Author: Christian Wolf
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>Matlab code for complex Zernike moments</title>
+	<link rel=stylesheet href="../../main.css" type="text/css">
+	<link rel=stylesheet href="../software.css" type="text/css">
+	<link rel="shortcut icon" href="../../graphics/favicon.ico">
+</head>
+<body>
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+<!-- ****************************************************************************************
+  The nav menu box
+  ******************************************************************************************* -->
+
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="index.html">Main</a></li>
+		<li><a href="../index.html">Other software</a></li>
+		<li><a href="../../index.html">The author</a></li>				
+	</ul>
+</div>  
+
+<h1>Matlab code for Zernike moments</h1>
+
+<center>
+<p>
+<table>
+	<TR>
+	<TD><img src="reconstr.png" alt=""></TD>	
+	</TR>
+</table>
+</p>
+</center>
+
+<p style="border: 2px solid #90600b; padding: 1em;">
+<b>You need to cite the following report in all publications including results for which you used this code:</b><br>
+<br>
+Christian Wolf, Graham Taylor and Jean-Michel Jolion. <em>Learning individual human activities from short binary shape sequences</em>. Technical Report RR-LIRIS-2011-018 Laboratoire d'Informatique en Images et Systemes d'Information (LIRIS), INSA de Lyon, France, October 2011.
+</p>
+
+<p>
+This code allows to calculate complex Zernike moments on a binary image and to reconstruct an image from its Zernike moments. The moments are calculated robustly which allows to use them even for the reconstruction with high order moments.
+</p>
+
+<h2>Usage:</h2>
+
+<p>
+All manipulations use a structure holding Zernike basis functions up to a certain maximum order, which are returned by the function zernike_bf (the arguments are (square) image size and highest order, see manual below):
+</p>
+
+<pre>
+zbf=zernike_bf(101,12)
+</pre>
+
+<p>
+The moments are extracted from an image <i>i</i> using the function zernike_mom ...
+</p>
+
+<pre>
+v=zernike_mom(i,zbf)
+</pre>
+
+<p>
+... and reconstructed using the function zernike_rec:
+</p>
+
+<pre>
+r=zernike_rec(v,101,zbf)
+</pre>
+
+<h2>Manual</h2>
+
+<h3>Zernike_bf</h3>
+<pre>
+ ZBFSTR=zernike_bf(SZ,ORDER)
+ ZBFSTR=zernike_bf(SZ,ORDER,WITHNEG)
+ 
+ Calculate the Zernike basis functions up to order ORDER for a
+ square image of size SZ (rows = cols!)
+ If WITHNEG is 1, then the basis functions with negative repetition are
+ included.
+
+ The array contains basis function entries for couples of (p,q), where q
+ can be negative. 
+
+ ZBFSTR is a structure with the following elements:
+  .bf ....... the basis functions (SZ, SZ, LENGTH).
+  .orders ... a matrix (2, LENGTH), where the first column holds the 
+              order p and the second column the repetition q.
+  .index .... a matrix (1+2*ORDER, 1+2*ORDER) which holds for each element
+              the index in .orders and in .bf of this couple of p,q.
+              -1 means that there are no basis functions for this couple
+              ATTENTION!!! since indixes in matlab always start with 1 
+              they should be negative (as well as positive) here,
+              the index starts with -ORDER, which requires adding ORDER+1
+              to both dimensions. So given an order of 12,
+              instead of ZBFSTR.index(-5,3) we write 
+              ZBFSTR.index(8,16);
+  .maxorder . the maximum order, basically the ORDER parameter given
+              to this function.
+  .withneg .. 1 if there are basis functions with negative repetition,
+              so basically the WITHNEG parameter to this function
+
+ All pixels out of the disk inscribed into the image square are ignored.
+</pre>
+
+<h3>Zernike_mom</h3>
+<pre>
+ Z=zernike_mom(I,ZBFSTR)
+ 
+ Calculate the Zernike moments from an image. We suppose that
+ some amount of first (lower) order moments, not necessarily all moments,
+ are available.
+
+ Z ........ The COMPLEX Zernike moments 
+
+ I ........ The input image 
+ ZBFSTR ... The Zernike basis functions, can be computed by zernike_bf
+</pre>
+
+<h3>Zernike_rec</h3>
+<pre>
+ I=zernike_rec(Z,SZ,ZBFSTR)
+ I=zernike_rec(Z,SZ,ZBFSTR,OPTSTARTIND)
+
+ Reconstruct an image from some of its Zernike moments. We suppose that
+ some amount of first (lower) order moments, not necessarily all moments,
+ are available.
+
+ Z ............. The COMPLEX Zernike moments
+ SZ ............ The size of the square image
+ ZBFSTR ........ The Zernike basis functions, must be precomputed 
+                 with zernike_bf()
+ OPTSTARTIND ... If given, the starting index from which reconstr. is
+                 performed. Allows to ignore a higher or lower number
+                 of lower order polynomials. THIS IS NOT THE ORDER, BUT
+                 ITS INDEX!
+                 Default value: 4 for a full basis,
+                                3 for a basis w/o negative repetitions
+</pre>
+
+<h3>Centersquare</h3>
+<pre>
+CS=centersquare(I)
+CS=centersquare(I,OPTSIZE)
+
+Take an image window and resize it to a given target size. Place it in a 
+squared window such that it's size is maximized without distortion.
+
+I ......... The input image
+OPTSIZE ... If given, than the desired size from parameters.m is
+            overridden
+</pre>
+
+<h2 id="download">Download</h2>
+
+<table class="downloadlist">
+	<tr>
+		<td>File</td>		
+		<td>Download</td>
+		<td>Remark</td>
+	</tr>
+	<tr class="firstfile">
+		<td>zernike_chriswolf.tgz</td>				
+		<td><a href="download/zernike_chriswolf.tgz">http</a></td>
+		<td>Tarball of matlab sources</td>
+	</tr>
+</table>
+
+<h2 id="licence">Licence</h2>
+
+<p>
+Permission is granted for anyone to copy, use, modify, or distribute this
+program and accompanying programs and documents for any purpose, provided
+this copyright notice is retained and prominently displayed, along with
+a note saying that the original programs are available from my web page.
+</p>
+<p>
+The programs and documents are distributed without any warranty, express 
+or implied.  As the programs were written for research purposes only, they 
+have not been tested to the degree that would be advisable in any 
+important application.  
+</p>
+<p>
+All use of these programs is entirely at the user's own risk.
+</p>
+
+<p style="border: 2px solid #90600b; padding: 1em;">
+<b>You need to cite the following report in all publications including results for which you used this code:</b><br>
+<br>
+Christian Wolf, Graham Taylor and Jean-Michel Jolion. <em>Learning individual human activities from short binary shape sequences</em>. Technical Report RR-LIRIS-2011-018 Laboratoire d'Informatique en Images et Systemes d'Information (LIRIS), INSA de Lyon, France, October 2011.
+</p>
+
+<h2 id="author">Credits</h2>
+
+<p>
+This code was written by <a href="../../index.html">Christian Wolf</a>.
+</p>
+
+</body>
+</html>

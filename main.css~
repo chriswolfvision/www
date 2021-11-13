@@ -1,0 +1,298 @@
+/***************************************************************************************
+ * main.css
+ * Main style file
+ ***************************************************************************************/
+
+BODY {
+	margin-left: 5%; 
+	margin-right: 3%; 
+	/* background-image: url(graphics/background.gif); */
+	font-family:sans-serif;
+}
+
+a:link {color:#90600b; text-decoration: none; }
+a:active {color: #90600b; text-decoration: none; }
+a:visited {color: #a0802b; text-decoration: none; }
+a:hover {color: #000099; text-decoration: underline; }
+
+.firstcolumn {
+	width: 40%;
+	float: left;
+}
+
+.secondcolumn {
+	margin-left: 50%;
+}
+
+IMG { 
+	border-style: none; 
+}
+
+ul.sparselist, .sparselist ul {
+	list-style-type:circle;
+	padding-left: 1.5ex;	
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-right: 0;
+	margin-left: 0.5em;
+}
+
+ul.sparselist li ul {
+	list-style-type: lower-roman;
+}
+
+H1 {
+	font-size: 24pt; 
+	color: #000066; 
+	text-align: center;
+}
+H2 {
+	font-size: 16pt; 
+	color: #000066; 
+	clear: both; 
+}
+H3 {
+	color: #000066; 
+}
+H4 {
+	color: #660000;
+	padding: 0;
+/* 	margin: 0 0 -1.5ex 0; */
+	margin-top: 2ex;
+	margin-bottom: -1ex;
+	margin-left: 0ex;
+	margin-right: 0ex;
+}
+
+/***************************************************************************************
+ * Misc
+ ***************************************************************************************/
+
+pre.sourcecode 
+{	
+	font-family: "Courier New", Courier, monospace;
+	border: 1px solid #cccccc;
+}
+
+.citegroup {
+	font-size: smaller;
+}
+
+/***************************************************************************************
+ * Data tables
+ ***************************************************************************************/
+ 
+table.data {
+	border: 1px solid #bbbbbb; 
+	padding: 1em;
+}
+ 
+.data td {
+	padding-right: 1em;
+}
+
+.datafirstrow td{
+	border-bottom: 1px solid #bbbbbb;
+}
+
+/***************************************************************************************
+ * Display country flags when a language is selected
+ ***************************************************************************************/
+
+li.lang-english {
+	list-style-image: url(graphics/ctry_small_uk.gif);
+	margin-bottom: 1em;
+}
+
+li.lang-french {
+	list-style-image: url(graphics/ctry_small_france.gif);
+	margin-bottom: 1em;
+}
+
+li.lang-german {
+	list-style-image: url(graphics/ctry_small_germany.gif);
+	margin-bottom: 1em;
+}
+
+li.bib-journal {
+	list-style-image: url(graphics/bib_journal.gif);
+	margin-bottom: 1em;
+}
+
+li.bib-conf {
+	list-style-image: url(graphics/bib_conf.gif);
+	margin-bottom: 1em;
+}
+
+li.bib-empty {
+	list-style-image: url(graphics/bib_empty.gif);
+	margin-bottom: 1em;
+}
+
+/***************************************************************************************
+ * Layouting
+ ***************************************************************************************/
+
+.floater {
+	float:left;
+}
+
+.breaker {
+	clear: both;
+}
+
+.centerbox {
+	text-align: center;
+}
+
+.lastupdate {
+	text-align: center;
+}
+
+/***************************************************************************************
+ * the nav menu
+ ***************************************************************************************/
+ 
+ .navmenu {
+ 	text-align: center;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #bbbbbb;	
+	margin-top: 1em;
+	padding: 3px;
+}
+
+.navmenu ul, .navmenu li {
+	display: inline;
+	padding-left: 0.8ex;
+	padding-right: 0.8ex;
+	border-left: 1px solid #bbbbbb;
+	color: #339;
+}
+
+.navmenu ul, .navmenu li.first {
+	border-left: none;
+}
+
+.navmenu p {
+	display: inline;	
+}
+
+.navmenu a:link {color: #a0802b; text-decoration: none; }
+.navmenu a:active {color: #a0802b; text-decoration: none; }
+.navmenu a:visited {color: #a0802b; text-decoration: none; }
+.navmenu a:hover {color: #000099; text-decoration: underline; }
+
+/***************************************************************************************
+ * the link box
+ ***************************************************************************************/
+
+.link-box {
+	position:absolute; 
+	border-style: solid;
+	border-width: 1px;
+	border-color: #bbbbbb;
+	padding-right: 1ex;
+	text-align: left;
+	font-size: smaller;
+	width: auto; 
+	height: auto; 
+	z-index:1; 
+	left: 6ex; 
+	top: 10ex;
+}
+
+.link-box ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 1ex;
+	color: #bbbbbb;
+}
+
+.link-box a:link {color: #a0802b; text-decoration: none; }
+.link-box a:active {color: #a0802b; text-decoration: none; }
+.link-box a:visited {color: #a0802b; text-decoration: none; }
+.link-box a:hover {color: #000099; text-decoration: underline; }
+
+/***************************************************************************************
+ * the ref link box
+ * References
+ ***************************************************************************************/
+
+.reflink-box {
+	padding: 3px;
+	margin-top: 0.1em;
+	margin-bottom: 0.3em;
+	width: auto;
+}
+
+.reflink-box ul, .reflink-box li {
+	display: inline;
+	padding-left: 1ex;
+	padding-right: 1ex;
+	margin-right: 0.5ex;
+	margin-top: 0px;
+	width: auto;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #bbbbbb;
+	color: #339;
+}
+
+.reflink-box p {
+	display: inline;	
+}
+
+/***************************************************************************************
+ * Block, very well seperated from the rest
+ ***************************************************************************************/
+
+.block {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+/***************************************************************************************
+ * a horizontal logo bar
+ ***************************************************************************************/
+
+ul.logo-bar, .logo-bar ul, .logo-bar li  {
+	list-style-type: none;
+	margin-top: 0;
+	padding: 0;
+}
+
+.logo-bar li  {
+	display: inline;
+	padding-right: 5px;
+}
+
+.logo-bar p {
+	display: inline;	
+}
+
+/***************************************************************************************
+ * a horizontal logo bar
+ ***************************************************************************************/
+
+
+table.downloadlist {
+	background-color:#FFFFFF;		
+	padding: 0;
+}
+
+.downloadlist td, td.downloadlist { 
+	border: 1px solid #cccccc; 
+	padding: 0.1em;
+	text-align:left;
+}
+
+.firstfile td{
+ 	padding-top: 1ex;
+ 	border-top: solid 2px #aaaaaa;
+}
+
+pre {	
+	font-family: "Courier New", Courier, monospace;
+	border: 1px solid #cccccc;
+}

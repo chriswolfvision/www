@@ -1,0 +1,101 @@
+/***************************************************************************************
+ * research.css
+ * Style file for research descriptions
+ * Christian Wolf, christian.wolf@insa-lyon.fr
+ ***************************************************************************************/
+
+.shortheader
+{
+	/* border-top: 1px solid #bbbbbb; */
+	color: #660000; 
+	font-weight: bold;
+	text-align: center;
+}
+
+.shorttype
+{
+	/* border-top: 1px solid #bbbbbb; */
+	color: #660000; 
+	font-style: italic;
+	text-align: center;
+}
+
+
+
+.container {
+    position: relative;
+    width: 200px;   
+    float:left;
+    margin-right: 2em;
+}
+
+.teaser {    
+    width: 200px;
+    margin: 5px auto;
+}
+
+/****************************************************************************************/
+
+.sepline td
+{
+	border-top: 1px solid #bbbbbb;
+}
+
+.researchgrid td
+{
+	border: 1px solid #bbbbbb;
+	text-align: center;
+	width: 16.6%;
+}
+
+td.work 
+{
+	border: 1px solid #bbbbbb;	
+}
+
+td.catrow
+{
+	/* border-top: 1px solid #bbbbbb; */
+	color: #000066; 
+	font-weight: bold;
+	text-align: center;
+}
+
+.descrow td
+{
+	color: #660000; 
+	font-weight: bold;
+	border: 1px solid #bbbbbb;
+}
+
+td.doublecol
+{
+	width: 33.2%;
+}
+
+td.catcol
+{
+	/* border-left: 1px solid #bbbbbb; */
+	width: 0.5em; 
+	text-align: center; 	
+	color: #000066; 
+	font-weight: bold;
+}
+
+td.desccol 
+{
+	color: #660000;
+	font-weight: bold;
+	text-align: left;
+	border: 1px solid #bbbbbb;
+}
+
+a.journal
+{
+	font-weight: bolder;
+}
+
+.conference
+{
+	font-size: smaller;
+}

@@ -1,0 +1,1522 @@
+<!-- ****************************************************************************************
+  Author: Christian Wolf
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<link rel=stylesheet href="../main.css" type="text/css">
+	<link rel=stylesheet href="publications.css" type="text/css">
+    	<link rel="shortcut icon" href="../graphics/favicon.ico">
+    <script type="text/javascript" language="JavaScript" src="publications.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Christian Wolf - Presentations</title>
+</head>
+<body>
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+<!-- ****************************************************************************************
+  The nav menu box
+  ******************************************************************************************* -->
+
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="../index.html">Main</a></li>
+		<li> <a href="../teaching/index.html">Teaching</a></li>
+		<li> <a href="../publications/index_bydate.html">Publications</a></li>
+		<li> <a href="../publications/pres.html">Talks</a></li>
+	</ul>
+</div>
+
+<!-- ****************************************************************************************
+  Main Contents
+  ******************************************************************************************* -->
+
+
+
+<h1>Seminars and talks</h1>
+
+<p align="center">Slides for "regular" presentations are in the
+  <a href="../publications/index.html">publications</a> section associated to their papers.</p>
+
+
+<h3>Scheduled Talks</h3>
+
+<ul>
+
+	<li class="lang-english" id="gdrexpl2021">
+        <span class="t-title">
+            Deep Learning of high-level reasoning,
+        </span>
+        <span class="t-date">
+            December 2nd, 2021. Invited Seminar at VIBOT, University of Bourgogne, Dijon.
+        </span>        
+    </li>
+</ul>
+
+
+
+
+<h3>Held talks: 2021</h3>
+
+<ul>     
+
+	<li class="lang-english" id="gdrexpl2021">
+        <span class="t-title">
+            Reasoning vs. bias exploitation: X-raying high-capacity deep networks,
+        </span>
+        <span class="t-date">
+            October 11th, 2021. Invited talk at <a href="http://www.gdr-isis.fr/index.php/reunion/460/">workshop on AI and Explainability</a> organized by GDR ISIS and GDR IGRV, Paris.
+        </span>        
+    	<ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('gdrexpl2021');">Abstract</a></li>          
+        	<li><a href="../papers/pres-gdr-expl2021.pdf">PDF</a></li>   	
+         </ul>
+    	<div class="t-abstract">
+		<p>
+        High-capacity deep networks trained on large-scale data are increasingly used to learn agents capable of automatically taking complex decisions on high-dimensional data like text, images, videos. Certain applications require robustness - the capacity of robustly taking the right decisions at the right moments, with high-risks associated with wrong decisions. We require these agents to acquire the right kind of reasoning capabilities, i.e. that they take decisions for reasons the designers had in mind. This is made diffcult by the diminishing role experts have in the design and engineering process, as the agents' decisions are in large part dominated by the impact of training data.
+    	</p>
+    	<p>
+		In this talk we will address the problem of learning explainable and interpretable models, in particular deep networks. We start by exploring the question of explainability in a broader sense in terms of feasability and trade-offs.
+		</p>
+		<p>
+		We then focus on visual reasoning tasks and we target different situations involving the need of the agents to acquire a certain approximation of common knowledge, including robotics and vision-and-language reasoning. We explore this problem in a holistic way and study it from various angles: what are the tasks which lead to emergence of reasoning? How can we evaluate agents and measure reasoning vs. bias exploitation? How can we x-ray neural models and visualize their internal behavior? What are the bottlenecks in learning reasoning?
+    	</p>
+    	</div>
+    </li> 
+
+    <li class="lang-english" id="gdrexpl2021">
+        <span class="t-title">
+            Visualizing, evaluating and transferring reasoning patterns in VQA,
+        </span>
+        <span class="t-date">
+            September 29th, 2021. Seminar at Inria Thoth, Grenoble.
+        </span>        
+    	<ul class="reflink-box">     
+    		<li><a href="../papers/pres-210929-inria.pdf">PDF</a></li>   	
+         </ul>    	
+    </li>       
+	
+
+	<li class="lang-english" id="orasis2021">
+        <span class="t-title">
+            Deep Learning of high-level reasoning,
+        </span>
+        <span class="t-date">
+            September 15th, 2021. Keynote at <a href="https://orasis2021.sciencesconf.org/">ORASIS 2021</a> conference, Lac de Saint-Férréol.
+        </span>        
+    	<ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('orasis2021');">Abstract</a></li>          
+        	<li><a href="../papers/pres-orasis2021.pdf">PDF</a></li>
+         </ul>
+    	<div class="t-abstract">
+        <p>
+        An important sub goal of AI is the creation of intelligent agents, which require high-level reasoning capabilities, situation awareness, and the capacity of robustly taking the right decisions at the right moments. An exact definition of the term reasoning is difficult, but we define it as the opposite of exploiting spurious biases and short-cuts in training data picked up by low-level statistics, and which could lead to dramatic losses in generalization beyond the training data.
+    	</p>
+    	<p>
+		In this talk we will cover the automatic learning reasoning capabilities through large-scale training of deep neural networks from data, and we target different situations, like robotics and embodied computer vision (robot navigation to solve visual tasks) as well as vision and language reasoning (visual question answering). We explore this problem in a holistic way and study it from various angles of attack: what are the tasks which lead to emergence of reasoning? How can we evaluate agents and measure reasoning vs. bias exploitation? How can we x-ray neural models and visualize their internal behavior? What are the bottlenecks in learning reasoning? Can we structure neural networks with inductive bias to improve the emergence of reasoning?
+    	</p>
+    </div>
+
+
+	<li class="lang-english" id="eursleight2021">
+        <span class="t-title">
+            Deep Learning: models and algorithms, autograd and pytorch.
+        </span>
+        <span class="t-date">
+            July 8th, 2021. Tutorial at  <a href="https://manutech-sleight.com">EUR SLEIGHT Graduate school, Saint Etienne.</a>.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('eursleight2021');">Abstract</a></li>  
+        	<li><a href="../papers/pres-eur-sleight-2021-seance1-cours.pdf">PDF-Part 1: models and algorithms</a></li>
+			<li><a href="https://www.youtube.com/watch?v=31yTA37ZAVM&list=PLG5YVfY6ZoaE3bZWAookF5hSGZGmXAhvj&index=35">Video-Part 1</a></li>        	      	
+        	<li><a href="../papers/pres-eur-sleight-2021-seance2-tp.pdf">PDF-Part 2: differentiable programming</a></li> 
+        	<li><a href="https://www.youtube.com/watch?v=1-XJ1YX80CE&list=PLG5YVfY6ZoaE3bZWAookF5hSGZGmXAhvj&index=36">Video-Part 2</a></li>       	
+         </ul>
+        <div class="t-abstract">
+        <p>
+        In this lecture we will discuss models and algorithms for deep learning, a variant of machine learning which puts the emphasis on the learning of high-capacity neural networks from large amounts of data, which are most often embedded in high-dimensional spaces (images, signals, audio, language, etc.). We will go over the different model variants used for different tasks, and link their structure and inductive biases to symmetries and invariances we want to enforce in the data, and to high-level goals: multi-layer perceptrons, convolutional neural networks, recurrent neural networks, graph networks and transformers (attention mechanisms).
+    	</p>
+    	<p>
+		We will link models and algorithms to an important sub goal of AI, namely the creation of intelligent agents, which require high-level reasoning capabilities,  and the capacity of robustly taking the right decisions at the right moments. An exact definition of the term reasoning is difficult, but we define it as the opposite of exploiting spurious biases and short-cuts in training data picked up by low-level statistics, and which could lead to dramatic losses in generalization beyond the training data.
+		</p>
+    	<p>
+		On the application side, we will cover the automatic learning reasoning capabilities in different situations, like robotics and embodied computer vision (robot navigation to solve visual tasks) as well as vision and language reasoning (visual question answering). We explore this problem in a holistic way and study it from various angles of attack: 
+		</p>    	
+    	<ul>
+			<li>Can we structure neural networks with particular inductive biases to improve the emergence of reasoning?</li>
+			<li> What are the tasks which lead to emergence of reasoning?  </li>
+			<li> How can we evaluate agents and measure reasoning vs. bias exploitation? </li>
+			<li> How can we x-ray neural models and visualize their internal behavior? </li>
+			<li> What are the bottlenecks in learning reasoning? </li>
+		</ul>
+		<p>
+		The second part of this lecture deals with more practical and hands-down aspects of deep learning and covers the differentiable programming, the basis for the implementation of deep neural networks which can be trained by gradient descent. We will learn how to represent tensors in PyTorch, one of the most widely used deep learning frameworks. A particular emphasis will be put on Auto-grad, automatic differentiation of models based on the backpropagation algorithm applied to dynamically created computation graphs. The interested participant with access to a laptop can apply these techniques to a small toy problem during the lecture.
+    	</p>
+    	
+    	</div>
+    </li>
+
+	<li class="lang-english" id="deeptails2021">
+        <span class="t-title">
+            Learning high-level reasoning in vision, language and robotics,
+        </span>
+        <span class="t-date">
+            "Deeptails" seminar at Inria Grenoble, May 28th, 2021 (Virtual), twin-talk given together with my student <a href="https://corentinkervadec.github.io/">Corent Kervadec</a>.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('deeptails2021');">Abstract</a></li>
+        	<li><a href="https://project.inria.fr/ml3ri/dissemination-and-communication/deeptails">Seminar webpage</a></li>
+        	<li><a href="../papers/pres-deeptails-inria-2001.pdf">PDF</a></li>
+        	<li><a href="https://t.co/X8OOf512eT?amp=1">Video/Youtube</a></li>
+         </ul>
+        <div class="t-abstract">
+        <p>
+        An important sub goal of AI is the creation of intelligent agents, which require high-level reasoning capabilities, situation awareness, and the capacity of robustly taking the right decisions at the right moments. An exact definition of the term reasoning is difficult, but we define it as the opposite of exploiting spurious biases and short-cuts in training data picked up by low-level statistics, and which could lead to dramatic losses in generalization beyond the training data.
+    	</p>
+    	<p>
+		In this talk we will cover the automatic learning reasoning capabilities through large-scale training of deep neural networks from data, and we target different situations, like robotics and embodied computer vision (robot navigation to solve visual tasks) as well as vision and language reasoning (visual question answering). We explore this problem in a holistic way and study it from various angles of attack: what are the tasks which lead to emergence of reasoning? How can we evaluate agents and measure reasoning vs. bias exploitation? How can we x-ray neural models and visualize their internal behavior? What are the bottlenecks in learning reasoning? Can we structure neural networks with inductive bias to improve the emergence of reasoning?
+    	</p>
+    	
+    	</div>
+    </li>
+
+
+    <li class="lang-english" id="gretsi2019">
+        <span class="t-title">
+            
+        </span>
+        <span class="t-date">
+            Participation in a round table at organized by Goethe Institut Lyon and INSA-Lyon, <a href="">GRETSI</a>, May 27h, 2021.
+        </span>
+        <ul class="reflink-box">
+        </ul>
+    </li>
+
+</ul>
+
+
+<h3>Held talks: 2020</h3>
+
+<ul> 
+
+	<li class="lang-english" id="afia2020">
+        <span class="t-title">
+            Integrating Learning and Geometry for Robotics,
+        </span>
+        <span class="t-date">
+            French <a href="https://afia.asso.fr/rob-ia20/">Workshop on Robotics and AI organized</a> by <a href="https://afia.asso.fr/">AFIA</a>, December 15th, 2020 (Virtual).
+        </span>        
+        </div>
+    </li>
+
+	<li class="lang-french" id="udl2020">
+        <span class="t-title">
+            Apprentissage Profond: cas d'études de collaborations académiques-industrielles,
+        </span>
+        <span class="t-date">
+            Formation Intelligence Artificielle, un outil de compétitivité pour les entreprises, December 2nd, 2020. Lyon.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('udl2020');">Abstract</a></li>
+         </ul>
+        <div class="t-abstract">
+        <p>
+        Plusieurs cas d’études seront présentés illustrant des coopérations académiques / industriels sur l’usage de l’apprentissage profond : traitement automatique de documents numérisées (détection de bloc de textes, reconnaissance de caractères); interface homme-machine (navigation dans des environnements 3D sur tables tactiles); systèmes de questions-réponses visuels.
+    	</p>
+    	
+    	</div>
+    </li>
+
+    <li class="lang-english" id="onera2020">
+        <span class="t-title">
+            Learning robot navigation with differentiable projective and topological memory,
+        </span>
+        <span class="t-date">
+            October 12th, 2020. ONERA, Palaisau.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('onera2020');">Abstract</a></li>        	
+         </ul>
+        <div class="t-abstract">
+        <p>
+        In this talk we address perception and navigation problems in robotics, in particular mobile terrestrial robots and intelligent vehicles. We focus on learning structured representations, which allow complex reasoning, planning and control. Our control policies are automatically learned from interactions with photo-realistic 3D environments using Deep Reinforcement Learning. While classical methods learn a representation of the history of observations in the form of a flat vectorial hidden state, we propose two different methods, which structure memory by imbuing neural networks with inductive biases of different kinds. 
+    	</p>
+    	<p>
+		The first method structures its hidden state as a metric map in a bird’s eye view, updated through affine transforms given ego-motion. The semantic meaning of the map’s content is not determined before hand or learned from supervision. Instead, projective geometry is used as an inductive bias for deep neural networks. The content of the metric map is learned from interactions and reward, allowing the agent to discover regularities and object affordances from the task itself.
+		</p>
+    	<p>
+		The second method introduces a differentiable topological representation, i.e. memory in graph form. Here, our main contribution is a data driven approach for planning under uncertainty requiring an estimate of shortest paths in valued graphs with a probabilistic structure. Whereas classical symbolic algorithms achieve optimal results on noise-less topologies, or optimal results in a probabilistic sense on graphs with probabilistic structure, we aim to show that machine learning can overcome missing information in the graph by taking into account rich high-dimensional node features, for instance visual information available at each location of the map. Compared to purely learned neural white box algorithms, we structure our neural model with an inductive bias for dynamic programming based shortest path algorithms, and we show that a particular parameterization of our neural model corresponds to the Bellman-Ford algorithm. By performing an empirical analysis of our method in simulated photo-realistic 3D environments, we demonstrate that the inclusion of visual features in the learned neural planner outperforms classical symbolic solutions for graph based planning.
+    	</p>
+    	</div>
+    </li>
+</ul>
+
+
+<h3>Held Talks : 2019</h3>
+
+<ul>  
+
+	<li class="lang-english" id="tutoliris2019">
+        <span class="t-title">
+            A very short developer's tutorial on Deep Learning and Neural Networks,
+        </span>
+        <span class="t-date">
+            December 12th, 2019. Café développeurs, LIRIS, Lyon.
+        </span>
+        
+    </li>
+
+	<li class="lang-english" id="naver2019">
+        <span class="t-title">
+            Integrating Learning and Projective Geometry for Robotics,
+        </span>
+        <span class="t-date">
+            November 29th, 2019. Invited talk at <a href="https://europe.naverlabs.com/updates/1st-ai-for-robotics-workshop-at-naver-labs-europe/">AI for Robotics Workshop</a>, Naver Labs, Grenoble.
+        </span>
+        <ul class="reflink-box">
+            <li><a href="javascript:;" onClick="displayAbstractOf('naver2019');">Abstract</a></li>            
+            <li><a href="https://vimeo.com/380219181">Video</a></li>
+          </ul>
+		<div class="t-abstract">
+        <p>
+        In this talk we address perception and navigation problems in robotics settings, in particular mobile terrestrial robots and intelligent vehicles. We focus on learning representations, which are structured and allow to reason on a high level on the presents of objects and actors in a scene and to take planification and control decisions. Two different methods will be compared, which both structure their state as metric maps in a bird’s eye view, updated through affine transforms given ego-motion.
+    	</p>
+    	<p>
+		The first method combines Bayesian filtering and Deep Learning to fuse LIDAR input and monocular RGB input, resulting in a semantic occupancy grid centered on a vehicle. A deep network is trained to segment RGB input and to fuse it with Bayesian occupancy grids.
+		The second method automatically learning robot navigation in 3D environments from interactions and reward using Deep Reinforcement Learning. Similar to the first mode, it keeps a metric map of the environment in a bird’s eye view, which is dynamically updated. Different from the first method, the semantic meaning of the map’s content is not determined before hand or learned from supervision. Instead, projective geometry is used as an inductive bias in deep neural networks. The content of the metric map is learned from interactions and reward, allowing the agent to discover regularities and object affordances from the task itself.
+		</p>
+    	<p>
+		We also present a new benchmark and a suite of tasks requiring complex reasoning and exploration in continuous, partially observable 3D environments. The objective is to provide challenging scenarios and a robust baseline agent architecture that can be trained on mid-range consumer hardware in under 24h. Solving our tasks requires substantially more complex reasoning capabilities than standard benchmarks available for this kind of environments.
+    	</p>
+    	</div>
+    </li>
+
+    <li class="lang-english" id="ol2019">
+        <span class="t-title">
+            CoPhy: counterfactual learning of physical dynamics.
+        </span>
+        <span class="t-date">
+            November 18th, 2019. Invited seminar at Orange Labs, Rennes.
+        </span>        
+    </li>
+
+
+
+    <li class="lang-english" id="robotex2019">
+        <span class="t-title">
+            Introduction into deep learning for robotics.
+        </span>
+        <span class="t-date">
+            November 5th+6th, 2019. 2 day (16h) lecture+exercise at <a href="http://2rm.cnrs.fr/2019/09/04/anf-deeprobot-mise-en-oeuvre-des-techniques-dapprentissage-deep-learning-pour-la-robotique">ANF DeepRobot</a>, Lille.
+        </span>
+        <ul class="reflink-box">
+            <li><a href="http://2rm.prod.lamp.cnrs.fr/wp-content/uploads/2019/09/Programme_ANF_DeepRobot_2019.pdf">Program</a></li>
+          </ul>
+    </li>
+
+	<li class="lang-english" id="gdria2019">
+        <span class="t-title">
+            A short introduction into deep learning … and when to learn (and when not),
+        </span>
+        <span class="t-date">
+            October 28th, 2019. Talk at <a href="http://ia2.gdria.fr/">IA2 automn school on AI</a>, Lyon.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('gdria2019');">Abstract</a></li>            
+        </ul>
+        <div class="t-abstract">
+        <p>
+        In this talk we will give a (necessarily very short) introduction into deep learning, i.e. learning hierarchical high-capacity models from large amounts of data. After a short explanation of deep networks, gradient backpropagation and its implementation through auto-grad in a standard deep learning framework, the talk will focus on two points: (i) the visualization and transfert from learned knowledge from source data to a target application, including efforts to model the shift in distribution, and (ii) the combination of deep learning with more traditional models in the context of robot and vehicle navigation.
+    	</p>
+    	</div>
+    </li>
+
+    <li class="lang-english" id="jnrr2019">
+        <span class="t-title">
+            Learning and Robotics,
+        </span>
+        <span class="t-date">
+            October 17th, 2019. Tutorial at <a href="https://jnrr2019.loria.fr/">Journées Nationales de la Recherche en Robotique</a>, Vittel.
+        </span>        
+    </li>
+
+	<li class="lang-english" id="angers2019">
+        <span class="t-title">
+            Spatially structured Reinforcement Learning for 3D Control,
+        </span>
+        <span class="t-date">
+            October 11th, 2019. Invited seminar at <a href="http://www.univ-angers.fr/fr/recherche/laboratoires/mathstic/sfr-mathstic.html">SFR Math-STIC, l'Université d'Angers</a>, Angers.
+        </span>
+        <ul class="reflink-box">
+            <li><a href="javascript:;" onClick="displayAbstractOf('angers2019');">Abstract</a></li>            
+          </ul>
+		<div class="t-abstract">
+        <p>
+        In this talk we address the problem of automatically learning the behavoir of intelligent agents navigating in 3D environments from interactions with Deep Reinforcement Learning. We discuss the reasoning capabilities required for these problems on the presence of objects and actors in a scene and to take planification and control decisions.  We present a new benchmark and a suite of tasks requiring complex reasoning and exploration in continuous, partially observable 3D environments. 
+        </p>
+        <p>
+		We propose a method, which structures its state as a metric map in a bird’s eye view, dynamically updated through affine transforms given ego-motion. The semantic meaning of the map’s content is not determined before hand or learned from supervision. Instead, projective geometry is used as an inductive bias in deep neural networks. The content of the metric map is learned from interactions and reward, allowing the agent to discover regularities and object affordances from the task itself. We show, that this kind of geometric structure significantly improves the agent’s capability of storing objects and their locations and we visualize this reasoning in concrete scenarios.
+    	</p>
+    	</div>
+    </li>
+
+
+  
+  
+  	<li class="lang-english" id="emva2019">
+        <span class="t-title">
+            Learning high-level reasoning in and from images,
+        </span>
+        <span class="t-date">
+            September 5th, 2019. Keynote at <a href="https://emvf-2019.emva.b2match.io/">European Machine Vision Forum</a>, Lyon.
+        </span>
+        <ul class="reflink-box">
+            <li><a href="javascript:;" onClick="displayAbstractOf('emva2019');">Abstract</a></li>
+            <li><a href="http://www.viewserv.de/EMVA-Forum/4845cUp7HTN7/8159.html#8159">Video</a></li>
+          </ul>
+		<div class="t-abstract">
+        <p>
+        Humans are able to infer what happened in a video given only a few sample frames. This faculty is called reasoning and is a key component of human intelligence. A detailed understanding requires reasoning over semantic structures, determining which objects were involved in interactions, of what nature, and what were the results of these. To compound problems, the semantic structure of a scene may change and evolve. In this talk we present research in high-level reasoning from images and videos, with the goals of understanding visual content (scene comprehension) or to make predictions of probable future outcomes, or to act in simulated environments based on visual observations. We present neural models addressing these goals through structured deep-learning, i.e. inductive biases in deep neural networks which explicitly model object relationships. We learn this models from data or from interactions between an agent and an environment.
+    	</p>
+    	</div>
+    </li>
+
+
+    <li class="lang-english" id="gretsi2019">
+        <span class="t-title">
+            Traitement du signal et Intelligence Artificielle : frères ennemis ou siamois ?
+        </span>
+        <span class="t-date">
+            Participation in a round table at <a href="http://gretsi.fr/colloque2019/">GRETSI</a>, August 28th, 2019.
+        </span>
+        <ul class="reflink-box">
+            <li><a href="javascript:;" onClick="displayAbstractOf('gretsi2019');">Abstract</a></li>
+            <li><a href="https://webtv.univ-lille.fr/video/10482/table-ronde-signal-ampamp-ia-quel-avenir-">Video</a>
+          </ul>
+		<div class="t-abstract">
+        <p>
+        	De nombreuses applications de l'IA connues du grand public reposent sur l'apprentissage automatique ("machine learning" en anglais) : interprétation automatique des radiographies médicales par un « robot-radiologue », vision par ordinateur pour les véhicules autonomes, chatbots intelligents pour la gestion de services en ligne... 
+        </p><p>
+			Dans beaucoup de ces applications, les données sont des signaux (images, sons, vidéos) issus d’un capteur physique. Ces applications recoupent donc naturellement celles chères à notre communauté, comme la reconnaissance d'images ou de sons (segmentation, reconnaissance faciale, indexation musicale), l'amélioration de ces contenus (débruitage, super-résolution), ou encore plus généralement l'exploitation de ces données (détection d’objets, d’actions dans des vidéos). Les méthodes d'apprentissage automatique utilisent également des concepts et des méthodes communs aux traiteurs de signaux (filtrage, optimisation, décompositions multi-échelles, théorie de l'information, etc.). 
+		</p><p>
+			Le traitement du signal se situe à la fois en amont (l’acquisition des données), en aval (l’exploitation de l’information utile) ou                         encore en imbrication avec l’apprentissage automatique. Aujourd’hui se pose par conséquent la question de l'identité de la communauté du traitement du signal à l'heure de l'apprentissage artificiel.
+		</p><p>
+			L'objectif de cette table ronde sera d'explorer les connections entre l’apprentissage automatique et le traitement du signal, les spécificités individuelles de ces deux domaines et leurs limites actuelles. Pour aborder les nombreuses questions autour de ce couple « je t’aime - moi non plus », nous avons invité un panel d’experts :
+		</p><p>
+			Caroline Chaux, Chargée de Recherche CNRS et I2M, Aix-Marseille Université (optimisation)<br>
+			Rémi Gribonval, Directeur de Recherche Inria Rennes (représentation des signaux et apprentissage)<br>
+			Olivier Pietquin, Directeur de Recherche Google Brain Paris (langage et apprentissage)
+			Jean Ponce, Directeur de Recherche Inria et Département d'informatique de l'ENS Paris (vision par ordinateur et apprentissage)<br>
+			Nicolas Thome, Professeur au Conservatoire National des Arts et Métiers (CNAM) Paris, Laboratoire Cédric (vision par ordinateur et apprentissage)<br>
+			Christian Wolf, Maître de Conférences Insa Lyon, LIRIS et Inria Grenoble (vision par ordinateur et apprentissage)<br>
+    	</p>
+    	</div>
+    </li>
+
+
+     <li class="lang-english" id="thoth2019">
+        <span class="t-title">
+            Learning and Robotics,
+        </span>
+        <span class="t-date">
+            June 25th, 2019. Invited seminar at <a href="https://thoth.inrialpes.fr/">Inria Thoth</a>, Grenoble.
+        </span>
+        <ul class="reflink-box">
+            <li><a href="javascript:;" onClick="displayAbstractOf('thoth2019');">Abstract</a></li>
+          </ul>
+		<div class="t-abstract">
+        <p>
+        In this talk we address perception and navigation problems in robotics settings, in particular mobile terrestrial robots and intelligent vehicles. We focus on learning representations, which are structured and allow to reason on a high level on the presents of objects and actors in a scene and to take planification and control decisions. Two different methods will be compared, which both structure their state as metric maps in a bird’s eye view, updated through affine transforms given ego-motion.
+    	</p>
+    	<p>
+		The first method combines Bayesian filtering and Deep Learning to fuse LIDAR input and monocular RGB input, resulting in a semantic occupancy grid centered on a vehicle. A deep network is trained to segment RGB input and to fuse it with Bayesian occupancy grids.
+		The second method automatically learning robot navigation in 3D environments from interactions and reward using Deep Reinforcement Learning. Similar to the first mode, it keeps a metric map of the environment in a bird’s eye view, which is dynamically updated. Different from the first method, the semantic meaning of the map’s content is not determined before hand or learned from supervision. Instead, projective geometry is used as an inductive bias in deep neural networks. The content of the metric map is learned from interactions and reward, allowing the agent to discover regularities and object affordances from the task itself.
+		</p>
+    	<p>
+		We also present a new benchmark and a suite of tasks requiring complex reasoning and exploration in continuous, partially observable 3D environments. The objective is to provide challenging scenarios and a robust baseline agent architecture that can be trained on mid-range consumer hardware in under 24h. Solving our tasks requires substantially more complex reasoning capabilities than standard benchmarks available for this kind of environments.
+    	</p>
+    	</div>
+    </li>
+
+    
+
+    <!--
+    <li class="lang-english" id="inria2019">
+          <span class="t-title">
+              Deep Learning for Perception and Navigation in Robotics,
+          </span>
+          <span class="t-date">
+              April 3rd, 2019. Seminar at Inria Grenoble center.
+          </span>
+          <ul class="reflink-box">
+            <li><a href="javascript:;" onClick="displayAbstractOf('inria2019');">Abstract</a></li>
+          </ul>
+          <div class="t-abstract">
+          <p>
+            In this talk we address perception and navigation problems in robotics settings, in particular mobile terrestrial robots and intelligent vehicles. We focus on learning representations, which are structured and allow to reason on a high level on the presents of objects and actors in a scene and to take planification and control decisions. Two different methods will be compared, which both structure their state as metric maps in a bird’s eye view, updated through affine transforms given ego-motion.
+          </p><p>
+            The first method combines Bayesian filtering and Deep Learning to fuse LIDAR input and monocular RGB input, resulting in a semantic occupancy grid centered on a vehicle. A deep network is trained to segment RGB input and to fuse it with Bayesian occupancy grids.
+The second method automatically learning robot navigation in 3D environments from interactions and reward using Deep Reinforcement Learning. Similar to the first mode, it keeps a metric map of the environment in a bird’s eye view, which is dynamically updated. Different from the first method, the semantic meaning of the map’s content is not determined before hand or learned from supervision. Instead, projective geometry is used as an inductive bias in deep neural networks. The content of the metric map is learned from interactions and reward, allowing the agent to discover regularities and object affordances from the task itself.
+          </p><p>
+            We also present a new benchmark and a suite of tasks requiring complex reasoning and exploration in continuous, partially observable 3D environments. The objective is to provide challenging scenarios and a robust baseline agent architecture that can be trained on mid-range consumer hardware in under 24h. Solving our tasks requires substantially more complex reasoning capabilities than standard benchmarks available for this kind of environments.
+         </p>
+         </div>
+      </li>
+  -->
+
+  
+
+  	<li class="lang-english" id="isc2019">
+        <span class="t-title">
+            Attention mechanisms and spatial representations in artificial neural networks,
+        </span>
+        <span class="t-date">
+            June 18th, 2019. Invited seminar at <a href="http://www.isc.cnrs.fr/">Institut des Sciences Cognitives</a>, Lyon.
+        </span>
+        <ul class="reflink-box">
+            <li><a href="javascript:;" onClick="displayAbstractOf('isc2019');">Abstract</a></li>
+          </ul>
+		<div class="t-abstract">
+        <p>
+        Humans are able to infer what happens in a scene from a view sample glimpses and they are able to take decisions on actions taking into account observations, context and memory. This faculty is called reasoning and is a key component of human intelligence. A detailed understanding requires reasoning over semantic structures, determining which objects were involved in interactions, of what nature, and what were the results of these. To compound problems, the semantic structure of a scene may change and evolve. In this talk we present research in artificial intelligence, in particular in high-level reasoning from images and videos, with the goals of understanding visual content (scene comprehension) or to make predictions of probable future outcomes, or to act in real or simulated environments based on visual observations. We present (artificial) neural models addressing these goals through structured deep-learning, i.e. inductive biases in deep neural networks which explicitly model ego-centric or allo-centric spatial representations, attention mechanisms, and object relationships. We learn this models from data or from interactions between an agent and simulated or real environments, and we show visualizations of these mechanisms indicating the reasoning capabilities the agents learned from data.
+    	</p>
+    	</div>
+    </li>
+
+    <li class="lang-english" id="emlyon2019">
+          <span class="t-title">
+              Machine and Vision,
+          </span>
+          <span class="t-date">
+              March 13th, 2019. Invited talk at EM Lyon.
+          </span>
+          <ul class="reflink-box">
+            <li><a href="javascript:;" onClick="displayAbstractOf('emlyon2019');">Abstract</a></li>
+           <li><a href="../papers/pres-emlyon2019.pdf">PDF</a></li>
+           <li><a href="https://www.youtube.com/watch?v=2f0o5FsPlX0">Video/Youtube</a></li>
+          </ul>
+          <div class="t-abstract">
+          <p>
+            The field of computer vision adresses the high-level understanding of visual content, such as images and video sequences from various media: cameras embedded in telephones, robots or smart cars, multimedia content (television films and newscasts), digital documents , medical imaging etc. The problems are diverse, ranging from simple image classification and recognition of objects, gestures and human activities, to structured prediction and detailed understanding of a scene: identification of all the actors in a scene, an estimate of their dense posture, relationships between the actors and possibly the objects of the stage, dense labeling of all the elements of the scene; for some applications, the reconstruction of a 3D model of the scene is necessary.
+          </p><p>
+            The main scientific challenge is the semantic gap between low-level input signals and the semantic predictions, for example the class of objects to be recognized. Machine Learning from large amounts of data has been a major driving force of the evolution of the field in recent years, with a significant impact both on the academic world and on the industrial world. Deep learning has established itself as a reference method for a large number of problems by winning important scientific competitions.
+          </p><p>
+            This presentation will review the history of the field, the main actors and the major scientific challenges. We will first present a brief introduction into the general challenges in machine learning of high dimensional input, like images, signals video sequences. We will present common deep models like convolutional neural networks and recurrent networks and various widely used standard tools and problems, like attention mechanisms and transfer learning. Several applications will be presented: gesture recognition, human pose estimation, mobile robotics, automatic identification of smartphone users. We will finish with links to neuro sciences and parallels between human or biological learning and machine learning.
+         </p>
+         </div>
+      </li>
+
+  <li class="lang-french" id="lyonuouverte2019_1">
+        <span class="t-title">
+            Vision, Image et Intelligence Artificielle,
+        </span>
+        <span class="t-date">
+            March 12th, 2019. Introductory talk at Université ouverte de Lyon.
+        </span>        
+    </li>
+
+  <li class="lang-french" id="montelimar2019">
+        <span class="t-title">
+            Deep Learning and Artificial Intelligence,
+        </span>
+        <span class="t-date">
+            February 15th, 2019. Invited introductory talk at Université populaire de Montelimar.
+        </span>
+        
+    </li>
+
+  <li class="lang-english" id="ihp2019_1">
+        <span class="t-title">
+            Deep Learning,
+        </span>
+        <span class="t-date">
+            January 29th, 2019. Invited Tutorial on Deep Learning at Institut Henri Poincaré, Paris, at the workshop <a href="https://imaging-in-paris.github.io/">AI and images (the mathematics of imaging)</a>.
+        </span>
+        
+    </li>
+
+</ul>
+
+<h3>Held Talks : 2018</h3>
+
+<ul>
+  <li class="lang-english" id="jnr2018">
+        <span class="t-title">
+            Deep Learning for Robotics,
+        </span>
+        <span class="t-date">
+            November 22nd, 2018. Presentation jointly given with <a href="http://perso.ensta-paristech.fr/~filliat/fr/">David Filiat</a> at Journées Nationales de la Robotique, CNRS, Paris, France.
+        </span>
+
+       
+    </li>
+
+  <li class="lang-english" id="coresa2018">
+        <span class="t-title">
+          Tutorial: Deep Learning and Neural Networks for in computer vision and signal processing
+        </span>
+        <span class="t-date">
+            November 12th, 2018. Invited tutorial talk at <a href="https://coresa2018.sciencesconf.org/">CORESA</a>, Poitiers, France.
+        </span>
+        <ul class="reflink-box">
+          <li><a href="javascript:;" onClick="displayAbstractOf('coresa2018');">
+      Abstract</a></li>
+         
+        </ul>
+        <div class="t-abstract">
+        <p>
+         Representation Learning or Deep Learning consists in automatically learning layered and hierarchical representation with various layers abstraction from large amounts of data. This presentation will review the history of the field, the main actors and the major scientific challenges. We will first present a brief introduction into the general challenges in machine learning of high dimensional input, like images, signals and text. We will present common deep models like convolutional neural networks and recurrent networks and various widely used standard tools and problems, like attention mechanisms, transfer learning and learning structured output. Implementing these models in deep learning frameworks (Tensorflow, PyTorch) will be briefly touched. Finally, we will go into more into detail of some selected applications in computer vision and signal processing.
+       </p>
+       </div>
+    </li>
+
+  <li class="lang-english" id="teledet2018">
+        <span class="t-title">
+          How we went from Graphical Models to Deep Learning and what changed,
+        </span>
+        <span class="t-date">
+            October 18th, 2018. Invited tutorial talk at Journées GDR-ISIS on ML for remote sensoing ("Extraction d'attributs et apprentissage pour l'analyse des images de télédétection"), CNRS, Paris, France.
+        </span>
+       
+    </li>
+
+  <li class="lang-english" id="isisia2018">
+        <span class="t-date">
+            October 4th, 2018, Paris. Introductory talk to the workshop <a href="http://www.gdr-isis.fr/index.php?page=reunion&idreunion=374">Machine Learning and Reasoning for Signal and Image Processing</a>,
+            co-organized by <a href="http://www.gdr-isis.fr/">GDR ISIS</a> and
+            <a href="http://www.gdria.fr/">GDR IA</a>. The talk was jointly given with Sébastien Destercke.
+        </span>
+       
+    </li>
+
+  <li class="lang-english" id="icube2018">
+        <span class="t-title">
+            Structured Deep Learning and Visual Reasoning,
+        </span>
+        <span class="t-date">
+            Sept. 21st, 2018. Invited seminar at <a href="http://ed.math-spi.unistra.fr/ecole-doctorale/presentation/">Strasbourg doctorale school on mathematics, computer science and engineering</a>, Strasbourg, France.
+        </span>
+        
+    </li>
+
+	<li class="lang-english" id="iceland2018">
+        <span class="t-title">
+            Structured Deep Learning for Human Motion,
+        </span>
+        <span class="t-date">
+            July 10th, 2018. Talk at <a href="https://uoguelph-mlrg.github.io/CFIW/">France-Canada-Iceland workshop</a> (ANR/NSERC Deepvision), Reykjavic, Iceland.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('iceland2018');">
+			Abstract</a></li>
+		
+        </ul>
+		<div class="t-abstract">
+         <p>
+        Visual data consists of massive amounts of variables, and making sense of their content requires modeling their complex dependencies and relationships. This talk presents an overview of our past activities, which aim in enforcing coherence in this large ensemble of observed and latent variables, and to infer estimates from it. In particular, the presentation deals with work on attention mechanisms for video analysis, where structure in the data is not imposed but predicted from input through a fully trained model.
+        </p>
+        <p>
+		Application wise, we address human action recognition from RGB data and study the role of articulated pose and of visual attention mechanisms for this application. In particular, articulated pose is well established as an intermediate representation and capable of providing precise cues relevant to human motion and behavior. We explore, how articulated pose can be complemented, and in some cases replaced, by mechanisms, which draw attention to local positions in space and time. This allows to model interactions between humans and relevant objects in the scene, as well as regularities between objects themselves.
+		</p>
+		</div>
+    </li>
+
+	<li class="lang-english" id="cvpr2018ws">
+        <span class="t-title">
+            Pose or attention for human activity recognition?,
+        </span>
+        <span class="t-date">
+            June 18th, 2018. Invited conference at <a href="https://project.inria.fr/humans2018/">HUMAN 3D: CVPR 2018 workshop</a> on HUman pose, Motion, Activities aNd Shape in 3D, Salt Lake City, USA.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('cvpr2018ws');">
+			Abstract</a></li>
+			
+        </ul>
+		<div class="t-abstract">
+         <p>
+        We address human action recognition from RGB data and study the role of articulated pose and of visual attention mechanisms for this application. In particular, articulated pose is well established as an intermediate representation and capable of providing precise cues relevant to human motion and behavior. We describe two different methods which use pose in different ways, either during training and testing, or during training only.
+    	</p>
+    	<p>
+		The first method uses a trainable glimpse sensor to extracts features on a set of predefined locations specified by the pose stream, namely the 4 hands of the two people involved in the activity. We show that it is of high interest to shift the attention to different hands at different time steps depending on the activity itself. The model not only learns to find choices relevant to the task, but also to draw away attention from joints which have been incorrectly located by the pose middleware.
+		</p>
+		<p>
+		A second method has been designed to explictely remove the dependency on pose during training, making the method more broadly applicable in situations where pose is not available. Instead, a sparse represention of focus points is calculated by a dynamic visual attention model and passed to a set of distributed recurrent neural workers. State-of-the-art results are achieved on several datasets, among which is the largest dataset for human activity recognition, namely NTU-RGB+D.
+		</p>
+		</div>
+    </li>
+
+	<li class="lang-english" id="heudiasyc2018">
+        <span class="t-title">
+            Models of Visual Attention for Understanding Humans
+        </span>
+        <span class="t-date">
+            June 5th, 2018. Invited Seminar at <a href="https://www.hds.utc.fr">Heudiasyc Laboratory</a>, Compiegne, France.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('heudiasyc2018');">
+			Abstract</a></li>
+        </ul>
+		<div class="t-abstract">
+         <p>
+        We address human action recognition from RGB data and study the role of articulated pose and of visual attention mechanisms for this application. In particular, articulated pose is well established as an intermediate representation and capable of providing precise cues relevant to human motion and behavior. We describe two different methods which use pose in different ways, either during training and testing, or during training only.
+    	</p>
+    	<p>
+		The first method uses a trainable glimpse sensor to extracts features on a set of predefined locations specified by the pose stream, namely the 4 hands of the two people involved in the activity. We show that it is of high interest to shift the attention to different hands at different time steps depending on the activity itself. The model not only learns to find choices relevant to the task, but also to draw away attention from joints which have been incorrectly located by the pose middleware.
+		</p>
+		<p>
+		A second method has been designed to explictely remove the dependency on pose during training, making the method more broadly applicable in situations where pose is not available. Instead, a sparse represention of focus points is calculated by a dynamic visual attention model and passed to a set of distributed recurrent neural workers. State-of-the-art results are achieved on several datasets, among which is the largest dataset for human activity recognition, namely NTU-RGB+D.
+		</p>
+		</div>
+    </li>
+
+    <li class="lang-english" id="inriastars2018">
+        <span class="t-title">
+            Structured Deep Learning for Human Activity Recognition.
+        </span>
+        <span class="t-date">
+            May 30th, 2018. Invited Talk at <a href="https://team.inria.fr/stars/">INRIA Stars</a>, Nice, France.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('inriastars2018');">
+			Abstract</a></li>
+        </ul>
+		<div class="t-abstract">
+         	Visual data consists of massive amounts of variables, and making sense of their content requires modeling their complex dependencies and relationships. This talk presents an overview of our past activities, which aim in enforcing coherence in this large ensemble of observed and latent variables, and to infer estimates from it. In particular, the presentation deals with work on attention mechanisms for video analysis, where structure in the data is not imposed but predicted from input through a fully trained model.
+		</p>
+    	<p>
+Application wise, we address human action recognition from RGB data and study the role of articulated pose and of visual attention mechanisms for this application. In particular, articulated pose is well established as an intermediate representation and capable of providing precise cues relevant to human motion and behavior. Our method has been designed to explictely remove the dependency on pose during training, making the method more broadly applicable in situations where pose is not available. Instead, a sparse represention of focus points is calculated by a dynamic visual attention model and passed to a set of distributed recurrent neural workers. State-of-the-art results are achieved on several datasets, among which is the largest dataset for human activity recognition, namely NTU-RGB+D.
+		</p><p>
+
+		</div>
+    </li>
+
+	<li class="lang-french" id="mixit2018">
+        <span class="t-title">
+        Scruter pour mieux comprendre : Deep Learning et mécanismes d'attention.
+        </span>
+        <span class="t-date">
+            May 24th, 2018. Talk at <a href="https://webcast.in2p3.fr/container/10eme-journee-aramis-2018">Journées Aramis 2018</a>, l'informatique du futur.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('mixit2018');">
+			Abstract</a></li>
+			<li><a href="https://webcast.in2p3.fr/video/scruter-pour-mieux-comprendre-deep-learning-et-mecanismes-dattention">Video</a></li>
+        </ul>
+		<div class="t-abstract">
+         <p>
+        L’apprentissage profond de représentations (le Deep Learning) est une famille de méthodes du domaine « intelligence artificielle » permettant d’apprendre de connaissances à partir de masses de données (textes, images, vidéos etc.). Plus précisément, ces modèles permettent de faire des prédictions sur des nouvelles données. Cette intervention passera en revue l’historique de cette thématique, les enjeux majeurs et quelques techniques clé.
+        <p>
+        </p>
+		Ensuite, elle présentera un concept récent, les mécanismes d'attention. Comme un humain scrutant une scène par des mouvements oculaires, ces méthodes permettent à un réseau de neurones de se focaliser sur une partie pertinente des données d'entrée : une partie d'un visage pour la reconnaissance faciale ou une partie d'une phrase pour la traduction.
+		</p>
+		</div>
+    </li>
+
+	<li class="lang-french" id="mixit2018">
+        <span class="t-title">
+        Scruter pour mieux comprendre : Deep Learning et mécanismes d'attention.
+        </span>
+        <span class="t-date">
+            April 19th or 20th, 2018. Talk at <a href="https://mixitconf.org">#Mixit 2018</a>, la conférence avec des crepes et du coeur, Lyon, France.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('mixit2018');">
+			Abstract</a></li>
+			
+			<li><a href="https://mixitconf.org/2018/scruter-pour-mieux-comprendre-deep-learning-et-mecanismes-d-attention">Video</a></li>
+        </ul>
+		<div class="t-abstract">
+         <p>
+        L’apprentissage profond de représentations (le Deep Learning) est une famille de méthodes du domaine « intelligence artificielle » permettant d’apprendre de connaissances à partir de masses de données (textes, images, vidéos etc.). Plus précisément, ces modèles permettent de faire des prédictions sur des nouvelles données. Cette intervention passera en revue l’historique de cette thématique, les enjeux majeurs et quelques techniques clé.
+        <p>
+        </p>
+		Ensuite, elle présentera un concept récent, les mécanismes d'attention. Comme un humain scrutant une scène par des mouvements oculaires, ces méthodes permettent à un réseau de neurones de se focaliser sur une partie pertinente des données d'entrée : une partie d'un visage pour la reconnaissance faciale ou une partie d'une phrase pour la traduction.
+		</p>
+		</div>
+    </li>
+
+	<li class="lang-english" id="lip2018">
+        <span class="t-title">
+            Deep learning and Structured Models.
+        </span>
+        <span class="t-date">
+            March 9th, 2018. Invited Seminar at <a href="">LIP laboratory</a>, ENS Lyon, France.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('lip2018');">
+			Abstract</a></li>
+			
+        </ul>
+		<div class="t-abstract">
+         <p>
+        Visual data consists of massive amounts of variables, and making sense of their content requires modeling their complex dependencies and relationships. This talk presents an overview of our past activities, which aim in enforcing coherence in this large ensemble of observed and latent variables, and to infer estimates from it. After a very brief overview of earlier work in structured models (graphs and graphical models), I will present my contributions in Representation Learning (also known by its more popular title « Deep Learning »), which consists in automatically learning layered and hierarchical representations with various layers  of abstraction directly from large amounts of data.
+        </p>
+    	<p>
+		A unifying thread of my research consists in integrating structure into deep neural networks in various forms and with different objectives: structure in the output space, typically in the form of spatial and temporal relationships in the measurements, or structure in the label space itself, often geometrical or topological. The presentation will conclude with an overview of our work on attention mechanisms for video analysis, where structure in the data is not imposed but predicted from input through a fully trained model.
+		</p>
+		</div>
+    </li>
+
+	<li class="lang-english" id="labri2018">
+        <span class="t-title">
+            The interwoven roles of articulated pose and visual attenion for human activity recognition
+        </span>
+        <span class="t-date">
+            March 5th, 2018. Invited Seminar at <a href="http://www.labri.fr">LABRI Laboratory</a>, Bordeaux, France.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('labri2018');">
+			Abstract</a></li>
+			
+        </ul>
+		<div class="t-abstract">
+         <p>
+        We address human action recognition from RGB data and study the role of articulated pose and of visual attention mechanisms for this application. In particular, articulated pose is well established as an intermediate representation and capable of providing precise cues relevant to human motion and behavior. We describe two different methods which use pose in different ways, either during training and testing, or during training only.
+    	</p>
+    	<p>
+		The first method uses a trainable glimpse sensor to extracts features on a set of predefined locations specified by the pose stream, namely the 4 hands of the two people involved in the activity. We show that it is of high interest to shift the attention to different hands at different time steps depending on the activity itself. The model not only learns to find choices relevant to the task, but also to draw away attention from joints which have been incorrectly located by the pose middleware.
+		</p>
+		<p>
+		A second method has been designed to explictely remove the dependency on pose during training, making the method more broadly applicable in situations where pose is not available. Instead, a sparse represention of focus points is calculated by a dynamic visual attention model and passed to a set of distributed recurrent neural workers. State-of-the-art results are achieved on several datasets, among which is the largest dataset for human activity recognition, namely NTU-RGB+D.
+		</p>
+		</div>
+    </li>
+
+	<li class="lang-english" id="thoth2018">
+        <span class="t-title">
+            The interwoven roles of articulated pose and visual attenion for human activity recognition
+        </span>
+        <span class="t-date">
+            February 23rd, 2018. Invited Seminar at <a href="https://thoth.inrialpes.fr">INRIA THOTH</a>, Grenoble, France.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('thoth2018');">
+			Abstract</a></li>
+			
+        </ul>
+		<div class="t-abstract">
+         <p>
+        We address human action recognition from RGB data and study the role of articulated pose and of visual attention mechanisms for this application. In particular, articulated pose is well established as an intermediate representation and capable of providing precise cues relevant to human motion and behavior. We describe two different methods which use pose in different ways, either during training and testing, or during training only.
+    	</p>
+    	<p>
+		The first method uses a trainable glimpse sensor to extracts features on a set of predefined locations specified by the pose stream, namely the 4 hands of the two people involved in the activity. We show that it is of high interest to shift the attention to different hands at different time steps depending on the activity itself. The model not only learns to find choices relevant to the task, but also to draw away attention from joints which have been incorrectly located by the pose middleware.
+		</p>
+		<p>
+		A second method has been designed to explictely remove the dependency on pose during training, making the method more broadly applicable in situations where pose is not available. Instead, a sparse represention of focus points is calculated by a dynamic visual attention model and passed to a set of distributed recurrent neural workers. State-of-the-art results are achieved on several datasets, among which is the largest dataset for human activity recognition, namely NTU-RGB+D.
+		</p>
+		</div>
+    </li>
+
+	<li class="lang-english" id="citi2018">
+        <span class="t-title">
+            Deep Learning: history, models & challenges, with an application in signal processing and mobile authentification,
+        </span>
+        <span class="t-date">
+            Feb 22nd, 2018. Invited seminar at <a href="">CITI Laboratory</a>, Lyon, France.
+        </span>
+        <ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('citi2018');">
+			Abstract</a></li>
+			
+        </ul>
+		<div class="t-abstract">
+         <p>
+        	Representation Learning (also known with its more popular title « Deep Learning ») consists in automatically learning layered and hierarchical representation with various layers abstraction from large amounts of data. This presentation will review the history of the field, the main actors and the major scientific challenges. We will first present a brief introduction into common deep models like convolutional neural networks and recurrent networks, before going more into detail of some selected applications in signal processing.
+        </p>
+        <p>
+			In particular, we present a large-scale study, exploring the capability of temporal deep neural networks in interpreting natural human kinematics and introduce the first method for active biometric authentication with mobile inertial sensors. This work has been done in collaboration with Google, where the first-of-its-kind dataset of human movements has been passively collected by 1500 volunteers using their smartphones daily over several months. We propose an optimized shift-invariant dense convolutional mechanism (DCWRNN) and incorporate the discriminatively-trained dynamic features in a probabilistic generative framework taking into account temporal characteristics. Our results demonstrate, that human kinematics convey important information about user identity and can serve as a valuable component of multi-modal authentication systems.
+		</p>
+		</div>
+    </li>
+</ul>
+
+<h3>Held Talks : 2017</h3>
+
+<ul>
+
+    <li class="lang-english" id="mmsym2017">
+        <span class="t-title">
+            Apprentissage profond (Deep Learning) et séries temporelles : Concepts et mise en oeuvre.
+        </span>
+        <span class="t-date">
+            November 20th, 2017. Invited Seminair at <a href="https://dl2t.sciencesconf.org/">DL2T : Deep Learning – Télédétection - Temps</a>, Paris (Issy-Les-Moulineaux), France.
+        </span>
+        <ul class="reflink-box">
+        	
+            <li><a href="https://dl2t.sciencesconf.org">Conference site</a>
+        </ul>
+    </li>
+
+
+	<li class="lang-english" id="mmsym2017">
+        <span class="t-title">
+            Learning human centered computing for vision and robotics.
+        </span>
+        <span class="t-date">
+            November 8th-10th, 2017. Invited conference at <a href="https://jnrr2017.sciencesconf.org/">Journées National de la Recherche en Robotique</a>, Biaritz, France.
+        </span>
+        <ul class="reflink-box">
+        	
+            <li><a href="https://jnrr2017.sciencesconf.org/">Conference site</a>
+        </ul>
+    </li>
+
+    <li class="lang-english" id="mmsym2017">
+        <span class="t-title">
+            Learning human motion: gestures, activities, pose, identity.
+        </span>
+        <span class="t-date">
+            October 17th, 2017. Keynote at <a href="http://mmsym.org">European and Nordic Symposium on Multimodal Communication</a>.
+        </span>
+        <ul class="reflink-box">
+            <li><a href="javascript:;" onClick="displayAbstractOf('mmsym2017');">
+            Abstract</a></li>
+            
+            <li><a href="http://mmsym.org">Conference site</a>
+        </ul>
+        <div class="t-abstract">
+            <p>
+            This talk is devoted to (deep) learning methods advancing automatic analysis and interpreting of human motion from different perspectives and based on various sources of information, such as images, video, depth, mocap data, audio and inertial sensors. We propose several models and associated training algorithms for supervised classification and semi-supervised and weakly-supervised feature learning, as well as modelling of temporal dependencies, and show their efficiency on a set of fundamental tasks, including detection, classification, parameter estimation and user verification.
+            </p>
+            <p>
+            Advances in several applications will be shown, including
+            (i) gesture spotting and recognition based on multi-scale and multi-modal deep learning from visual signals;
+            (ii) human activity recognition using models of visual attention;
+            (iii) hand pose estimation through deep regression from depth images, based on semi-supervised and weakly-supervised learning;
+            (iv) mobile biometrics, in particular the automatic authentification of smartphone users through learning from data acquired from inertiel sensors.
+            </p>
+        </div>
+    </li>
+
+    <li class="lang-french" id="meetup2017">
+        <span class="t-title">
+            Deep Learning
+        </span>
+        <span class="t-date">
+            May 16th, 2017. Lyon meetup sur l'intelligence artificielle.
+        </span>
+        <ul class="reflink-box">
+            
+            <li><a href="https://www.meetup.com/fr-FR/Intelligence-artificielle-formes-enjeux-usages/events/239726927/">Site du meetup</a>
+            <li><a href="https://www.youtube.com/watch?v=kiRlBif8QdU">Video/youtube</a></li>
+        </ul>
+    </li>
+
+
+ 	<li class="lang-english" id="inriatoth2017">
+		<span class="t-title">
+			Recurrent Neural networks for object detection and motion recognition
+		</span>
+		<span class="t-date">
+			February 6th, 2017. Invited seminar at
+		</span>
+		<span class="t-place">
+			<a href="https://thoth.inrialpes.fr/">INRIA THOTH work group</a>.
+		</span>
+		<ul class="reflink-box">
+			<li><a href="javascript:;" onClick="displayAbstractOf('inriatoth2017');">
+			Abstract</a></li>
+      	</ul>
+      	<div class="t-abstract">
+			<p>
+				In this talk we present recurrent neural networks and variants (LSTM, 2D-LSTM, CWRNN, DCWRNN) and show how these networks can model spatial and temporal information for two different applications: (i) object detection and (ii) human identification from motion.
+			</p>
+			<p>
+				For application (i), we propose a new neural model which directly predicts bounding box coordinates. The particularity of our contribution lies in the local computations of predictions with a new form of local parameter sharing which keeps the overall amount of trainable parameters low. Key components of the model are spatial 2D-LSTM recurrent layers which convey contextual information between the regions of the image. We show that this model is more powerful than the state of the art in applications where training data is not as abun- dant as in the classical configuration of natural images and Imagenet/Pascal VOC tasks.
+			</p>
+			<p>
+				As for application (ii), we present a large-scale study in interpreting natural human kinematics and active biometric authentication with mobile inertial sensors. We propose an optimized shift-invariant dense convolutional mechanism (DCWRNN) and incorporate the discriminatively-trained dynamic features in a probabilistic generative framework taking into account temporal characteristics. Our results demonstrate, that human kinematics convey important information about user identity and can serve as a valuable component of multi-modal authentication systems.
+			</p>
+		</div>
+  	</li>
+
+	<li class="lang-english" id="2017lhcworkshop">
+		<span class="t-title">
+			Graphical Models and Deep Networks
+		</span>
+		<span class="t-date">
+			January 4th, 2017.
+		</span>
+		<span class="t-place">
+			Saint-Etienne & Lyon Deep Learning Workshop (organized by LHC & LIRIS: <a href="http://perso.univ-st-etienne.fr/fod07375/Saint&Lyon">full program</a>).
+		</span>
+		<ul class="reflink-box">
+			<li><a href="javascript:;" onClick="displayAbstractOf('2017lhcworkshop');">
+			Abstract</a></li>
+			<LI><a href="http://perso.univ-st-etienne.fr/fod07375/Saint&Lyon">Workshop page</a></LI>
+      	</ul>
+      	<div class="t-abstract">
+			<p>
+			We first present a very brief introduction into graphical models and their principal inference algorithms. We then present the differences with deep networks and give concrete examples for each family (deformable parts models, kinematic trees, attention mechanisms etc.). We will finish with some parallels to human psychology and human thinking.
+			</p>
+		</div>
+  	</li>
+
+
+</ul>
+
+<h3>Held Talks : 2016</h3>
+
+<ul>
+
+
+	<li class="lang-french" id="2016arc6">
+		<span class="t-title">
+			Deep Learning, le futur de l'intelligence artificielle.
+		</span>
+		<span class="t-date">
+			December 15th, 2016.
+		</span>
+		<span class="t-place">
+			Participation in the round table discussion at <a href="http://www.arts-et-metiers.net/">musée des arts et métiers</a>.
+		</span>
+		<ul class="reflink-box">
+			<LI><a href="http://www.arts-et-metiers.net/musee/deep-learning-le-futur-de-lintelligence-artificielle">Conference page</a></LI>
+      	</ul>
+  	</li>
+
+	<li class="lang-english" id="2016arc6">
+		<span class="t-title">
+			Deep learning: introduction, trends and tendencies.
+		</span>
+		<span class="t-date">
+			December 13th, 2016.
+		</span>
+		<span class="t-place">
+			Journée ARC6: optimisation et apprentissage automatique (<a href="http://ama.liglab.fr/ATLAS/index.php?title=Journ%C3%A9e_Machine_Learning_Optimisation">Program</a>), Lyon, France.
+		</span>
+		<ul class="reflink-box">
+			<LI><a href="http://ama.liglab.fr/ATLAS/index.php?title=Journ%C3%A9e_Machine_Learning_Optimisation">Conference page</a></LI>
+      	</ul>
+  	</li>
+
+	<li class="lang-english" id="2016litis">
+		<span class="t-title">
+			Deep learning and human motion.
+		</span>
+		<span class="t-date">
+			November 24th, 2016.
+		</span>
+		<span class="t-place">
+			Invited Seminar at LITIS laboratory, Rouen, France.
+		</span>
+		<ul class="reflink-box">
+			<li><a href="javascript:;" onClick="displayAbstractOf('2016litis');">
+			Abstract</a>
+			</li>
+      	</ul>
+		<div class="t-abstract">
+			<p>
+			We will first present a brief introduction into common deep models for computer vision like convolutional neural networks and recurrent networks, and the main challenges of the field.
+			</p>
+			<p>
+			The second part is devoted to develop learning methods advancing automatic analysis and interpreting of human motion from different perspectives and based on various sources of information, such as images, video, depth, mocap data, audio and inertial sensors. We propose several models and associated training algorithms for supervised classification and semi-supervised and weakly-supervised feature learning, as well as modelling of temporal dependencies, and show their efficiency on a set of fundamental tasks, including detection, classification, parameter estimation and user verification.
+			</p>
+			<p>
+			Advances in several applications will be shown, including (i) gesture spotting and recognition based on multi-scale and multi-modal deep learning from visual signals (such as video, depth and mocap data), where we will present a training strategy for learning cross-modality correlations while preserving uniqueness of each modality-specific representation; (ii) hand pose estimation through deep regression from depth images, based on semi-supervised and weakly-supervised learning; (iii) mobile biometrics, in particular the automatic authentification of smartphone users through deep learning from data acquired from inertiel sensors.
+			</p>
+		</div>
+  	</li>
+
+	<li class="lang-french" id="codeursenseine2016">
+		<span class="t-title">
+			Deep Learning et Intelligence Artificielle : mythes et réalités
+		</span>
+		<span class="t-date">
+			November 24th, 2016.
+		</span>
+		<span class="t-place">
+			Invited Seminar at <a href="http://www.codeursenseine.com/2016/agenda.html">Codeurs en Seine</a>, Rouen.
+		</span>
+		<ul class="reflink-box">
+			<li><a href="javascript:;" onClick="displayAbstractOf('codeursenseine2016');">
+			Abstract</a>
+			</li>
+			<li><a href="https://www.infoq.com/fr/presentations/codeurs-en-seine-christian-wolf-deep-learning">Video</a></li>
+      	</ul>
+		<div class="t-abstract">
+		<p>
+		L’apprentissage profond de représentations (le Deep Learning) est une famille de méthodes du domaine « intelligence artificielle » permettant d’apprendre de connaissances à partir de masses de données (textes, images, vidéos etc.). Plus précisément, ces modèles permettent de faire des prédictions sur des nouvelles données. Cette intervention passera en revue l’historique de cette thématique, les principaux acteurs et les enjeux majeurs. Les techniques clé sont brièvement esquissées, suivi par quelques résultats sur des applications diverses telles que la reconnaissance d’objets, les interfaces homme-machine et les applications mobiles.
+		</p>
+		</div>
+  	</li>
+
+	<li class="lang-english" id="2016listic">
+		<span class="t-title">
+			Deep learning and human motion.
+		</span>
+		<span class="t-date">
+			April 28th, 2016.
+		</span>
+		<span class="t-place">
+			Invited Seminar at LISTIC laboratory, Annecy, France.
+		</span>
+		<ul class="reflink-box">
+			<li><a href="javascript:;" onClick="displayAbstractOf('2016listic');">
+			Abstract</a>
+			</li>
+			<li><a href="https://www.youtube.com/watch?v=2S477kNY8V4">Video/youtube</a></li>
+      	</ul>
+		<div class="t-abstract">
+			<p>
+			We will first present a brief introduction into common deep models for computer vision like convolutional neural networks and recurrent networks, and the main challenges of the field.
+			</p>
+			<p>
+			The second part is devoted to develop learning methods advancing automatic analysis and interpreting of human motion from different perspectives and based on various sources of information, such as images, video, depth, mocap data, audio and inertial sensors. We propose several models and associated training algorithms for supervised classification and semi-supervised and weakly-supervised feature learning, as well as modelling of temporal dependencies, and show their efficiency on a set of fundamental tasks, including detection, classification, parameter estimation and user verification.
+			</p>
+			<p>
+			Advances in several applications will be shown, including (i) gesture spotting and recognition based on multi-scale and multi-modal deep learning from visual signals (such as video, depth and mocap data), where we will present a training strategy for learning cross-modality correlations while preserving uniqueness of each modality-specific representation; (ii) hand pose estimation through deep regression from depth images, based on semi-supervised and weakly-supervised learning; (iii) mobile biometrics, in particular the automatic authentification of smartphone users through deep learning from data acquired from inertiel sensors.
+			</p>
+		</div>
+  	</li>
+
+	<li class="lang-english" id="2016ailyon">
+		<span class="t-title">
+			Deep learning, nouveaux apports.
+		</span>
+		<span class="t-date">
+			March 10, 2016.
+		</span>
+		<span class="t-place">
+			Talk at Conference, "Intelligence artificielle aujourd’hui et demain", Lyon.
+		</span>
+		<ul class="reflink-box">
+			<LI><a href="http://www.docforum-lyon.com/club-capital/10-mars-2016-lintelligence-artificielle-aujourdhui-et-demain">Conference page</a></LI>
+			<li>
+			<a href="javascript:;" onClick="displayAbstractOf('2016ailyon');">
+			Abstract</a>
+			</li>
+      	</ul>
+		<div class="t-abstract">
+			L’apprentissage profond de représentations (le Deep Learning) est une famille de méthodes du domaine « intelligence artificielle » permettant d’apprendre de connaissances à partir de masses de données (textes, images, vidéos etc.). Plus précisément, ces modèles permettent de faire des prédictions sur des nouvelles données. Cette intervention passera en revue l’historique de cette thématique, les principaux acteurs et les enjeux majeurs. Les techniques clé sont brièvement esquissées, suivi par quelques résultats sur des applications diverses telles que la reconnaissance d’objets, les interfaces homme-machine et les applications mobiles.
+		</div>
+  	</li>
+
+</ul>
+
+<h3>Held Talks : 2015</h3>
+
+<ul>
+
+
+	<li class="lang-english">
+		<span class="t-title">
+			Learning human identity from motion patterns.
+		</span>
+		<span class="t-date">
+			December 2nd, 2015.
+		</span>
+		<span class="t-place">
+			Talk at GDR ISIS, journée IHM, Paris.
+		</span>
+		This is joint work with <a href="https://nneverova.github.io">Natalia Neverova</a>,
+			Griffin Lacey, Lex Fridman, Deepak Chandra, Brandon Barbello and
+			<a href="http://www.uoguelph.ca/~gwtaylor">Graham W. Taylor</a>.
+		<ul class="reflink-box">
+		</ul>
+  	</li>
+
+  	<li class="lang-english" id="2017lhcworkshop">
+		<span class="t-title">
+			Random Forests vs. Deep Networks
+		</span>
+		<span class="t-date">
+			November 26th, 2015.
+		</span>
+		<span class="t-place">
+			Saint-Etienne & Lyon Deep Learning Workshop (organized by LHC & LIRIS: <a href="">full program</a>).
+		</span>
+		<ul class="reflink-box">
+			<li><a href="javascript:;" onClick="displayAbstractOf('2017lhcworkshop');">
+			Abstract</a>
+			
+      	</ul>
+      	<div class="t-abstract">
+			<p>
+			In this talk I present a brief overview of the differences between random forests and deep networks and I then present some recent work by Microsoft Research (with which I am not affilated) on combining random forests with Deep Learning.
+			</p>
+		</div>
+  	</li>
+
+	<li class="lang-english">
+		<span class="t-title">
+			Structured Deep learning: gesture recognition and pose estimation
+		</span>
+		<span class="t-date">
+			April 30th, 2015.
+		</span>
+		<span class="t-place">
+			Invited IPAC Seminar at LORIA laboratory / INRIA Lorraine, Nancy.
+		</span>
+		<ul class="reflink-box">
+			
+			<li> <a href="http://ipac.loria.fr/?q=node/39">Videos</a></li>
+		</ul>
+  	</li>
+
+  	<li class="lang-english">
+		<span class="t-title">
+			Transductive deep hand segmentation.
+		</span>
+		<span class="t-date">
+			March 20th, 2015.
+		</span>
+		<span class="t-place">
+			Talk at GDR ISIS, journée deep learning, Paris.
+		</span>
+		
+  	</li>
+
+  	<li class="lang-french">
+		<span class="t-title">
+			Projet IMU RIVIERE - Renaturer la ville – facteur de risque ou de bien-être social
+		</span>
+		<span class="t-date">
+			March 13th, 2015.
+		</span>
+		<span class="t-place">
+			Talk at conseil scientifique LabEx <a href="http://imu.universite-lyon.fr/">IMU</a>, Lyon.
+		</span>
+		
+  	</li>
+
+  	<li class="lang-french">
+		<span class="t-title">
+			Segmentation d'Images
+		</span>
+		<span class="t-date">
+			March 10th, 2015.
+		</span>
+		<span class="t-place">
+			Invited seminar at <a href="http://www.a2ia.com/en">A2IA</a>, Paris.
+		</span>
+		
+  	</li>
+
+</ul>
+
+<h3>Held Talks : 2014</h3>
+
+<ul>
+
+
+  	<li class="lang-english">
+		<span class="t-title">
+			Structured deep learning: gesture recognition
+		</span>
+		<span class="t-date">
+			December 11th, 2014.
+		</span>
+		<span class="t-place">
+			Talk at GDR ISIS, journée activités et gestes, Paris.
+		</span>
+		
+  	</li>
+
+  	<li class="lang-english">
+		<span class="t-title">
+			Structured Deep learning: gesture recognition and pose estimation
+		</span>
+		<span class="t-date">
+			October 17th, 2014.
+		</span>
+		<span class="t-place">
+			Invited Seminar at <a href="http://www.idiap.ch/">IDIAP laboratory</a>, Martigny, Switzerland.
+		</span>
+		
+  	</li>
+
+  	<li class="lang-english">
+		<span class="t-title">
+			Segmentation and structured Deep learning.
+		</span>
+		<span class="t-date">
+			July 4th, 2014.
+		</span>
+		<span class="t-place">
+			Invited seminar at <a href="">LabEx PRIMES</a>, Lyon.
+		</span>
+		
+  	</li>
+
+  	<li class="lang-french">
+		<span class="t-title">
+			Apprentissage automatique de modèles de comportements interactifs pour des robots sociaux.
+		</span>
+		<span class="t-date">
+			March 19th, 2014,
+		</span>
+		<span class="t-place">
+			Talk at <a href="">Innorobo exposition</a>, Lyon.
+		</span>
+		
+  	</li>
+
+  	<li class="lang-english">
+		<span class="t-title">
+			Pose and gestures: spatial deep learning
+		</span>
+		<span class="t-date">
+			February 6th, 2014,
+		</span>
+		<span class="t-place">
+			Talk at GDR ISIS, journée RGB-D Images, Paris.
+		</span>
+		
+  	</li>
+
+</ul>
+
+<h3>Held Talks : 2013 and before</h3>
+
+<ul>
+
+
+  	<li class="lang-french">
+		<span class="t-title">
+			Rencontre du troisième type.
+		</span>
+		<span class="t-date">
+			Décembre 16th, 2013,
+		</span>
+		<span class="t-place">
+			Invited talk at <a href="">Bibliothèque de VAISE (évènement culturel grand public autour de la robotique)</a>, Lyon.
+		</span>
+		
+  	</li>
+
+  	<li class="lang-french">
+		<span class="t-title">
+			Modélisation globalement cohérente d’interactions complexes avec prise en compte de critères géométriques
+		</span>
+		<span class="t-date">
+			July 20th, 2013.
+		</span>
+		<span class="t-place">
+			Invited seminar at the <a href="/">LHC laboratory</a>, Saint-Etienne.
+		</span>
+	
+  	</li>
+
+
+
+
+	<li class="lang-french">
+		<span class="t-title">
+			Maintien des personnes âgées à domicile - enjeux scientifiques et technologiques liés à la vision par ordinateur,
+		</span>
+		<span class="t-date">
+			July 08th, 2011,
+		</span>
+		<span class="t-place">
+			Invited seminar at summer school "Intelligence ambiante", Lille; Session Enjeux sociétaux, scientifiques et technologiques du maintien des personnes âgées à domicile.
+		</span>
+		
+  	</li>
+
+	<li class="lang-english">
+		<span class="t-title">
+			Activity recognition in videos,
+		</span>
+		<span class="t-date">
+			April 14th, 2011.
+		</span>
+		<span class="t-place">
+			Invited seminar at the LSIIT Laborary (now i-Cube), Strasbourg, team MIV.
+		</span>
+		
+  	</li>
+
+	<li class="lang-english">
+		<span class="t-title">
+			Activity recognition in videos,
+		</span>
+		<span class="t-date">
+			March 29th, 2011.
+		</span>
+		<span class="t-place">
+			Invited seminar at Telecom SudParis, Paris, team Biosecure.
+		</span>
+		
+  	</li>
+
+
+	<li class="lang-english">
+		<span class="t-title">
+			Activity recognition in videos,
+		</span>
+		<span class="t-date">
+			June 14th, 2010,
+		</span>
+		<span class="t-place">
+			Talk at réunion du GdR Robotique sur le thème "Interaction homme/robot"</a>
+		</span>
+		
+  	</li>
+
+
+	<li class="lang-english">
+		<span class="t-title">
+			Better restore the recto side of a document with an estimation of the verso side: Markov model
+and inference with graph cuts.
+		</span>
+		<span class="t-date">
+			June 24th, 2008,
+		</span>
+		<span class="t-place">
+			Talk at journée thématique du GRCE et du GDR I3 - Théme 6: 'Approches Statistiques, Reconnaissance des Formes et Analyse d'Images'</a>
+		</span>
+		
+  	</li>
+
+
+	<li class="lang-english">
+		<span class="t-title">
+			Quality, quantity and generality in the evaluation of object detection algorithms.
+		</span>
+		<span class="t-date">
+			December 15th, 2005,
+		</span>
+		<span class="t-place">
+			GDR ISIS: <a href="http://gdr-isis.org/rilk/gdr/ReunionListe?r=401">
+			Journée évaluation des traitements dans un système de vision</a>
+		</span>
+		
+  	</li>
+
+	<li class="lang-english">
+		<span class="t-title">
+			Text detection and extraction from audio-visual documents for semantic indexing.
+		</span>
+		<span class="t-date">
+			June 3rd, 2004.
+		</span>
+		<span class="t-place">
+			Invited seminar at laboratory <a href="http://www.greyc.unicaen.fr/">GREYC.</a>
+		</span>
+		<span class="t-notes">
+			Emphasis on modeling and evaluation
+		</span>
+		
+  	</li>
+
+	<li class="lang-english">
+		<span class="t-title">
+			Text detection and extraction from audio-visual documents for semantic indexing.
+		</span>
+		<span class="t-date">
+			July 1st, 2004.
+		</span>
+		<span class="t-place">
+			Invited seminar at
+			<a href="http://www.foxstream.fr">FoxStream</a>
+		</span>
+		<span class="t-notes">
+			Emphasis on modeling and evaluation
+		</span>
+		
+  	</li>
+
+	<li class="lang-english">
+		<span class="t-title">
+			Text detection and extraction from audio-visual documents for semantic indexing.
+		</span>
+		<span class="t-date">
+			July 17th, 2003
+		</span>
+		<span class="t-place">
+			Talk at
+			<a href="http://www-clips.imag.fr/mrim/User/catherine.berrut/GT35.IRI.I3">
+			GdR-PRC I3 / GT 3.5:</a> Indexation et Recherche d'Informations
+		</span>
+		
+  	</li>
+
+	<li class="lang-english">
+
+		<span class="t-title">
+			Indexing and Retrieval of Video for TREC 2002
+		</span>
+		<span class="t-date">
+			September 27th, 2002
+		</span>
+		<span class="t-place">
+			Seminar at the
+			<a href="http://lamp.cfar.umd.edu/">
+        		Language and Media Processing Laboratory</a> at
+			<a href="http://www.umd.edu">University of Maryland</a>
+		</span>
+		
+  	</li>
+
+	<li class="lang-english">
+		<span class="t-title">
+			Detection and Extraction of Artificial
+        		Text for Semantic Indexing
+		</span>
+		<span class="t-date">
+			September 27th, 2002
+		</span>
+		<span class="t-place">
+			Seminar on  <a href="http://www.dagstuhl.de/DATA/Seminars/02/#02021">
+			Content-Based Image and Video Retrieval</a> at
+			<a href="http://www.dagstuhl.de">Schlo&szlig; Dagstuhl</a>, Germany
+		</span>
+		
+  	</li>
+
+	<li class="lang-english">
+		<span class="t-title">
+			Detection and Extraction of Artificial
+        		Text from Videos
+		</span>
+		<span class="t-date">
+			September 27th, 2002
+		</span>
+		<span class="t-place">
+			Seminar at the
+			<a href="http://lamp.cfar.umd.edu/">
+        		Language and Media Processing Laboratory</a> at
+			<a href="http://www.umd.edu">University of Maryland</a>
+		</span>
+		
+  	</li>
+
+	<li class="lang-german">
+		<span class="t-title">
+			Auf der Suche nach der Semantik -
+			Inhaltsbasierte Indizierung von Bildern und Video
+		</span>
+		<span class="t-date">
+			November 17th, 2000
+		</span>
+		<span class="t-notes">
+			Presentation for the
+			<a href="http://www.prip.tuwien.ac.at/Teaching/PripPreis/preis2000.html">
+			PRIP Preis 2000</a>: Price of the
+			<a href="http://www.prip.tuwien.ac.at">Pattern Recognition and
+			Image Processing group</a> (PRIP) at
+			<a href="http://www.tuwien.ac.at">Vienna University of Technology</a>,
+			organised in collaboration with industries,
+        		awarded for the best research activities
+		</span>
+		
+  	</li>
+
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,1623 @@
+<!-- ****************************************************************************************
+  Author: Christian Wolf
+  Begin: 19.4.2005
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Christian Wolf's Publications</title>
+  	<link rel=stylesheet href="../main.css" type="text/css">
+	<link rel=stylesheet href="publications.css" type="text/css">
+	<script type="text/javascript" language="JavaScript" src="publications.js"></script>
+	<link rel="shortcut icon" href="../graphics/favicon.ico">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+<body  onload="startPage()">
+
+  
+<!-- ****************************************************************************************
+  The nav menu box  
+  ******************************************************************************************* -->
+
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="../index.html">Main</a></li>
+		<li> <a href="../research/index.html">Research</a></li>
+		<li> <a href="../teaching/index.html">Teaching</a></li>
+		<li> <a href="../cv/index.html">CV</a></li>
+		<li> <a href="../publications/index_bydate.html">Publications</a></li>
+		<li> <a href="../publications/pres.html">Presentations</a></li>
+		 
+		<li> <a href="../software/index.html">Software</a></li>
+		<li> <a href="http://mady.n.free.fr/chris/noah">Private</a></li>
+	</ul>
+</div>  
+
+<h1>Publications</h1>
+
+
+<div style="text-align: center">
+	By Type | <a href="index_bydate.html">by Date</a> | <a href="https://liris.cnrs.fr/membres?id=833&onglet=publis">Liris-DB</a>
+</div>
+
+
+<!-- ****************************************************************************************
+  INTERNATIONAL JOURNALS
+  ******************************************************************************************* -->
+
+<h2>Articles in international journals</h2>
+
+<ul>
+	<li id="pami2009" class="bib-journal">	  
+		<span class="t-author"> 		
+			<a href="../index.html">Christian Wolf</a>
+	  	</span>
+	  	<span class="t-title">
+			Document Ink bleed-through removal with two hidden Markov random fields and a single observation field.
+		</span>
+		<span class="t-medium"> 
+			To appear in IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI), 32(3):431-447, 2010.
+		</span>
+		<ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('pami2009');">Abstract</a></li>
+        	<li><a href="../papers/pami2009.pdf">PDF</a></li>
+      		</ul>
+		<div class="t-abstract">
+		<p>
+		We present a new method for blind document bleed through removal based on separate Markov Random Field (MRF) regularization for the recto and for the verso side, where separate priors are derived from the full graph. The segmentation algorithm is based on Bayesian Maximum a Posteriori (MAP) estimation. The advantages of this separate approach are the adaptation of the prior to the contents creation process (e.g. superimposing two hand written pages), and the improvement of the estimation of the recto pixels through an estimation of the verso pixels covered by recto pixels; Moreover, the formulation as a binary labeling problem with two hidden labels per pixels naturally leads to an efficient optimization method based on the minimum cut/maximum flow in a graph. The proposed method is evaluated on scanned document images from the 18th century, showing an improvement of character recognition results compared to other restoration methods.
+		</p>
+		</div>
+  	</li>
+
+	<li id="neuro2009" class="bib-journal">	  
+		<span class="t-author"> 		
+			<a href="../index.html">Christian Wolf</a> and G&eacute;rald Gavin
+	  	</span>
+	  	<span class="t-title">
+			Inference and parameter estimation on hierarchical belief networks for image segmentation.
+		</span>
+		<span class="t-medium"> 
+			In Neurocomputing 73(4-6):563-569, 2010.
+		</span>
+		<ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('neuro2009');">Abstract</a></li>
+        	<li><a href="../papers/neurocomputing2009.pdf">PDF</a></li>
+      		</ul>
+		<div class="t-abstract">
+		<p>
+		We introduce a new causal hierarchical belief network for image segmentation. Contrary to classical tree structured (or pyramidal) models, the factor graph of the network contains cycles. Each level of the hierarchical structure features the same number of sites as the base level and each site on a given level has several neighbors on the parent level. Compared to tree structured models, the (spatial) random process on the base level of the model is stationary which avoids known drawbacks, namely visual artifacts in the segmented image. 
+		We propose different parameterizations of the conditional probability distributions governing the transitions between the image levels. A parametric distribution depending on a single parameter allows the design of a fast inference algorithm on graph cuts, whereas for arbitrary distributions, we propose inference with loopy belief propagation. The method is evaluated on scanned documents, showing an improvement of character recognition results compared to other methods.
+		</p>
+		</div>
+  	</li>
+
+	<li id="ijdar2006" class="bib-journal">	  
+		<span class="t-author"> 		
+			<a href="../index.html">Christian Wolf</a> and 
+       			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a>.
+	  	</span>
+	  	<span class="t-title">
+			Object count/Area Graphs for the Evaluation of Object Detection and Segmentation Algorithms,
+		</span>
+			In			
+		<span class="t-medium"> 
+			International Journal on Document Analysis and Recognition
+		</span>, 8(4):280-296, 2006.
+		<ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('ijdar2006');">	Abstract</a></li>
+        	<li><a href="../papers/tr-liris-2005-wolfjolion.pdf">Similar-Content-PDF</a></li>
+        	<li><a href="javascript:;" onClick="displayBibtexOf('ijdar2006');">BibTeX</a></li>
+        	<li><a href="../software/deteval/index.html">Software</a></li>
+      		</ul>
+		<div class="t-abstract">
+		<p>
+		Evaluation of object detection algorithms is a non-trivial task: a detection result is usually 
+		evaluated by comparing the bounding box of the detected object with the bounding box of the 
+		ground truth object. The commonly used precision and recall measures are computed from the overlap 
+		area of these two rectangles. However, these measures have several drawbacks: they don't give 
+		intuitive information about the proportion of the correctly detected objects and the number of 
+		false alarms, and they cannot be accumulated across multiple images without creating ambiguity 
+		in their interpretation. Furthermore, quantitative and qualitative evaluation is often mixed 
+		resulting in ambiguous measures.
+		</p><p>
+		In this paper we propose a new approach which tackles these problems. The performance of a 
+		detection algorithm is illustrated intuitively by performance graphs which present object level 
+		precision and recall depending on constraints on detection quality. In order to compare 
+		different detection algorithms, a representative single performance value is computed from the 
+		graphs. The influence of the test database on the detection performance is illustrated by
+		performance/generality graphs. The evaluation method can be applied to different types of object 
+		detection algorithms. It has been tested on different text detection algorithms, among which are 
+		the participants of the ICDAR 2003 text detection competition.
+		</p>
+		</div>
+		<div class="t-bibtex">
+		<PRE>
+@Article{WolfIJDAR2006,
+  Author         = {C. Wolf and J.-M. Jolion},
+  Title          = {Object count/Area Graphs for the Evaluation of Object Detection and Segmentation Algorithms},
+  Journal        = {International Journal on Document Analysis and Recognition},
+  year           = {2006},
+  volume     = {8},
+  number     = {4},
+  pages      = {280-296}
+}
+		</PRE>
+		</div>
+  	</li>
+
+	<li id="ijdar2004simon" class="bib-journal">	  
+		<span class="t-author"> 		
+			S.M. Lucas, A. Panaretos, L. Sosa, A. Tang, S. Wong, R. Young, 
+      			K. Ashida, H. Nagai, M. Okamoto, H. Yamamoto, H. Miyao, J. Zhu, W. Ou, 
+			<a href="../index.html">C. Wolf</a>, 
+			<a href="http://rfv.insa-lyon.fr/~jolion">J.-M. Jolion</a>, 
+			L. Todoran, M. Worring, 
+      		et X. Lin.
+	  	</span>
+	  	<span class="t-title">
+			ICDAR 2003 Robust Reading Competitions: Entries, Results and 
+			Future Directions
+		</span>
+		<span class="t-medium"> 
+			International Journal on Document Analysis and Recognition (IJDAR),
+		</span>
+			7(2-3):105-122, 2005 
+			(Special Issue on Camera-based Text and Document Recognition)
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('ijdar2004simon');">
+			Abstract</a>
+		</li>        
+      		</ul>
+		<div class="t-abstract">
+		This paper describes the robust reading competitions for ICDAR 2003. With the rapid 
+		growth in research over the last few years on recognizing text in natural scenes, 
+		there is an urgent need to establish some common benchmark datasets, and
+		gain a clear understanding of the current state of the art. We use the term robust 
+		reading to refer to text images that are beyond the capabilities of current 
+		commercial OCR packages. We chose to break down the robust reading problem into 
+		three sub-problems, and run competitions for each stage, and also a competition for 
+		the best overall system. The sub-problems we chose were text locating, character 
+		recognition and word recognition. By breaking down the problem in this way, we hoped 
+		to gain a better understanding of the state of the art in each of the sub-problems. 
+		Furthermore, our methodology involved storing detailed results of applying each 
+		algorithm to each image in the data sets, allowing researchers to study in depth the 
+		strengths and weaknesses of each algorithm. The text locating contest was the only 
+		one to have any entries. We give a brief description of each entry, and present the 
+		results of this contest, showing cases where the leading entries succeed and fail. 
+		We also describe an algorithm for combining the outputs of the individual text 
+		locaters, and show how the combination scheme improves on any of the individual 
+		systems.
+		</div>
+  	</li>
+
+	<li id="paa2003" class="bib-journal">	  
+		<span class="t-author"> 		
+			<a href="../index.html">Christian 
+       		Wolf</a> and <a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a>.
+	  	</span>
+	  	<span class="t-title">
+			Extraction and Recognition of Artificial Text in Multimedia Documents. 
+		</span>
+		<span class="t-medium"> Pattern Analysis and Applications,
+		</span>
+		6(4):309-326, 2003.
+		<ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('paa2003');">	Abstract</a></li>
+        	<li><a href="../papers/tr-rfv-2002-01.pdf">Similar-Content-PDF</a></li>
+			<li><a href="javascript:;" onClick="displayBibtexOf('paa2003');">BibTeX</a></li>
+        	<li><a href="http://telesun.insa-lyon.fr/%7Ewolf/demos/textdetect.html">Demo</a></li>
+      		</ul>
+		<div class="t-abstract">
+		The systems currently available for content based image and video retrieval 
+		work without semantic knowledge, i.e. they use image processing methods to 
+		extract low level features of the data. The similarity obtained by these 
+		approaches does not always correspond to the similarity a human user would expect. 
+		A way to include more semantic knowledge into the
+		indexing process is to use the text included in the images and video sequences. 
+		It is rich in information but easy to use, e.g. by key word based queries. In 
+		this paper we present an algorithm to localize artificial text in images and 
+		videos using a measure of accumulated gradients and morphological processing. 
+		The quality of the localized text is improved by robust multiple frame integration.
+		A new technique for the binarization of the text boxes based on a criterion 
+		maximizing local contrast is proposed. Finally, detection and OCR results for a 
+		commercial OCR are presented, justifying the choice of the binarization technique
+		</div>
+		<div class="t-bibtex">
+		<PRE>
+@Article{WolfPAA03,
+  Author         = {C. Wolf and J.-M. Jolion},
+  Title          = {Extraction and {R}ecognition of {A}rtificial {T}ext in {M}ultimedia {D}ocuments},
+  Journal        = {Pattern {A}nalysis and {A}pplications},
+  year           = {2003},
+  volume     = {6},
+  number     = {4},
+  pages      = {309-326}
+}
+		</PRE>
+		</div>
+  	</li>
+</ul>
+
+<!-- ****************************************************************************************
+  
+  ******************************************************************************************* -->
+
+<h2>Scientific competitions</h2>
+
+<ul>
+	<li class="bib-empty">	  
+		Ranked 5th of 43 in the ICDAR 2009 
+		<a href="http://www.cvc.uab.es/icdar2009/papers/3725b375.pdf">document image binarisation contest</a>!
+  	</li>
+
+	<li class="bib-empty">	  
+		Our <a href="../software/deteval/index.html">DetEval algorithm and software</a> has been used to evaluate the entries of the ImageEval 2007 text detection competition.		
+  	</li>
+
+	<li class="bib-empty">	  
+		Our <a href="../software/deteval/index.html">DetEval algorithm and software</a> has been used to evaluate the entries of the ICDAR 2003 robust reading competition.		
+  	</li>
+
+	<li class="bib-empty">
+		Participation in the ICDAR 2003 robust reading competition.
+	</li>
+
+	<li class="bib-empty">
+		Participation in the TREC 2002 Video TREC (with David Doermann of University of Maryland).
+	</li>
+</ul>
+
+
+<!-- ****************************************************************************************
+  INTERNATINAL CONFERENCES
+  ******************************************************************************************* -->
+
+
+<h2>Articles at conferences with international audience (refereed)</h2>
+
+<ul>
+	<li id="hbu2011" class="bib-conf">	  
+		<span class="t-author"> 		
+			<a href="http://liris.cnrs.fr/moez.baccouche">Moez Baccouche</a>,
+			Frank Mamalet
+			<a href="../index.html">Christian Wolf</a>,
+			<a href="http://liris.cnrs.fr/christophe.garcia">Christophe Garcia</a> and 
+			<a href="http://liris.cnrs.fr/atilla.baskurt">Atilla Baskurt</a>,	
+	  	</span>
+	  	<span class="t-title">
+			Sequential Deep Learning for Human Action Recognition,	
+		</span>
+		<span class="t-medium"> 
+			to appear in the Proceedings of the Inernational Workshop on Human Behavior Understanding: Inducing Behavioral Change, 2011.
+		</span>
+  	</li>
+
+	<li id="grapp2011" class="bib-conf">	  
+		<span class="t-author"> 		
+			<a href="http://liris.cnrs.fr/vincent.vidal">Vincent Vidal,</a>
+			<a href="../index.html">Christian Wolf</a>,
+			<a href="http://liris.cnrs.fr/florent.dupont">Florent Dupont</a>
+	  	</span>
+	  	<span class="t-title">
+			Robust feature line extraction on CAD triangular meshes,	
+		</span>
+		<span class="t-medium"> 
+			in the Proceedings of the International Conference on Computer Graphics Theory and Applications, 2011
+		</span>
+		(Oral presentation).
+  	</li>
+
+	<li id="icpr2010w" class="bib-conf">	  
+		<span class="t-author"> 		
+			<a href="../index.html">Christian Wolf</a> and
+			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a>
+	  	</span>
+	  	<span class="t-title">
+			Integrating a discrete motion model into GMM based background subtraction,	
+		</span>
+		<span class="t-medium"> 
+			n the Proceedings of the IEEE International Conference on Pattern Recognition, 2010.
+		</span>
+		(Oral presentation).
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('icpr2010w');">
+			Abstract</a>
+		</li>
+		<li><a href="../papers/icpr2010-bgsub.pdf">PDF</a></li>
+		<li><a href="../papers/pres-icpr2010.pdf">Presentation</a></li>
+      		</ul>
+		<div class="t-abstract">
+			GMM based algorithms have become the de facto standard for background subtraction in video sequences, mainly because of their ability to track multiple background distributions, which allows them to handle complex scenes including moving trees, flags moving in the wind etc. However, it is not always easy to determine which distributions of the mixture belong to the background and which distributions belong to the foreground, which disturbs the results of the labeling process for each pixel. In this work we tackle this problem by taking the labeling decision together for all pixels of several consecutive frames minimizing a global energy function taking into account spatial and temporal relationships. A discrete approximative optical-flow like motion model is integrated into the energy function and solved with Ishikawa's convex graph cuts algorithm. 
+		</div>
+  	</li>
+
+	<li id="icpr2010p" class="bib-conf">	  
+		<span class="t-author"> 		
+			<a href="http://liris.cnrs.fr/anh-phuong.ta">Anh-Phong Ta</a>,
+			<a href="../index.html">Christian Wolf</a>,
+			<a href="http://liris.cnrs.fr/guillaume.lavoue">Guillaume Lavoué</a>,
+			<a href="http://liris.cnrs.fr/atilla.baskurt">Atilla Baskurt</a> and
+			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a>
+	  	</span>
+	  	<span class="t-title">
+			Pairwise features for human action recognition,	
+		</span>
+		<span class="t-medium"> 
+			to appear in the Proceedings of the IEEE International Conference on Pattern Recognition, 2010.
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('icpr2010p');">
+			Abstract</a>
+		</li>
+		<li><a href="../papers/icpr2010-phuong.pdf">PDF</a></li>
+      		</ul>
+		<div class="t-abstract">
+			Existing action recognition approaches mainly rely on the discriminative power of individual local descriptors extracted from spatio-temporal interest points (STIP), while the geometric relationships among the local features are ignored. This paper presents new features, called pairwise features (PWF), which encode both the appearance and the spatio-temporal relations of the local features for action recognition. First STIPs are extracted, then PWFs are constructed by grouping pairs of STIPs which are both close in space and close in time. We propose a combination of two codebooks for video representation. Experiments on two standard human action datasets: the KTH dataset and the Weizmann dataset show that the proposed approach outperforms most existing methods.
+		</div>
+  	</li>
+
+	<li id="avss2010" class="bib-conf">	  
+		<span class="t-author"> 		
+			<a href="http://liris.cnrs.fr/anh-phuong.ta">Anh-Phong Ta</a>,
+			<a href="../index.html">Christian Wolf</a>,
+			<a href="http://liris.cnrs.fr/guillaume.lavoue">Guillaume Lavoué</a> and
+			<a href="http://liris.cnrs.fr/atilla.baskurt">Atilla Baskurt</a> 
+			
+	  	</span>
+	  	<span class="t-title">
+			Recognizing and localizing individual activities through graph matching,	
+		</span>
+		<span class="t-medium"> 
+			in the Proceedings of the International Conference on Advanced Video and Signal-Based Surveillance, 2010 (IEEE),
+		</span>
+		,oral presentation, 22.5% acceptance rate; <span class="t-emph">Best Paper</span> for track 'recognition', 5% acceptance rate.
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('avss2010');">
+			Abstract</a>
+		</li>
+		<li><a href="../papers/avss2010.pdf">PDF</a></li>
+      		</ul>
+		<div class="t-abstract">
+			In this paper we tackle the problem of detecting individual human actions in video sequences. While the most successful methods are based on local features, which proved that they can deal with changes in background, scale and illumination, most existing methods have two main shortcomings: first, they are mainly based on the individual power of spatio-temporal interest points (STIP), and therefore ignore the spatio-temporal relationships between them. Second, these methods mainly focus on direct classification techniques to classify the human activities, as opposed to detection and localization. In order to overcome these limitations, we propose a new approach, which is based on a graph matching algorithm for activity recognition. In contrast to most previous methods which classify entire video sequences, we design a video matching method from two sets of ST-points for human activity recognition. First, points are extracted, and a hyper graphs are constructed from them, i.e. graphs with edges involving more than 2 nodes (3 in our case). The activity recognition problem is then transformed into a problem of finding instances of model graphs in the scene graph. By matching local features instead of classifying entire sequences, our method is able to detect multiple different activities which occur simultaneously in a video sequence. Experiments on two standard datasets demonstrate that our method is comparable to the existing techniques on classification, and that it can, additionally, detect and localize activities.
+		</div>
+  	</li>
+
+  	<li id="gi2010" class="bib-conf">	  
+		<span class="t-author"> 		
+			Pierre-Yves Laffont, Jong-Yun Jun, 			
+			<a href="../index.html">Christian Wolf</a>,
+			Yu-Wing Tai, 
+			<a href="http://liris.cnrs.fr/khalid.idrissi">Khalid Idrissi</a>,
+			George Drettakis, Sung-Eui Yoon,
+	  	</span>
+	  	<span class="t-title">
+			Interactive Content-Aware Zooming,
+		</span>
+		<span class="t-medium"> 
+			to appear in the Proceedings of Grapĥics Interface, 2010.
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('gi2010');">
+			Abstract</a>
+			</li>		
+      		</ul>
+		<div class="t-abstract">
+	We propose a novel, interactive content-aware zooming operator that allows effective and efficient visualization of high resolution images on small screens, which may have different aspect ratios compared to the input images. Our approach applies an image retargeting method in order to fit an entire image into the limited screen space. This can provide global, but approximate views for lower zoom levels. However, as we zoom more closely into the image, we continuously unroll the distortion to provide local, but more detailed and accurate views for higher zoom levels. In addition, we propose to use an adaptive view-dependent mesh to achieve high retargeting quality, while maintaining interactive performance. We demonstrate the effectiveness of the proposed operator by comparing it against the traditional zooming approach, and a method stemming from a direct combination of existing works.
+		</div>
+ 	 </li>
+
+	<li id="icann2010" class="bib-conf">	  
+		<span class="t-author"> 		
+			<a href="http://liris.cnrs.fr/moez.baccouche">Moez Baccouche</a>,
+			Frank Mamalet
+			<a href="../index.html">Christian Wolf</a>,
+			Christophe Garcia, 
+			<a href="http://liris.cnrs.fr/atilla.baskurt">Atilla Baskurt</a> 	
+	  	</span>
+	  	<span class="t-title">
+			Action Classifcation in Soccer Videos with Long Short-Term Memory Recurrent Neural Networks 
+		</span>
+		<span class="t-medium"> 
+			to appear in the Proceedings of the International Conference on Artificial Neural Networks, 2010.
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('icann2010');">
+			Abstract</a>
+		</li>
+		<li><a href="../papers/icann2010.pdf">PDF</a></li>		
+      		</ul>
+		<div class="t-abstract">
+			In this paper, we propose a novel approach for action classification in soccer videos using a recurrent neural network scheme. Thereby, we extract from each video action at each timestep a set of features which describe both the visual content (by the mean of a BoW approach) and the dominant motion (with a key point based approach). A Long Short-Term Memory-based Recurrent Neural Network is then trained to classify each video sequence considering the temporal evolution of the features for each timestep. Experimental results on the MICC-Soccer-Actions-4 database show that the proposed approach outperforms classification methods of related works (with a classification rate of 77 %), and that the combination of the two features (BoW and dominant motion) leads to a classification rate of 92 %.
+		</div>
+ 	 </li>
+
+  <li id="sgp2009" class="bib-conf">	  
+		<span class="t-author"> 		
+			<a href="http://liris.cnrs.fr/vincent.vidal">Vincent Vidal,</a>
+			<a href="../index.html">Christian Wolf</a>,
+			<a href="http://liris.cnrs.fr/florent.dupont">Florent Dupont</a>,
+			<a href="http://liris.cnrs.fr/guillaume.lavoue">Guillaume Lavou&eacute;</a>
+	  	</span>
+	  	<span class="t-title">
+			Global triangular mesh regularization using conditional Markov random fields.
+		</span>
+		<span class="t-medium"> 
+			Poster (refereed, but not published: acceptance rate ~35%) at Symposium on Geometry Processing, 2009
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('sgp2009');">
+			Abstract</a>
+			</li>
+      		</ul>
+		<div class="t-abstract">
+			We present a global mesh optimization framework based on a Conditional Markov Random Fied (CMRF or CRF) model suited for 3D triangular meshes of arbitrary topology. The remeshing task is formulated as a Bayesian estimation problem including data attached terms measuring the fidelity to the original mesh as well as a prior favoring high quality triangles. Since the best solution for vertex relocation is strongly related to the mesh connectivity, our approach iteratively modifies the mesh structure (connectivity plus vertex addition/removal) as well as the vertex positions, which are moved according to a well-defined energy function resulting from the CMRF model. Good solutions for the proposed model are obtained by a discrete graph cut algorithm examining global combinations of local candidates. Results on various 3D meshes compare favorably to recent state-of-the-art algorithms regarding the trade-off between triangle shape improvement and surface fidelity. Applications of this work mainly consist in regularizing meshes for numerical simulations and for improving mesh rendering.
+		</div>
+ 	 </li>
+
+  <li id="cbmi2009p" class="bib-conf">	  
+		<span class="t-author"> 		
+			<a href="http://liris.cnrs.fr/anh-phuong.ta">Anh-Phong Ta</a>,
+			<a href="../index.html">Christian Wolf</a>,
+			<a href="http://liris.cnrs.fr/guillaume.lavoue">Guillaume Lavoué</a>,
+			<a href="http://liris.cnrs.fr/atilla.baskurt">Atilla Baskurt</a>
+	  	</span>
+	  	<span class="t-title">
+			3D Object detection and viewpoint selection in sketch images using local patch-based Zernike moments,
+		</span>
+		<span class="t-medium"> 
+			in the Proceedings of the IEEE Workshop on Content Based Multimedia Indexing, pp. 189-194, 2009.
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('cbmi2009p');">
+			Abstract</a>
+			</li>
+		<li><a href="../papers/cbmi2009-phuong.pdf">PDF</a></li>
+      		</ul>
+		<div class="t-abstract">
+	In this paper we present a new approach to detect and recognize 3D models in 2D storyboards which have been drawn during the production process of animated cartoons. Our method is robust to occlusion, scale and rotation. The lack of texture and color makes it difficult to extract local features of the target object from the sketched storyboard. Therefore the existing approaches using local descriptors like interest points can fail in such images.  We propose a new framework which combines patch-based Zernike descriptors with a method enforcing spatial constraints for exactly detecting 3D models represented as a set of 2D views in the storyboards. Experimental results show that the proposed method can deal with partial object occlusion and is suitable for poorly textured objects.
+		</div>
+  </li>
+
+  <li id="cbmi2009m" class="bib-conf">	  
+		<span class="t-author"> 		
+			Marc Mouret,
+			<a href="http://liris.cnrs.fr/christine.solnon">Christine Solnon</a>,
+			<a href="../index.html">Christian Wolf</a>
+	  	</span>
+	  	<span class="t-title">
+			Classification of images based on Hidden Markov Models,
+		</span>
+		<span class="t-medium"> 
+			in the Proceedings of the IEEE Workshop on Content Based Multimedia Indexing, pp. 169-174, 2009.
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('cbmi2009m');">
+			Abstract</a>
+			</li>
+		<li><a href="../papers/cbmi2009-marc.pdf">PDF</a></li>
+      		</ul>
+		<div class="t-abstract">
+	We propose to use hidden Markov models (HMMs) to classify images. Images are modeled by extracting symbols corresponding to 3x3 binary neighborhoods of interest points, and by ordering these symbols by decreasing saliency order, thus obtaining strings of symbols. HMMs are learned from sets of strings modeling classes of images. The method has been tested on the SIMPLIcity database and shows an improvement over competing approaches based on interest points. We also evaluate these approaches for classifying thumbnail images, i.e., low resolution images.
+		</div>
+  </li>
+
+  <li id="mlsp2009" class="bib-conf">	  
+		<span class="t-author"> 		
+			<a href="../index.html">Christian Wolf</a>
+	  	</span>
+	  	<span class="t-title">
+			Families of Markov models for document image segmentation,
+		</span>
+		<span class="t-medium"> 
+			to appear in the Proceedings of the IEEE Machine Learning for Signal Processing Workshop, 2009
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('mlsp2009');">
+			Abstract</a>
+		</li>
+		<li><a href="../papers/mlsp2009.pdf">PDF</a></li>
+      		</ul>
+		<div class="t-abstract">
+			In this paper we compare several directed and undirected graphical models for different image segmentation problems in the domain of document image processing and analysis. We show that adapting the structure of the model to specific sitations at hand, for instance character restoration, recto/verso separation and segmenting high resolution character images, can significantly improve segmentation performance. We propose inference algorithms for the different models and we test them on different data sets.
+		</div>
+  </li>
+
+  <li id="icpr2008" class="bib-conf">	  
+		<span class="t-author"> 		
+			<a href="../index.html">Christian Wolf</a>,
+	  	</span>
+	  	<span class="t-title">
+			Improving recto document side restoration with an estimation of the verso side from a single scanned page
+		</span>
+		<span class="t-medium"> 
+			In the Proceedings of the IEEE International Conference on Pattern Recognition, pp. 1-4, 2008.
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('icpr2008');">
+			Abstract</a>
+		</li>
+		<li><a href="../papers/icpr2008.pdf">PDF</a></li>
+      		</ul>
+		<div class="t-abstract">
+	We present a new method for blind document bleed through removal based on separately restoring the recto and the verso side. The segmentation algorithm is based on separate Markov random fields (MRF) which results in a better adaptation of the prior to the content creation process (e.g. superimposing two pages), and the improvement of the estimation of the verso pixels through an estimation of the verso pixels covered by recto pixels. The labels of the initial recto and verso clusters are recognized without using any color or gray value information. The proposed method is evaluated empirically as well as through OCR improvement.  
+		</div>
+  	</li>
+
+  <li id="eg2008" class="bib-conf">	  
+		<span class="t-author"> 		
+			<a href="http://liris.cnrs.fr/guillaume.lavoue">Guillaume Lavou&eacute;</a> and <a href="../index.html">Christian Wolf</a>
+	  	</span>, 
+	  	<span class="t-title">
+			Markov Random Fields for Improving 3D Mesh Analysis and Segmentation,
+		</span>
+		<span class="t-medium"> 
+			In the Proceedings of the Eurographics 2008 Workshop on 3D Object Retrieval.
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('eg2008');">
+			Abstract</a>
+			<li><a href="../papers/eurographics2008.pdf">PDF</a></li>
+		</li>
+      		</ul>
+		<div class="t-abstract">
+    Abstract
+Mesh analysis and clustering have became important issues in order to improve the efficiency of common processing
+operations like compression, watermarking or simplification. In this context we present a new method for
+clustering / labeling a 3D mesh given any field of scalar values associated with its vertices (curvature, density,
+roughness etc.). Our algorithm is based on Markov Random Fields, graphical probabilistic models. This Bayesian
+framework allows (1) to integrate both the attributes and the geometry in the clustering, and (2) to obtain an optimal
+global solution using only local interactions, du to the Markov property of the random field. We have defined
+new observation and prior models for 3D meshes, adapted from image processing which achieve very good results
+in terms of spatial coherency of the labeling. All model parameters are estimated, resulting in a fully automatic
+process (the only required parameter is the number of clusters) which works in reasonable time (several seconds).
+		</div>
+  	</li>
+    
+	<li id="icict2004" class="bib-conf">	  
+		<span class="t-author"> 		
+			<a href="http://www.eng.uwaterloo.ca/%7Egwtaylor">Graham W.  
+        	Taylor</a> and <a href="../index.html">Christian Wolf</a>
+	  	</span>
+	  	<span class="t-title">
+			Reinforcement Learning for Parameter Control of Text Detection in Images 
+        	and Video Sequences
+		</span>
+		<span class="t-medium"> 
+			Proceedings of the IEEE International Conference 
+        	on Information &amp; Communication Technologies
+		</span>,
+      2004.
+			6 pages.
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('icict2004');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/icict2004.pdf">PDF</a></li>
+      		</ul>
+		<div class="t-abstract">
+		A framework for parameterization in computer vision algorithms is evaluated by 
+		optimizing ten parameters of the text detection for semantic indexing algorithm 
+		preposed by Wolf et al. The Fuzzy ARTMAP neural network is used for generalization, 
+		offering much faster learning than in a previous tabular implementation. 
+		Difficulties in using a continuous action space are overcome by employing the DIRECT 
+		method for global optimization without derivatives. The chosen parameters are 
+		evaluated using metrics of recall and precision, and are shown to be superior to the 
+		parameters previously recommended.
+		</div>
+  	</li>
+	
+	<li id="icpr2002v" class="bib-conf">	  
+		<span class="t-author"> 
+			<a href="../index.html">Christian Wolf </a>,<a href="http://rfv.insa-lyon.fr/%7Ejolion"> 
+			Jean-Michel Jolion</a> and Francoise Chassaing. 
+	  	</span>			
+	  	<span class="t-title">
+			Text Localization, Enhancement and Binarization in Multimedia Documents
+		</span>		
+		<span class="t-medium">
+			Proceedings of the International Conference on Pattern Recognition (ICPR),
+		</span>
+			volume 4, pages 1037-1040, IEEE Computer Society. 
+        	August 11th-15th, 2002, Quebec City, Canada. 4 pages.
+        	<ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('icpr2002v');">Abstract</a></li>
+        	<li><a href="../papers/icpr2002v.pdf">PDF</a></li>
+        	<li><a href="../papers/icpr2002v.ppt">Powerpoint</a></li>
+			<li><a href="javascript:;" onClick="displayBibtexOf('icpr2002v');">BibTeX</a></li>
+        	<li><a href="../software/binarize/index.html">C++ Code (binarization only)</a></li>
+      		</ul>
+		<div class="t-abstract">
+		The systems currently available for content based image and video retrieval work 
+		without semantic knowledge, i.e. they use image processing methods to extract low 
+		level features of the data. The similarity obtained by these ap-proaches does not 
+		always correspond to the similarity a human user would expect. A way to include more 
+		semantic knowledge into the indexing process is to use the text
+		included in the images and video sequences. It is rich in information but easy to 
+		use, e.g. by key word based queries. In this paper we present an algorithm to 
+		localize artificial text in images and videos using a measure of accumulated 
+		gradients and morphological post processing to detect the text. The quality of the 
+		localized text is improved by robust multiple frame integration. A new technique for 
+		the bina-rization of the text boxes is proposed. Finally, detection and OCR results 
+		for a commercial OCR are presented.
+		</div>
+		<div class="t-bibtex"><pre>
+@InProceedings{WolfICPR2002V,
+  Author         = {C. Wolf and J.-M. Jolion and F. Chassaing},
+  Title          = {Text {L}ocalization, {E}nhancement and {B}inarization in {M}ultimedia {D}ocuments},
+  BookTitle      = {Proceedings of the {I}nternational {C}onference on {P}attern {R}ecognition},
+  Volume         = {2},
+  Pages          = {1037-1040},
+  year           = 2002,
+}		
+		</pre></div>
+  	</li>
+	
+	<li id="icpr2002m" class="bib-conf">	  
+		<span class="t-author"> 
+			<a href="../index.html">Christian Wolf</a> and 
+			<a href="http://www.cfar.umd.edu/%7Edoermann/">David Doermann</a>	
+	  	</span>
+	  	<span class="t-title">
+			Binarization of Low Quality Text using a Markov Random Field Model.
+		</span>		
+		<span class="t-medium">
+			Proceedings of the International Conference on Pattern Recognition (ICPR),
+		</span>
+			volume 2, pages 160-163, IEEE Computer Society. August 11th-15th, 2002, 
+        	Quebec City, Canada. 4 pages.
+			<ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('icpr2002m');">Abstract</a></li>
+        	<li><a href="../papers/icpr2002m.pdf">PDF</a></li>
+        	<li><a href="../papers/icpr2002m.ppt">Powerpoint</a></li>
+			<li><a href="javascript:;" onClick="displayBibtexOf('icpr2002m');">BibTeX</a></li>
+      		</ul>
+		<div class="t-abstract">
+		Binarization techniques have been developed in the document analysis community for 
+		over 30 years and many algorithms have been used successfully. On the other hand, 
+		document analysis tasks are more and more frequently being applied to multimedia 
+		documents such as video sequences. Due to low resolution and lossy compression, the 
+		binarization of text included in the frames is a non trivial task. Existing
+		techniques work without a model of the spatial relationships in the image, which 
+		makes them less powerful. We introduce a new technique based on a Markov Random 
+		Field (MRF) model of the document. The model parameters (clique potentials) are 
+		learned from training data and the binary image is estimated in a Bayesian 
+		framework. The performance is evaluated using commercial OCR software.
+		</div>
+		<div class="t-bibtex">
+		<pre>		
+@InProceedings{WolfICPR2002M,
+  Author         = {C. Wolf and D. Doermann},
+  Title          = {Binarization of {L}ow {Q}uality {T}ext using a {M}arkov {R}andom {F}ield {M}odel},
+  BookTitle      = {Proceedings of the {I}nternational {C}onference on {P}attern {R}ecognition},
+  Volume         = {3},
+  Pages          = {160-163},
+  year           = 2002,
+}
+		</pre></div>
+  	</li>	
+	
+	<li id="cifed2002" class="bib-conf">	  
+		<span class="t-author"> 		
+			<a href="../index.html">Christian Wolf</a> and 
+			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a>.
+	  	</span>
+	  	<span class="t-title">
+			Vid&eacute;o OCR - D&eacute;tection et extraction du texte.
+		</span>		
+		<span class="t-medium">
+			Colloque International Francophone sur l&acute;Ecrit et le Document,
+		</span>		
+			pages 215-224. Hammamet-Tunesie, 20-23 octobre 2002.
+			<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('cifed2002');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/cifed2002.pdf">PDF</a></li>
+        	<li><a href="http://telesun.insa-lyon.fr/%7Ewolf/demos/textdetect.html">Demo</a></li>
+      		</ul>
+		<div class="t-abstract">
+		<p>Les syst&eacute;mes d'indexation ou de recherche par le contenu disponibles actuellement 
+		travaillent sans connaissance (syst&eacute;mes pr&eacute;-attentifs). Malheureusement les requ&eacute;tes 
+		construites ne correspondent pas toujours aux r&eacute;sultats obtenus par un humain qui 
+		interpr&eacute;te le contenu du document. Le texte pr&eacute;sent dans les vid&eacute;os repr&eacute;sente une 
+		caract&eacute;ristique &eacute; la fois riche en information et cependant simple, cela permet de 
+		compl&eacute;ter les requ&eacute;tes classiques par des mots clefs.
+		</p><p>
+		Nous pr&eacute;sentons dans cet article un projet visant &eacute; la d&eacute;tection et la 
+		reconnaissance du texte pr&eacute;sent dans des images ou des s&eacute;quences vid&eacute;o. Nous 
+		proposons un sch&eacute;ma de d&eacute;tection s'appuyant sur la mesure du gradient directionnel 
+		cumul&eacute;. Dans le cas des s&eacute;quences vid&eacute;o, nous introduisons un processus de 
+		fiabilisation des d&eacute;tections et l'am&eacute;lioration des textes d&eacute;tect&eacute;s par un suivi et 
+		une int&eacute;gration temporelle.</p>
+		</div>
+  	</li>
+	
+	<li id="icpr2000" class="bib-conf">	  
+		<span class="t-author">
+			<a href="../index.html"> Christian Wolf </a>,
+			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion </a>,
+			<a href="http://www.prip.tuwien.ac.at/%7Ekrw"> Walter Kropatsch </a>, and
+			<a href="http://www.prip.tuwien.ac.at/%7Ebis"> Horst Bischof </a>.
+	  	</span>
+	  	<span class="t-title">
+			Content based Image Retrieval using Interest Points and Texture Features, 
+		</span>		
+		<span class="t-medium">
+			Proceedings of the International Conference on Pattern Recognition (ICPR),
+		</span>
+			volume 4, pages 234-237. IEEE Computer Society. September 3rd, 
+			2000, Barcelona, 
+        	Spain. 4 pages.
+      		<ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('icpr2000');">Abstract</a></li>
+        	<li><a href="../papers/icpr2000.ps.gz">Postscript</a></li>
+        	<li><a href="../papers/icpr2000_poster.ppt">Powerpoint</a></li>
+			<li><a href="javascript:;" onClick="displayBibtexOf('icpr2000');">BibTeX</a></li>
+        	<li><a href="http://www.prip.tuwien.ac.at/Research/ImageDatabases/Query">Demo</a></li>
+     		</ul>
+		<div class="t-abstract">
+		<p>Interest point detectors are used in computer vision to detect image points with 
+		special properties, which can be geometric (corners) or non-geometric (contrast 
+		etc.). Gabor functions and Gabor filters are regarded as excellent tools for 
+		feature extraction and texture segmentation. This article presents methods how to 
+		combine these methods for content based image retrieval and to generate a textural 
+		description of images. Special emphasis is devoted to distance measure texture 
+		descriptions. Experimental results of a query system are given.
+		</p><p>
+		This work was supported in part by the Austrian Science Foundation (FWF) under grant 
+		S-7002-MAT.</p>
+		</div>		
+		<div class="t-bibtex"><pre>
+@InProceedings{WolfICPR2000,
+  Author         = {C. Wolf and J.M. Jolion and W. Kropatsch and H. Bischof},
+  Title          = {Content {B}ased {I}mage {R}etrieval using {I}nterest {P}oints and {T}exture {F}eatures},
+  BookTitle      = {Proceedings of the {I}nternational {C}onference on {P}attern {R}ecognition},
+  Volume         = {4},
+  Pages          = {234-237},
+  year           = 2000,
+}		
+		</pre></div>
+  	</li>
+
+</ul>
+
+<!-- ****************************************************************************************
+    PATENTS
+  ******************************************************************************************* -->
+
+<h2>Patents</h2>
+<ul>
+	<li class="bib-empty">	  	
+		<span class="t-author"> 
+			<a href="../index.html">Christian Wolf</a>, <a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a> and 
+			Christophe  Laurent. 
+	  	</span>
+	  	<span class="t-title">
+			D&eacute;termination de caract&eacute;ristiques textuelles de pixels.
+		</span>
+		Patent submitted by France Telecom. Reference: FR 03 11918, date: October 10th, 2003.
+  	</li>	
+	
+	<li class="bib-empty">	  
+		<span class="t-author"> <a href="../index.html">Christian Wolf</a>, <a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a> and 
+		Francoise Chassaing. 		
+	  	</span>
+	  	<span class="t-title"> Proc&egrave;de de d&eacute;tection de zones de texte dans une image vid&eacute;o
+		</span>	
+		Patent submitted by France Telecom. Reference: FR 01 06776, Date: May 23th, 2001.	
+  	</li>
+</ul>
+
+
+
+<!-- ****************************************************************************************
+  NATIONAL CONFERENCES - REFEREED.
+  ******************************************************************************************* -->
+  
+<h2>Articles in conferences with national audience (refereed)</h2>
+
+<ul>
+	<li id="coresa2010" class="bib-conf">	  
+		<span class="t-author">
+			<a href="http://liris.cnrs.fr/moez.baccouche">Moez Baccouche</a>,
+			Frank Mamalet
+			<a href="../index.html">Christian Wolf</a>,
+			Christophe Garcia, 
+			<a href="http://liris.cnrs.fr/atilla.baskurt">Atilla Baskurt</a> 
+	  	</span>
+	  	<span class="t-title">
+			Une approche neuronale pour la classification d'actions de sport par la prise en compte du contenu visuel et du mouvement dominant
+		</span>		
+		<span class="t-medium">
+			CORESA 2010, "COmpression et REpr&eacute;sentation des Signaux Audiovisuels",
+		</span>		
+			2010, 6 pages.		
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('coresa2010');">
+			Abstract</a>
+		</li>
+		<li><a href="../papers/coresa2010.pdf">PDF</a></li>		
+      		</ul>
+		
+		<div class="t-abstract">
+		Dans cet article, nous proposons une approche de classification automatique de séquences vidéo d’actions de sport. Pour cela, nous extrayons de chaque action des caractéristiques du contenu visuel, en utilisant deux approches, l’une par sac de mots, et l’autre par le mouvement dominant de la scène à chaque instant. La classification de l’évolution temporelle de ces caractéristiques extraites est gérée dynamiquement par un modèle neuronal, basé sur les réseaux de neurones récurrents à large « mémoire court-terme» (LSTM). Les expérimentations faites sur la base « MICCSoccer-Actions-4 » montrent que l’approche neuronale de classification permet d’obtenir des résultats supérieurs à l’état de l’art (76 % de bonne classification), et que la combinaison des caractéristiques (information visuelle et mouvement dominant) permet un taux de bonne classification de 92 %.
+		</div>
+  	</li>
+
+	<li id="coresa2009" class="bib-conf">	  
+		<span class="t-author">
+			<a href="../index.html">Christian Wolf</a>
+	  	</span>
+	  	<span class="t-title">
+			S&eacute;paration recto/verso d'un document par mod&eacute;lisation markovienne &agrave;  double couche 
+		</span>		
+		<span class="t-medium">
+			CORESA 2009, "COmpression et REpr&eacute;sentation des Signaux Audiovisuels",
+		</span>		
+			Toulouse, 2009, 6 pages.
+		
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('coresa2009');">
+			Abstract</a>
+		</li>
+		<li><a href="../papers/coresa2009.pdf">Paper-PDF</a></li>
+		<li><a href="../papers/prescoresa2009.pdf">Presentation-PDF</a></li>
+      		</ul>
+		
+		<div class="t-abstract">
+		Nous proposons un modèle markovien &agrave;  deux couches pour la s&eacute;paration des deux faces d'un document, dont une seule face a &eacute;t&eacute; num&eacute;ris&eacute;. A l'aide de deux champs de Markov s&eacute;par&eacute;s, un pour chaque face, chaque pixel est mod&eacute;lis&eacute; par deux variables cach&eacute;es connect&eacute;es par une unique variable observ&eacute;e. L'avantage de cette formulation est une meilleure adaptation au processus ayant cr&eacute;&eacute; l'image observ&eacute;e (la superposition de deux pages ind&eacute;pendantes) ainsi que l'am&eacute;lioration de la restauration, &ccedil;.&agrave; .d. de l'estimation des pixels recto, par une estimation des pixels verso couverts par ce derniers. L'inf&eacute;rence des variables cach&eacute;es est r&eacute;alis&eacute;e par un algorithme it&eacute;ratif &agrave;  base de coupure minimale dans un graphe &eacute;tendant l'algorithme d'&eacute;xpansion alpha. Les r&eacute;sultats sont &eacute;valu&eacute;s &agrave;  la fois de fa&ccedil; on empirique ainsi que par l'am&eacute;lioration d'un r&eacute;sultat de reconnaissance OCR.
+		</div>
+  	</li>
+
+	<li class="bib-conf">	  
+		<span class="t-author"> 		
+			Remi Landais, <a href="../index.html">Christian Wolf</a>, 
+			Laurent Vinet and 
+			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a>.
+	  	</span>
+	  	<span class="t-title">
+			Utilisation de connaissances a priori pour le param&eacute;trage d'un 
+			algorithme de 
+        		d&eacute;tection de textes dans les documents audiovisuels. Appliation 
+        		&agrave; un corpus de journaux t&eacute;l&eacute;vis&eacute;s.
+		</span>		
+		<span class="t-medium">
+			14&egrave;me Congr&eacute;s Francophone de Reconnaissance des Formes 
+        	et Intelligence Artificielle.
+		</span>		
+			2004, 10 pages.
+  	</li>
+	
+	<li id="coresa2003" class="bib-conf">	  
+		<span class="t-author">
+			<a href="../index.html">Christian Wolf</a> and 
+			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a>.
+	  	</span>
+	  	<span class="t-title">
+			D&eacute;tection de textes de scenes dans des images issues d'un flux 
+			vid&eacute;o,
+		</span>		
+		<span class="t-medium">
+			CORESA 2003, "COmpression et REpr&eacute;sentation des Signaux Audiovisuels",
+		</span>		
+			pages 63-66. January 16th - 17th 2003, Lyon. 4 pages.
+		
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('coresa2003');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/coresa2003.pdf">PDF</a></li>
+      		</ul>
+		
+		<div class="t-abstract">
+		La plupart des travaux sur la d&eacute;tection de texte se concentre sur le texte 
+		artificiel et horizontal. Nous proposons une m&eacute;thode de d&eacute;tection en orientation 
+		g&eacute;n&eacute;rale qui repose sur un filtre directionnel appliqu&eacute; dans plusieurs orientations. 
+		Un algorithme de relaxation hi&eacute;rarchique est employ&eacute; pour consolider les r&eacute;sultats 
+		locaux de direction. Une &eacute;tape de vote entre des directions permet d'obtenir une 
+		image binaire localisant les zones de textes.
+		</div>
+  	</li>
+	
+	<li id="rfia2002" class="bib-conf">	  
+		<span class="t-author"> 	
+			<a href="../index.html">Christian Wolf</a> and 
+			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a>.
+	  	</span>
+	  	<span class="t-title">
+			Extraction de texte dans des videos: le cas de la binarisation,
+		</span>		
+		<span class="t-medium">
+			Congr&eacute;s Francophone de Reconnaissance des Formes 
+        		et Intelligence Artificielle,
+		</span>		
+			volume 1, pages 145-152, January 8th-10th 2002, Angers.
+			
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('rfia2002');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/rfia02.pdf">PDF</a></li>
+        	<li><a href="http://telesun.insa-lyon.fr/%7Ewolf/demos/binarize.html">Demo</a></li>
+      		</ul>
+		
+		<div class="t-abstract">
+		<p>Dans cet article nous abordons la probl&eacute;me de la binarisation de "boites", i.e. 
+		sous-image, contenant du texte. Nous montrons que la sp&eacute;cificit&eacute; des contenus vid&eacute;os 
+		am&eacute;ne &eacute; la conception d'une nouvelle approche de cette &eacute;tape de binarisation en 
+		regard des techniques habituelles tant du traitement d'image au sens large, que du 
+		domaine de l'analyse de documents &eacute;crits.  	
+		</p><p>We present in this paper some researches on thresholding of "text boxes" 
+		(sub-images containing artificial texts and extracted from videos). We show that the 
+		particular context of videos leads to the formalization of a new approach of this 
+		step regarding the usual and wellknow techniques used in image analysis and more 
+		particularly for segmentation of written documents.</p>
+		</div>
+  	</li>
+	
+	<li id="coresa2001" class="bib-conf">	  
+		<span class="t-author">
+			<a href="../index.html">Christian Wolf </a> , 
+			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a> and 
+			Francoise Chassaing.
+	  	</span>
+	  	<span class="t-title">
+			Vid&eacute;o OCR - D&eacute;tection et extraction du texte,
+		</span>		
+		<span class="t-medium">
+			CORESA 2001, 7&egrave;me Journ&eacute;es d&acute;&Eacute;tudes 
+        		et d&acute;Echanges "COmpression et REpr&eacute;sentation des Signaux 
+        		Audiovisuels",
+		</span>		
+			pages 251-258, November 12th - 13th 2001, Dijon.		
+			
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('coresa2001');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/coresa2001.pdf">PDF</a></li>
+        	<li><a href="http://telesun.insa-lyon.fr/%7Ewolf/demos/textdetect.html">Demo</a></li>
+      		</ul>
+		
+		<div class="t-abstract">
+		Les syst&eacute;mes d'indexation ou de recherche par le contenu disponibles actuellement 
+		travaillent sans connaissance (syst&eacute;mes pr&eacute;-attentifs). Malheureusement les requ&eacute;tes 
+		construites ne correspondent pas toujours aux r&eacute;sultats obtenus par un humain qui 
+		interpr&eacute;te le contenu du document. Le texte pr&eacute;sent dans les vid&eacute;os repr&eacute;sente une 
+		caract&eacute;ristique &eacute; la fois riche en information et cependant simple, cela permet de 
+		compl&eacute;ter les requ&eacute;tes classiques par des mots clefs. Nous pr&eacute;sentons dans cet 
+		article un projet visant &eacute; la d&eacute;tection et la reconnaissance du texte pr&eacute;sent dans 
+		des images ou des s&eacute;quences vid&eacute;o. Nous proposons un sch&eacute;ma de d&eacute;tection s'appuyant 
+		sur la mesure du gradient directionnel cumul&eacute;. Dans le cas des s&eacute;quences vid&eacute;o, nous 
+		introduisons un processus de fiabilisation des d&eacute;tections et l'am&eacute;lioration des 
+		textes d&eacute;tect&eacute;s par un suivi et une int&eacute;gration temporelle.
+		</div>
+  	</li>
+	
+	<li id="orasis2001" class="bib-conf">	  
+		<span class="t-author">
+			<a href="../index.html">Christian Wolf </a> and 
+			<a href="http://rfv.insa-lyon.fr/~jolion">  Jean-Michel Jolion </a>.
+	  	</span>
+	  	<span class="t-title">
+			Vid&eacute;o OCR - D&eacute;tection et extraction du texte,
+		</span>		
+		<span class="t-medium">
+			ORASIS 2001, Congr&egrave;s francophone de vision,
+		</span>		
+			5-8 Juin 2001, pages 415-424, IRIT, route de Narbonne, 31062, Toulouse 
+			Cedex 4, France.
+			
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('orasis2001');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/orasis2001.pdf">PDF</a></li>
+        	<li><a href="../papers/orasis2001.ppt">Powerpoint</a></li>
+        	<li><a href="http://telesun.insa-lyon.fr/%7Ewolf/demos/textdetect.html">Demo</a></li>
+      		</ul>
+		
+		<div class="t-abstract">
+		Nous pr&eacute;sentons dans cet article les premi&eacute;res &eacute;tapes d'un projet visant &eacute; la 
+		d&eacute;tection et la reconnaissance du texte pr&eacute;sent dans des images ou des s&eacute;quences 
+		vid&eacute;o. Nous insisterons ici sur la caract&eacute;risation de ce type de texte en regard des 
+		textes pr&eacute;sents dans le documents classiques. Nous proposons un sch&eacute;ma de d&eacute;tection 
+		s'appuyant sur la mesure du gradient dir&eacute;ctionnel cumul&eacute;. Dans le cas des s&eacute;quences, 
+		nous introduisons un processus de fiabilisation des d&eacute;tections et l'am&eacute;lioration des 
+		textes d&eacute;tect&eacute;s par un suivi et une int&eacute;gration temporelle.
+		</div>
+  	</li>
+	
+	 <li id="oeagm2000" class="bib-conf">	  
+		<span class="t-author">
+			<a href="../index.html"> Christian Wolf </a>,
+			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion </a>, and 
+			<a href="http://www.prip.tuwien.ac.at/%7Ebis"> Horst Bischof</a>.
+	  	</span>
+	  	<span class="t-title">
+			Histograms for Texture based Image Retrieval,
+		</span>		
+		<span class="t-medium">
+			Proceedings of the OEAGM,
+		</span>
+			Robert Sablatnig and Christian Menard (Ed.), pages 169-176. Oldenbourg, 25th 
+			May 2000. 8 pages.	
+			
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('oeagm2000');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/oeagm2000.ps.gz">Postscript</a></li>
+        	<li><a href="../papers/oeagm2000_pres.ppt">Powerpoint</a></li>
+        	<li><a href="http://www.prip.tuwien.ac.at/Research/ImageDatabases/Query">
+			Demo</a></li>
+      		</ul>
+		
+		<div class="t-abstract">
+		Interest point detectors are used in computer vision to detect image points with 
+		special properties, which can be geometric (corners) or non-geometric (contrast 
+		etc.). Gabor functions and Gabor filters are regarded as excellent tools for feature 
+		extraction and texture segmentation. This article presents methods how to combine 
+		these methods for content based image retrieval and to generate a textural 
+		description of images. Special emphasis is devoted to distance measure texture 
+		descriptions. Experimental results of a query system are given.
+		</div>
+  	</li>	
+</ul>	
+
+<!-- ****************************************************************************************
+  NATIONAL CONFERENCES - NON REFEREED
+  ******************************************************************************************* -->
+  
+<h2>Other papers </h2>
+
+<ul>
+
+	<li id="jfrb2008" class="bib-conf">	  
+		<span class="t-author"> 		
+			<a href="../index.html">Christian Wolf</a> and G&eacute;rald Gavin
+	  	</span>, 
+	  	<span class="t-title">
+			Inference and parameter estimation on belief networks for image segmentation
+		</span>
+		<span class="t-medium"> 
+			Journ&eacute;es francophones des r&eacute;seaux bay&eacute;siens, Lyon (France), May 2008 	
+		</span>.
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('jfrb2008');">
+			Abstract</a>
+			</li>
+      		</ul>
+		<div class="t-abstract">
+        	We introduce a new causal hierarchical belief network for image segmentation. Contrary
+to classical tree structured (or pyramidal) models, the factor graph of the network contains
+cycles. Each level of the hierarchical structure features the same number of sites as the base
+level and each site on a given level has several neighbors on the parent level. Compared to
+tree structured models, the (spatial) random process on the base level of the model is stationary
+which avoids known drawbacks, namely visual artifacts in the segmented image. We propose
+different parametrisations of the conditional probability distributions governing the transitions
+between the image levels. A parametric distribution depending on a single parameter allows
+the design of a fast inference algorithm on graph cuts, whereas the parameter is estimated with
+a least squares technique. For arbitrary distributions, we propose inference with loopy belief
+propagation and we introduce a new parameter estimation technique adapted to the model.	
+		</div>
+  	</li>
+
+	<li id="imageeval2007" class="bib-conf">	  
+		<span class="t-author">
+			<a href="../index.html">Christian Wolf</a> and
+			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a>
+	  	</span>
+	  	<span class="t-title">
+			Quality, quantity and generality in the evaluation of object detection algorithms
+		</span>		
+		<span class="t-medium">
+			Proceedings of the Image Eval Conference,
+		</span>	
+			July 12th, 2007, Amsterdam, NL. 8 pages.
+			
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('imageeval2007');">Abstract</a></li>
+			<li><a href="../papers/imageeval2007.pdf">PDF</a></li>		
+      	</ul>
+		
+		<div class="t-abstract">
+		<p>
+		Evaluation of object detection algorithms is a non-trivial task: a detection 
+		result is usually evaluated by comparing the bounding box of the detected 
+		object with the bounding box of the ground truth object. The commonly used 
+		precision and recall measures are computed from the overlap area of these two 
+		rectangles. However, these measures have several drawbacks: they don't give 
+		intuitive information about the proportion of the correctly detected objects 
+		and the number of false alarms, and they cannot be accumulated across multiple 
+		images without creating ambiguity in their interpretation. Furthermore, 
+		quantitative and qualitative evaluation is often mixed resulting in ambiguous 
+		measures.
+		</p>
+
+		<p>
+		In this paper we propose an approach to evaluation which tackles these problems. 
+		The performance of a detection algorithm is illustrated intuitively by performance 
+		graphs which present object level precision and recall depending on 
+		constraints on detection quality. In order to compare different detection 
+		algorithms, a representative single performance value is computed from the graphs. 
+		The evaluation method can be applied to different types of object detection 
+		algorithms. It has been tested on different text detection algorithms, among which 
+		are the participants of the Image Eval text detection competition.
+		</p>
+		</div>
+  	</li>
+
+	<li id="trec2002" class="bib-conf">	  
+		<span class="t-author">
+			<a href="../index.html">Christian Wolf</a>, 
+			<a href="http://www.cfar.umd.edu/%7Edoermann/">David Doermann</a> and 
+			<a
+			href="http://www.ee.oulu.fi/EE/Info.Laboratory/personnel/Rautiainen.Mika.htm">
+			Mika Rautiainen</a>.	
+	  	</span>
+	  	<span class="t-title">
+			Video Indexing and Retrieval at UMD, 
+		</span>		
+		<span class="t-medium">
+			Proceedings of the Text Retrieval Conference (TREC),
+		</span>	
+			November 19th-22th, 2002, Gaithersburg, USA. 10 pages.
+			
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('trec2002');">
+			Abstract</a>
+		</li>
+      		</ul>
+		
+		<div class="t-abstract">
+		<p>Our team from the University of Maryland and INSA de Lyon
+		participated in the feature extraction evaluation with overlay text
+		features and in the search evaluation with a query retrieval and browsing system. For
+		search we developed a weighted query mechanism by integrating 1) text
+		(OCR and speech recognition) content using full text and n-grams
+		through the MG system, 2) color correlogram indexing of image and
+		video shots reported last year in TREC, and 3) ranked versions of the
+		extracted binary features. A command line version of the interface
+		allows users to formulate simple queries, store them and use weighted
+		combinations of the simple queries to generate compound queries.
+		</p><p>
+		One novel component of our interactive approach is the ability for the users to
+		formulate dynamic queries previously developed for database applications at 
+		Maryland. 
+		The interactive interface treats each video clip as
+		visual object in a multi-dimensional space,  and each "feature" of that clip is
+		mapped to one dimension. The user can visualize any two dimensions by placing
+		any two features on the horizontal and vertical axis with additional dimensions 
+		visualized by adding attributes to each object.</p>
+		</div>
+  	</li>
+
+</ul>
+
+<!-- ****************************************************************************************
+  PHD THESIS
+  ******************************************************************************************* -->
+
+<h2>PhD Thesis</h2>
+
+<ul>
+	<li id="phd" class="bib-empty">	  
+		<span class="t-author"> 		
+			<a href="../index.html">Christian Wolf </a>
+	  	</span>
+	  	<span class="t-title">
+			Text detection in images taken from video sequences
+			for semantic indexing (fr: D&eacute;tection de textes dans des images 
+        	issues d'un flux vid&eacute;o pour l'indexation s&eacute;mantique).
+		</span>
+		<span class="t-medium"> 
+			PhD thesis, Institut National de Sciences Appliqu&eacute;es de Lyon
+		</span>
+			France, December 3rd, 2003. 211 pages. (English!)
+			<ul class="reflink-box">
+      	  	<li><a href="javascript:;" onClick="displayAbstractOf('phd');">Abstract</a></li>			
+       	 	<li><a href="../papers/these.pdf">PDF</a></li>
+       	 	<li><a href="../papers/these.ppt">Powerpoint</a></li>
+			<li><a href="javascript:;" onClick="displayBibtexOf('phd');">BibTeX</a></li>
+      		</ul>
+		<div class="t-abstract">		
+		<p>This work situates itself within the framework of image and video indexation. The 
+		systems currently available for the content based image and video retrieval work 
+		without semantic knowledge, i.e. they use image processing methods to extract low 
+		level features of the data. The similarity obtained by these approaches does not 
+		always correspond to the similarity a human user would expect. A way to include more 
+		semantic knowledge into the indexing process is to use the text included in the 
+		images and video sequences. It is rich in information but easy to use.
+		</p><p>
+		Existing methods for text detection are simple: most of them are based on texture 
+		estimation or edge detection followed by an accumulation of these characteristics. 
+		Geometrical contraints are enforced by most of the methods. However, it is done in a 
+		morphological post-processing step only. It is obvious, that a weak detection is 
+		very difficult --- up to impossible --- to correct in a post-processing step.
+		We propose to take into account the geometrical constraints directly in the 
+		detection phase. Unfortunately, this is a chicken-egg problem: in order to estimate 
+		geometrical constraints, we first need to detect text. Consequently, we suggest a 
+		two-step algorithm: a first coarse detection calculates a text "probability" image. 
+		Afterwards, for each pixel we calculate geometrical properties of the eventual 
+		surrounding text rectangle. These features are added to the features of the first 
+		step and fed into a support vector machine classifier.
+		</p><p>
+		For the application to video sequences, we propose an algorithm which detects text 
+		on a frame by frame basis, tracking the found text rectangles accross multiple 
+		frames. For each text appearance, a single enhanced image is robustly created by 
+		multiple frame integration.
+		</p><p>
+		We tackle the character segmentation problem and suggest two different methods: the 
+		first algorithm maximizes a criterion based on the local contrast in the image. The 
+		second approach exploits a priori knowledge on the spatial distribution of the text 
+		and non-text pixels in the image in order to enhance the segmentation decisions. The 
+		a priori knowledge is learned from training images and stored in a statistical 
+		Markov random field model. This model is integrated into Bayesian estimation 
+		framework in order to obtain an estimation of the original binary image.
+		</p><p>
+		We address the video indexing challenge with a method integrating several features 
+		extracted from the video. Among others, text extracted with the method mentioned 
+		above, is one of the informations sources for the indexing algorithm.
+		</p>
+		</div>
+		<div class="t-bibtex"><pre>
+@PhdThesis{WolfPhD2003,
+	author = {C. Wolf},
+	title = {Text  {D}etection in {I}mages taken from {V}ideos {S}equences for {S}emantic {I}ndexing},
+	school = {INSA de Lyon},
+	year = {2003},
+	address = {20, rue Albert Einstein, 69621 Villeurbanne Cedex, France},
+}
+		</pre></div>
+  	</li>
+</ul>
+
+<!-- ****************************************************************************************
+  TECHNICAL REPORTS
+  ******************************************************************************************* -->
+
+<h2>Technical reports</h2>
+
+<ul>
+
+	<li id="trliris2010" class="bib-empty">	  
+		<span class="t-author">
+			<a href="../index.html">Christian Wolf</a>, Graham Taylor and
+			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a>.
+
+	  	</span>
+	  	<span class="t-title">
+			Learning individual human activities from short binary shape sequences	
+		</span>		
+		<span class="t-medium">
+			Technical Report RR-LIRIS-2010-010
+		</span>		
+			<a href="http://liris.cnrs.fr">
+			Laboratoire d'Informatique en Images et Syst&egrave;mes d'Information (LIRIS)</a>, 
+			<a href="http://www.insa-lyon.fr">INSA de Lyon</a>, France. June 1st, 
+			2010.	
+					
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('trliris2010');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/tr-liris-2010.pdf">PDF</a></li>
+      		</ul>
+		
+		<div class="t-abstract">
+		<p>
+			We present a new algorithm capable of classifying individual human activities from very short sequences. Our method is based on a multi-stage architecture which first produces binary shape sequences with background subtraction. Low-level shape features are extracted from these short sequences and fed to a probabilistic multi-layer model (a conditional deep belief network), which learns the evolution of the low-level features through time through interactions with binary latent variables. No appearance model is needed. Actions are classified using an SVM trained on the posterior probabilities of the latent features extracted by the motion model. We tested the algorithm on two different databases. We achieve a 100% classification rate (per video using a voting strategy) on the well known Weizmann database, and a near perfect 99.9% classification rate per short sequence.
+		</p>
+		</div>
+  	 </li>
+
+	<li id="trliris2009" class="bib-empty">	  
+		<span class="t-author">
+			<a href="http://liris.cnrs.fr/vincent.vidal">Vincent Vidal</a>,
+			<a href="../index.html">Christian Wolf</a>, 
+			<a href="http://liris.cnrs.fr/florent.dupont">Florent Dupont</a> and
+			<a href="http://liris.cnrs.fr/guillaume.lavoue">Guillaume Lavoué</a>,
+
+	  	</span>
+	  	<span class="t-title">
+			An iterative approach for global triangular mesh regularization
+		</span>		
+		<span class="t-medium">
+			Technical Report RR-LIRIS-2009-032
+		</span>		
+			<a href="http://liris.cnrs.fr">
+			Laboratoire d'Informatique en Images et Syst&egrave;mes d'Information (LIRIS)</a>, 
+			<a href="http://www.insa-lyon.fr">INSA de Lyon</a>, France, 2009.
+					
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('trliris2009');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/tr-liris-2009.pdf">PDF</a></li>
+      		</ul>
+		
+		<div class="t-abstract">
+		<p>
+			This paper presents a global mesh optimization framework for 3D triangular meshes of arbitrary topology. The mesh optimization task is formulated as an energy minimization problem including data attached terms measuring the fidelity to the original mesh as well as a shape potential favoring high quality triangles. Since the best solution for vertex relocation is strongly related to the mesh connectivity, our approach iteratively modifies this connectivity (edge and vertex addition/removal) as well as the vertex positions. Good solutions for the energy function minimization are obtained by a discrete graph cut algorithm examining global combinations of local candidates. Results on various 3D meshes compare favorably to recent state-of-the-art algorithms regarding the trade-off between triangle shape improvement and surface fidelity. Applications of this work mainly consist in regularizing meshes for numerical simulations, for improving mesh rendering or for improving the geometric prediction in mesh compression techniques. 
+		</p>
+		</div>
+  	 </li>
+
+	<li id="trliris2008-2" class="bib-empty">	  
+		<span class="t-author">
+			<a href="../index.html">Christian Wolf</a> and G&eacute;rald Gavin
+
+	  	</span>
+	  	<span class="t-title">
+			Inference and parameter estimation on hierarchical belief networks for image segmentation	
+		</span>		
+		<span class="t-medium">
+			Technical Report RR-LIRIS-2008-21
+		</span>		
+			<a href="http://liris.cnrs.fr">
+			Laboratoire d'Informatique en Images et Syst&egrave;mes d'Information</a>, 
+			<a href="http://www.insa-lyon.fr">INSA de Lyon</a>, France. October 21th, 
+			2008. 12 pages.	
+					
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('trliris2008-2');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/tr-liris-2008-markovcube.pdf">PDF</a></li>
+      		</ul>
+		
+		<div class="t-abstract">
+		<p>
+		We introduce a new causal hierarchical belief network for image segmentation. Contrary to classical tree structured (or pyramidal) models, the factor graph of the network contains cycles. Each level of the hierarchical structure features the same number of sites as the base level and each site on a given level has several neighbors on the parent level. Compared to tree structured models, the (spatial) random process on the base level of the model is stationary which avoids known drawbacks, namely visual artifacts in the segmented image. 
+We propose different parameterizations of the conditional probability distributions governing the transitions between the image levels. A parametric distribution depending on a single parameter allows the design of a fast inference algorithm on graph cuts, whereas for arbitrary distributions, we propose inference with loopy belief propagation. The method is evaluated on scanned document images from the 18th century, showing an improvement of character recognition results compared to other methods.
+		</p>
+		</div>
+  	 </li>
+
+	<li id="trliris2008" class="bib-empty">	  
+		<span class="t-author">
+			<a href="../index.html">Christian Wolf</a>
+	  	</span>
+	  	<span class="t-title">
+			An iterative graph cut optimization algorithm for a double MRF prior	
+		</span>		
+		<span class="t-medium">
+			Technical Report RR-LIRIS-2008-17
+		</span>		
+			<a href="http://liris.cnrs.fr">
+			Laboratoire d'Informatique en Images et Syst&egrave;mes d'Information</a>, 
+			<a href="http://www.insa-lyon.fr">INSA de Lyon</a>, France. July 19th, 
+			2008. 14 pages.	
+					
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('trliris2008');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/tr-liris-2008-doublemrf.pdf">PDF</a></li>
+      		</ul>
+		
+		<div class="t-abstract">
+		<p>In a previous publication we presented a double MRF model capable of separatly regularizing the recto and verso side of a document suffering from ink bleed through. In this paper we show that this model naturally leads to an efficient optimization method based on the minimum cut/maximum flow in a graph. The proposed method is evaluated on scanned document images from the 18th century, showing an improvement of character recognition results compared to other restoration methods.</p>
+		</div>
+  	 </li>
+
+	<li id="trliris2006" class="bib-empty">	  
+		<span class="t-author">
+			<a href="../index.html">Christian Wolf</a>
+	  	</span>
+	  	<span class="t-title">
+			Document Ink bleed-through removal with two hidden Markov random fields and a single observation field
+		</span>		
+		<span class="t-medium">
+			Technical Report RR-LIRIS-2006-019
+		</span>		
+			<a href="http://liris.cnrs.fr">
+			Laboratoire d'Informatique en Images et Syst&egrave;mes d'Information</a>, 
+			<a href="http://www.insa-lyon.fr">INSA de Lyon</a>, France. November 26th, 
+			2006. 14 pages.	
+					
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('trliris2006');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/tr-bleedthrough-2006.pdf">PDF</a></li>
+      		</ul>
+		
+		<div class="t-abstract">
+		<p>We present a new method for blind document bleed through removal based on separate Markov Random Field (MRF) regularization for the recto and for the verso side. The segmentation algorithm is based on Bayesian Maximum a Posteriori (MAP) estimation, where the prior model is made of two conditionally independent MRFs with a single observation field. The advantages of this separate approach are the adaptation of the prior to the contents creation process (e.g. superimposing two hand written pages), and the improvement of the estimation of the verso pixels through an estimation of the verso pixels covered by recto pixels. Optimization is carried out with the simulated annealing algorithm. The labels of the initial recto and verso clusters are recognized without using any color or gray value information. The proposed method is evaluated on synthetic images as well as scanned document images. The results on real scanned data have been evaluated using statistical evaluation on an empirical test performed by 16 people.</p>
+		</div>
+  	 </li>
+
+	<li id="trliris2005" class="bib-empty">	  
+		<span class="t-author">
+			<a href="../index.html">Christian Wolf</a> and 
+			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a>.
+	  	</span>
+	  	<span class="t-title">
+			Object count/Area Graphs for the Evaluation of Object Detection and Segmentation Algorithms
+		</span>		
+		<span class="t-medium">
+			Technical Report LIRIS-RR-2005-024
+		</span>		
+			<a href="http://liris.cnrs.fr">
+			Laboratoire d'Informatique en Images et Syst&egrave;mes d'Information</a>, 
+			<a href="http://www.insa-lyon.fr">INSA de Lyon</a>, France. September 28th, 
+			2005. 28 pages.	
+					
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('trliris2005');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/tr-liris-2005-wolfjolion.pdf">PDF</a></li>
+      		</ul>
+		
+		<div class="t-abstract">
+		<p>Evaluation of object detection algorithms is a non-trivial task: a detection result is usually evaluated by comparing the bounding box of the detected object with the bounding box of the ground truth object. The commonly used precision and recall measures are computed from the overlap area of these two rectangles. However, these measures have several drawbacks: they don't give intuitive information about the proportion of the correctly detected objects and the number of false alarms, and they cannot be accumulated across multiple images without creating ambiguity in their interpretation. Furthermore, quantitative and qualitative evaluation is often mixed resulting in ambiguous measures.</p>
+		<p>In this paper we propose a new approach which tackles these problems. The performance of a detection algorithm is illustrated intuitively by performance graphs which present object level precision and recall depending on constraints on detection quality. In order to compare different detection algorithms, a representative single performance value is computed from the graphs. The influence of the test database on the detection performance is illustrated by performance/generality graphs. The evaluation method can be applied to different types of object detection algorithms. It has been tested on different text detection algorithms, among which are the participants of the ICDAR 2003 text detection competition.</p>
+		</div>
+  	 </li>
+
+	 <li id="trliris2004" class="bib-empty">	  
+		<span class="t-author">
+			<a href="../index.html">Christian Wolf</a> and 
+			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a>.
+	  	</span>
+	  	<span class="t-title">
+			Model based text detection in images and videos: a learning approach.
+		</span>		
+		<span class="t-medium">
+			Technical Report LIRIS-RR-2004-13
+		</span>		
+			<a href="http://liris.cnrs.fr">
+			Laboratoire d'Informatique en Images et Syst&egrave;mes d'Information</a>, 
+			<a href="http://www.insa-lyon.fr">INSA de Lyon</a>, France. March 19th, 
+			2004. 24 pages.	
+					
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('trliris2004');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/tr-liris-2004-13.pdf">PDF</a></li>
+      		</ul>
+		
+		<div class="t-abstract">
+		 Existing methods for text detection in images are simple: most of them are based on 
+		 texture estimation or edge detection followed by an accumulation of these 
+		 characteristics. Geometrical constraints are enforced by most of the methods. 
+		 However, it is done in a morphological post-processing step only. It is obvious, 
+		 that a weak detection is very difficult --- up to impossible --- to correct in a 
+		 post-processing step. We propose a text model which takes into account the 
+		 geometrical constraints directly in the detection phase: a first coarse detection 
+		 calculates a text "probability" image. After wards, for each pixel we calculate 
+		 geometrical properties of the eventual surrounding text rectangle. These features 
+		 are added to the features of the first step and fed into a support vector machine 
+		 classifier.
+		</div>
+  	</li>	
+	
+	<li id="trrfv2002" class="bib-empty">	  
+		<span class="t-author">
+			<a href="../index.html">Christian Wolf</a> and 
+			<a href="http://rfv.insa-lyon.fr/%7Ejolion"> Jean-Michel Jolion</a>.
+	  	</span>
+	  	<span class="t-title">
+			Extraction and Recognition of Artificial Text in Multimedia Documents,
+		</span>		
+		<span class="t-medium">
+			Technical Report RFV-RR-2002.01,
+		</span>		
+			<a href="http://rfv.insa-lyon.fr"> Laboratoire Reconnaissance de Formes et 
+			Vision</a>, 
+			<a href="http://www.insa-lyon.fr">INSA de Lyon</a>, France. February 22nd, 
+			2002. 42 pages.
+			
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('trrfv2002');">
+			Abstract</a>
+		</li>
+        	<li><a href="../papers/tr-rfv-2002-01.pdf">PDF</a></li>
+      		</ul>
+		
+		<div class="t-abstract">
+		 The systems currently available for content based image and video retrieval work 
+		 without semantic knowledge, i.e. they use image processing methods to extract low 
+		 level features of the data. The similarity obtained by these approaches does not 
+		 always correspond to the similarity a human user would expect. A way to include 
+		 more semantic knowledge into the indexing process is to use the text included in 
+		 the images and video sequences. It is rich in information but easy to use, e.g. by 
+		 key word based queries. In this paper we present an algorithm to localize 
+		 artificial text in images and videos using a measure of accumulated gradients and 
+		 morphological processing. The quality of the localized text is improved by robust 
+		 multiple frame integration. A new technique for the binarization of the text boxes 
+		 based on a criterion maximizing local contrast is proposed. Finally, detection and 
+		 OCR results for a commercial OCR are presented, justifying the choice of the 
+		 binarization technique.
+		</div>
+  	</li>
+	
+	<li id="trprip2000" class="bib-empty">	  
+		<span class="t-author"> 		
+			<a href="../index.html">Christian Wolf </a>.
+	  	</span>
+	  	<span class="t-title">
+			Content based image retrieval using interest points and texture features,
+		</span>		
+		<span class="t-medium">
+			Technical Report PRIP-TR-061
+		</span>
+			<a href="http://www.prip.tuwien.ac.at">Pattern Recognition and Image 
+			Processing Group</a>, 
+			Institute of Computer Aided Automation, 
+			<a href="http://www.tuwien.ac.at">Vienna University of Technology</a>, 
+			April 2000. 110 pages.
+			
+		<ul class="reflink-box">
+        	<li><a href="javascript:;" onClick="displayAbstractOf('trprip2000');">Abstract</a></li>
+        	<li><a href="../papers/tr-prip.ps.gz">Postscript</a></li>
+      		</ul>		
+		<div class="t-abstract">
+		 Content based image retrieval is the task of searching images from a database, 
+		 which are visuall&eacute;y similar to a given example image. Since there is no general 
+		 definition for visual similarity, there are different possible ways to query for 
+		 visual content. In this work we present methods for content based image retrieval 
+		 based on texture similarity using interest points and Gabor features. Interest 
+		 point detectors are used in computer vision to detect image points with special 
+		 properties, which can be geometric (corners) or non-geometric (contrast etc.). 
+		 Gabor functions and Gabor filters are regarded as excellent tools for texture 
+		 feature extraction and texture segmentation. We present methods how to combine 
+		 these methods for content based image retrieval and to generate a texture 
+		 description of images. Special emphasis is devoted to distance measures for the 
+		 texture descriptions. Experimental results of the query system on different test 
+		 image databases are given.
+		</div>
+  	</li>
+</ul>
+
+</body>
+</html>

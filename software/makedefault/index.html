@@ -1,0 +1,187 @@
+<!-- ****************************************************************************************
+  makedefault
+  Author: Christian Wolf
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>makedefault - Don't bother writing makefiles</title>
+	<link rel=stylesheet href="../../main.css" type="text/css">
+	<link rel=stylesheet href="../software.css" type="text/css">
+	<link rel="shortcut icon" href="../../graphics/favicon.ico">
+</head>
+<body>
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+<p>
+
+<!-- ****************************************************************************************
+  The nav menu box
+  ******************************************************************************************* -->
+
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="../../index.html">Main</a></li>
+		<li><a href="../index.html">Other software</a></li>
+		<li> <a href="#manual">Manual</a></li>
+		<li> <a href="#download">Download</a></li>
+		<li> <a href="#requirements">Requirements</a></li>
+		<li> <a href="#author">Credits</a></li>
+		<li> <a href="#license">License</a></li>
+	</ul>
+</div>  
+
+<h1>Makedefault - don't bother writing makefiles</h1>
+
+<p>
+Tired of writing makefiles? Makedefault is a ruby script which compiles a set files given in the current directory and creates either a single object file containing all code, or a single executable.
+The script automatically creates a makefile based on the sources in the current directory. It uses the compiler to search for dependencies in your sources and includes them into your makefile. 
+</p>
+
+<p>
+Managing several projects depending on different and possibly overlapping sub projects can be done with <a href="#makeexecutable">makeexecutable</a>.
+</p>
+
+<h2 id="manual">Manual</h2>
+
+<p>
+Usage of the program is simple: just call makedefault in the directory containing the sources and give the name of the target object file, or the target executable name. The -e option must be given if an executable shall be created. Further arguments make it possible to provide compiler flags and/or linker flags. Compiler flags and linker flags are separated by a comma.
+</p>
+
+<p>
+Usage:
+</p>
+
+<pre>
+makedefault [-e] target_name c-option1 c-option2 ... , l-option1 l-option2
+</pre>
+
+<p>Examples:</p>
+
+<pre>
+makedefault imagemodule.o -Wall -O3 
+</pre>
+
+compiles all source files in the current directory into a single object file called 'imagemodule.o' and applies the compiler flags "-Wall -O3" on each file, and
+
+<pre>
+makedefault -e imagetool -Wall -O3 , -lm -lstdc++ -ljpeg
+</pre>
+
+<p>
+compiles all source files in the current directory into a single executable called 'imagetool' and applies the compiler flags "-Wall -O3" on each file, as well as the linker linker options "-lm -lstdc++ -ljpeg" during the linking phase.
+</p>
+
+<p>
+Graphical user interfaces using the QT library are supported in that the meta object compiler 'moc' is automatically called on every C++ file containing QT objects.
+</p>
+
+<h2 id="makeexecutable">Makeexecutable</h2>
+
+<p>
+Let's suppose you have a large collection of C++ source files which compile into several executables. Each executable depends on a couple of sub projects, and executables may share sub projects. And now suppose that you want to give the sources of one of the executables to somebody, but you want to minimize the sources deployed to the absolute minimum. How do you know which sub project is used by which executable, and how do you avoid, while developing, to accidently include a file of sub project which you did not consider being a part of the executable?
+</p>
+
+<p>
+Makeexecutable is a ruby script which easily manages the dependencies between sub projects using a small text file. When compiling, it configures the compiler path such that for each executable the compiler only 'sees' the sub projects which it is supposed see.
+</p>
+
+<p>
+Example:<br>
+Let's suppose that you have two executables: 'mrftool' which depends on sub projects 'Image', 'Math', 'ImageProc' and 'MRF', and 'mctool' which depends on 'Image', 'Math', 'ImageProc' and 'MC'. The sub project 'ImageProc' itself depends on 'Image' and 'Math'. In this case, create sub directories for each module and for executable, and put the respective sources in the respective sub directory. The dependencies can be captured in a dependencies file as follows:
+</p>
+
+<pre>
+[DEPENDENCIES_ON_MACROS]
+
+[DEPENDENCIES_ON_MODULES]
+Image
+Math
+ImageProc	Image Math
+MRF
+MC
+mrftool		ImageProc MRF
+mctool		ImageProc MC
+</pre>
+
+<p>
+Assumining the dependency file is called 'DEPENDENCIES', compilation of the executables can be done with a single call the makeexectuable script:
+</p>
+
+<pre>
+makeexecutable mrftool $HOME/bin/mrftool -Wall -O3 , -lm -lstdc++ -ljpeg
+</pre>
+
+<p>
+and
+</p>
+
+<pre>
+makeexecutable mctool $HOME/bin/mctool -Wall -O3 , -lm -lstdc++ -ljpeg
+</pre>
+
+<p>
+The first argument specifies the name of the sub project containing the executable, the second argument the target installation path, and the rest of the arguments contain the compiler flags and linker flags (see the manual for <a href="manual">makedefault</a>). The script will automatically build all depending sub projects (Image, Math, ImageProc, MRF) and link them to the mrftool sources.
+</p>
+
+<p>
+When a header file is included from a sub project, giving the full path should be avoided. For instance, instead of writing #include "../Image/Image.h", write #include &lt;Image.h&gt;. Makeexecutable will automatically add compiler flags which will allow the compiler to find all files on which depends the executable. This way, you will never additentally add and include statement for a file without being aware that your executable depends on this file.
+</p>
+
+<h2 id="download">Download</h2>
+
+No setup is necessary. Just download the package, extract all files and put them into a directory which is in the PATH of your shell. Just be sure that the ruby shell is available as /usr/bin/ruby, else create a link or change the first line of each script (see <a href="#requirements">requirements</a>).
+
+<table class="downloadlist">
+	<tr><td>tool</td>		<td>version</td>	<td>date</td>			<td>download</td><td>remark</td></tr>
+	<tr><td>makedefault.tgz</td>		<td>2.01</td>       <td>12.03.2008</td>		<td><a href="download/v2.0/makedefault.tgz">http</a></td><td>Current stable version</td></tr>
+</table>
+
+<h2 id="requirements">Requirements</h2>
+
+<h3>Ruby</h3>
+makedefault and makeexecutable are completely written in the ruby programming language, so you need to have the ruby runtime package installed. Ruby comes with most Linux distributions. To install it on Fedora or Red Hat distributions type "yum install ruby". Ruby can be downloaded for a wide range of systems <a href="http://www.ruby-lang.org/en">here</a>.
+
+<h3>Compiler</h3>
+The compiler needs to support the -M option which determines the dependencies of a source file. 
+
+<h2 id="author">Credits</h2>
+
+<p>
+Makedefault and makeexecutable was written by <a href="../../index.html">Christian Wolf</a>. Send comments, suggestions and bug reports to the follwing address:
+</p>
+<img src="../../graphics/emailprivate.png">
+
+
+<h2 id="license">License</h2>
+<p>
+This program is free software; you can redistribute it and/or modify  
+it under the terms of the 
+<a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a> as published by  
+the Free Software Foundation; either version 2 of the License, or     
+(at your option) any later version.                                   
+</p><p>
+This program is distributed in the hope that it will be useful,       
+but WITHOUT ANY WARRANTY; without even the implied warranty of        
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         
+GNU General Public License for more details.                          
+</p><p>
+You should have received a copy of the GNU General Public License     
+along with this program; if not, write to the                         
+Free Software Foundation, Inc.,                                       
+59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.   
+</p>
+</body>
+</html>

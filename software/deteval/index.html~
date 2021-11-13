@@ -1,0 +1,371 @@
+<!-- ****************************************************************************************
+  eplot
+  Author: Christian Wolf
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>DetEval - Evaluation software for object detection algorithms</title>
+	<link rel=stylesheet href="../../main.css" type="text/css">
+	<link rel=stylesheet href="../software.css" type="text/css">
+	<link rel="shortcut icon" href="../../graphics/favicon.ico">
+</head>
+<body>
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+<!-- ****************************************************************************************
+  The nav menu box
+  ******************************************************************************************* -->
+
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="index.html">Main</a></li>
+		<li><a href="../index.html">Other software</a></li>
+		<li> <a href="index.html#introduction">Introduction</a></li>
+		<li> <a href="gui.html">The GUI version</a></li>
+		<li> <a href="commandline.html">The command line version</a></li>
+		<li> <a href="index.html#download">Download</a></li>
+		<li> <a href="index.html#installation">Installation</a></li>
+	</ul>
+</div>  
+
+<h1>DetEval - Evaluation software for object detection algorithms</h1>
+
+<center>
+<p>
+<table>
+	<TR>
+	<TD><img src="ss-linux-small.png" alt=""></TD>
+	<td><b>	NEW (23.7.2009)!!<br> 
+		Runs on windows or Linux <br>
+		Choice between <a href="gui.html">GUI</a> or <a href="commandline.html">command</a> line interface <br>
+		Different object types<br>
+		ROC plotting</b></em>
+	</td>
+	</TR>
+</table>
+</p>
+</center>
+
+<p>
+DetEval is software for the evaluation of object detection algorithms. It reads XML files containing the detection results as well as the ground truth information and writes the evaluation output in XML or LaTeX format. Data for ROC curves in ASCII text format can be created, and PDF plots are supported. The criteria at which point an object is considered as detected are configurable, and graphs can be plotted showing detection performance with varying criteria.
+</p>
+
+<p>
+Details of the evaluation algorithm can be found in the <a href="../../publications/index.html#ijdar2006">scientific paper</a> published in the journal <a href="../../publications/index.html#ijdar2006">International Journal on Document Analysis and Recognition</a>.
+</p>
+
+<p style="border: 2px solid #90600b; padding: 1em;">
+<b><em>You need to cite the <a href="../../publications/index.html#ijdar2006">IJDAR paper</a> in all publications which describe work for which you used the DetEval tool</em></b>.
+</p>
+
+<h3>Table of contents</h3>
+
+<ul>
+	<LI><a href="#Introduction">Introduction</a></LI>
+	<LI><a href="#rocplot">What is a ROC plot?</a></LI>
+	<LI><a href="#gui">The GUI interface</a></LI>
+	<LI><a href="#gui">The command line interface</a></LI>
+	<ul>
+		<LI><a href="commandline.html#evalplots">Creating quality/quantity plots</a></LI>
+		<LI><a href="commandline.html#details">Access to the evaluation details</a></LI>
+		<LI><a href="commandline.html#comparingresults">Comparing different detection results</a></LI>
+		<LI><a href="commandline.html#manualplots">Manually creating arbitrary plots</a></LI>
+	</ul>
+	</LI>	
+	<LI><a href="#Download">Download</a></LI>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<h3>The XML format and detection quality constraints</h3>
+
+</p>
+The XML format is the same for the detection results and for the ground truth. It is an extended version of the format developped for the ICDAR 2003 text detection competition organized by Simon Lucas and his team. Here is an example for a dataset containing the results on two images. I think the format is quite self explaining:
+</p>
+
+<p>
+One rectangular bounding box is described by the tag  "taggedRectangle". Its geometry is described by x,y,width and height, modelType is a application dependend numerical value which encodes the type or class of the object.
+</p>
+
+<p>The result image and the groundtruth image must have the same name! However, if you decide to leave the directory path in the image names, the software can be configured to ignore the path or parts of it (see the manual for the <a href="commandline.html">command line interface</a>). </p>
+
+<pre style="font-size: smaller;">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;tagset&gt;
+  &lt;image&gt;
+    &lt;imageName&gt;images/image1.jpg&lt;/imageName&gt;
+    &lt;taggedRectangles&gt;
+      &lt;taggedRectangle x="1276" y="900" width="193" height="61" modelType="17"  /&gt;
+      &lt;taggedRectangle x="348" y="844" width="197" height="105" modelType="3"  /&gt;
+      &lt;taggedRectangle x="776" y="812" width="281" height="165" modelType="42"  /&gt;
+    &lt;/taggedRectangles&gt;
+  &lt;/image&gt;
+  &lt;image&gt;
+    &lt;imageName&gt;images/image2.jpg&lt;/imageName&gt;
+    &lt;taggedRectangles&gt;
+      &lt;taggedRectangle x="1036" y="972" width="75" height="29" modelType="1"  /&gt;
+      &lt;taggedRectangle x="110" y="964" width="411" height="45" modelType="2"  /&gt;
+      &lt;taggedRectangle x="1126" y="966" width="441" height="59" modelType="3"  /&gt;
+      &lt;taggedRectangle x="604" y="964" width="349" height="53" modelType="2"  /&gt;
+      &lt;taggedRectangle x="262" y="766" width="595" height="67" modelType="17"  /&gt;
+      &lt;taggedRectangle x="948" y="766" width="461" height="71" modelType="36"  /&gt;
+      &lt;taggedRectangle x="366" y="318" width="57" height="29" modelType="14"  /&gt;
+      &lt;taggedRectangle x="598" y="844" width="411" height="89" modelType="11"  /&gt;
+      &lt;taggedRectangle x="828" y="388" width="181" height="45" modelType="11"  /&gt;
+      &lt;taggedRectangle x="1004" y="292" width="197" height="109" modelType="14"  /&gt;
+      &lt;taggedRectangle x="844" y="8" width="581" height="233" modelType="31"  /&gt;
+    &lt;/taggedRectangles&gt;
+  &lt;/image&gt;
+&lt;/tagset&gt;  
+</pre>
+
+<p id="qualityconstraints">
+The amount of overlap between detection bounding boxes and ground truth bounding boxes determines whether an object has been detected or not. More precisely, the evaluation results depend on a set of user defined thresholds, which will be used by all tools of this software. Plots can be created which give detection performance for different overlap requirements. The thresholds are described in more detail in the <a href="../../publications/index.html#ijdar2006">research paper</a> (section 4.2, equation 10). The different tools can be parametrized with a single string containing the threshold values separated by commas:
+</p>
+
+<table class="graybox">
+	<tr><td>1</td>	<td>Threshold tr (area recall) for one-to-one matches</td></tr>
+	<tr><td>2</td>	<td>Threshold tp (area precision) for one-to-one matches</td></tr>
+	<tr><td>3</td>	<td>Threshold tr (area recall) for one-to-many matches (splits)</td></tr>
+	<tr><td>4</td>	<td>Threshold tp (area precision) for one-to-many matches (splits)</td></tr>	
+	<tr><td>5</td>	<td>Threshold tp (area precision) for many-to-one matches (merges)</td></tr>
+	<tr><td>6</td>	<td>Threshold tr (area recall) for many-to-one matches (merges)</td></tr>
+	<tr><td>7</td>	<td>A binary parameter determining whether an additional border verification should be done (not mentioned in the paper; should remain set to 0 if you don't know what that means).</td></tr>
+	<tr><td>8</td>	<td>An additional threshold on the difference of the centers of two matching rectangles (not mentioned in the paper).</td></tr>
+</table>
+
+
+
+<h2 id="rocplot">Creating ROC plots</h2>
+
+<p>
+For a single detection file and its corresponding ground truth file, two values, recall and precision, can be calculated. They are defined as follows:
+</p>
+
+<center>
+	<img alt="recall and precision" src="r_and_p.png"/>
+</center>
+
+<p>
+Intuitively, recall tells us how many of our objects have been detected, and precision gives us information on the amount of false alarms. Both are better if higher and should be close to 1 for perfect systems.
+</p>
+
+<p>
+Usually, an object detection algorithm is supposed to be configurable with a detection parameter, which controls the amount of detection performed. More detection usually means more false alarms. The system can then be run for a large interval of parameters, which results in a range of pairs of recall and precision values. The ROC curve ("Receiver operation characteristics") gives precision on the y-axis for recall on the x-axis. It tells us the amount of false alarms we are forced to accept if we configure the system such that a required recall is produced.
+</p>
+
+<h2>Two versions</h2>
+
+The tool comes in two versions, each coming with its own manual:
+
+<center>
+<p>
+<table>
+	<TR>
+	<TD>
+		<a href="gui.html"><img src="ss-linux-small.png" alt=""></a>
+	</TD>
+	<td> 
+		The <a href="gui.html">GUI version</a>: it is easier to use and sufficient for most cases.
+	</td>
+	<TD>
+		<a href="commandline.html"><img src="ss-cmd-small.png" alt=""></a>
+	</TD>
+	<td> 
+		The <a href="commandline.html">command line version</a>: it allows more control on the evaluation process and it is scriptable.
+	</td>
+	</TR>
+</table>
+</p>
+</center>
+
+<h2 id="download">Download</h2>
+
+<table class="downloadlist">
+	<tr>
+		<td>File</td>		
+		<td>Download</td>
+		<td>Remark</td>
+	</tr>
+	<tr class="firstfile">
+		<td>deteval-setup.exe</td>				
+		<td><a href="download/deteval-setup.exe">http</a></td>
+		<td>Windows binaries in a single-file installer package</td>
+	</tr>
+	<tr>
+		<td>deteval-bin-ubuntu-hardy.tgz</td>				
+		<td><a href="download/deteval-bin-ubuntu-hardy.tgz">http</a></td>
+		<td>Linux binaries for Ubuntu Hardy Hedron (8.04) in a .tgz package</td>
+	</tr>
+	<tr>
+		<td>deteval-src-linux.tgz</td>				
+		<td><a href="download/deteval-src-linux.tgz">http</a></td>
+		<td>Sources for Linux including compilation and install scripts.</td>
+	</tr>
+	<tr>
+		<td>deteval-src-windows.zip</td>				
+		<td><a href="download/deteval-src-windows.zip">http</a></td>
+		<td>Sources for Windows. No scripts and no support is given.</td>
+	</tr>
+</table>
+
+<h2 id="installation">Installation</h2>
+
+<h3>Windows binaries</h3>
+
+A setup package is provided - just run the executable and follow the instructions. Requirement: the <a href="http://www.ruby-lang.org/en">ruby</a> programming language must be installed!
+
+<h3>Linux binaries for Ubuntu hardy hedron</h3>
+
+<p>
+Download the .tgz file and extract the contents in the root directory. The files will automatically be placed into /usr/bin. 
+</p>
+
+<p>
+Assuming that it has been downloaded to /home/max/deteval-bin-ubuntu-hardy.tgz :
+</p>
+
+<pre>
+cd /
+sudo tar xvfz /home/max/deteval-bin-ubuntu-hardy.tgz
+</pre>
+
+<h3>Linux sources</h3>
+
+<p>
+Download the .tgz file and extract the contents into some folder. This will create a new subfolder "deteval-linux". Go there:
+</p>
+
+<pre>
+cd deteval-linux
+./build.sh
+sudo ./install.sh
+</pre>
+
+That's it. All files are automatically installed into /usr/bin. They can be uninstalled with
+
+<pre>
+sudo ./uninstall.sh
+</pre>
+
+<h3>Windows sources</h3>
+
+The sources are provided as they are, feel free to create your own project files ... 
+
+<h2 id="download">Changes and bugfixes</h2>
+
+<table class="downloadlist">
+	<tr>	
+		<td>Date</td>	
+		<td>Changes and bugfixes</td>		
+	</tr>
+	<tr class="firstfile">
+		<td>21.07.2009</td>		
+		<td>
+			- Bugfixes for windows: use ruby for copying instead of shell commands. Put filenames into quotes instead of protecting spaces with backslashes. Also protect the groundtruth file
+		</td>
+	</tr>
+	<tr>
+		<td>20.07.2009</td>		
+		<td>
+			- Bugfix crash when spaces in filenames<br>
+			- Added --object-types option to evalplots
+		</td>
+	</tr>
+	<tr>
+		<td>20.04.2009</td>		
+		<td>
+			- Added PDF export (--doplots=true option)
+		</td>
+	</tr>
+</table>	
+
+<h2 id="requirements">Requirements</h2>
+
+<p>
+Requirement: the ruby programming language must be installed, as well as libxml2-dev. The GUI requires the QT toolkit (not the command line tools). Plotting from the command line requires gnuplot as well as the epstopdf tool (not for the GUI). For ubuntu all packages are in the repository:
+</p>
+
+<p>
+Necessary for the GUI version AND for the command line version:
+</p>
+
+<pre>
+sudo apt-get install ruby libxml2 libxml2-dev 
+</pre>
+
+<p>
+Necessary for the GUI version:
+</p>
+
+<pre>
+sudo apt-get install libqt4-dev
+</pre>
+
+<p>
+Necessary for the command line version:
+</p>
+
+<pre>
+sudo apt-get install gnuplot
+sudo apt-get install texlive-extra-utils
+</pre>
+
+For windows, the ruby language can be downloaded <a href="http://www.ruby-lang.org/en">here</a>.
+
+<h2 id="author">Licence</h2>
+
+<p>
+<a href="http://en.wikipedia.org/wiki/GNU_General_Public_License">Gnu Public License (GPL)</a>
+</p>
+
+<p>
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+</p>
+
+<p>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+</p>
+
+<p>
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the
+Free Software Foundation, Inc.,
+59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+</p>
+
+<h2 id="author">Credits</h2>
+
+<p>
+DetEval was written by <a href="../../index.html">Christian Wolf</a>, the windows port and the GUI have been written by Matthieu Bacconnier. Send comments, suggestions and bug reports to the follwing address:
+</p>
+
+<p>christian.wolf (at) liris.cnrs.fr</p>
+
+<p style="border: 2px solid #90600b; padding: 1em;">
+<b><em>You need to cite the <a href="../../publications/index.html#ijdar2006">IJDAR paper</a> in all publications which describe work for which you used the DetEval tool</em></b>.
+</p>
+
+
+
+</body>
+</html>

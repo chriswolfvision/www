@@ -1,0 +1,534 @@
+#!/bin/ksh
+# **************************************************************************
+# eplot 
+# Written by Christian Wolf
+#
+# This program is free software; you can redistribute it and/or modify  
+# it under the terms of the GNU General Public License as published by  
+# the Free Software Foundation; either version 2 of the License, or     
+# (at your option) any later version.                                   
+#                                                                         
+# This program is distributed in the hope that it will be useful,       
+# but WITHOUT ANY WARRANTY; without even the implied warranty of        
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         
+# GNU General Public License for more details.                          
+#                                                                         
+# You should have received a copy of the GNU General Public License     
+# along with this program; if not, write to the                         
+# Free Software Foundation, Inc.,                                       
+# 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.   
+#
+# Changelog:
+# 03.07.2005: Added -S: plotting multiple curves from a single column,
+#             the curves being separated by blank lines.
+#             Fixed bug in the syntax validation code.
+# 01.07.2005: Fixed compatibility issue with older versions of gnuplot.
+#             fixed bug when options "-p -M" are provided
+#             Added some argument checking
+# 30.06.2005: Bugfix option -M when data is piped
+#             improved -t option to make multiple titles possible
+# XX.XX.2002: Start of project
+# **************************************************************************
+
+# --------------------------------------------------------------------------
+# Print the usage message
+# --------------------------------------------------------------------------
+
+TEXTVIEWER=cat
+GNUPLOT4ORNEWER=1
+
+VERSION="1.07 1.7.2005"
+
+# --------------------------------------------------------------------------
+# Print the usage message
+# --------------------------------------------------------------------------
+
+usage ()
+{
+	echo "usage: $0 [options] { <file> }"
+	echo
+	echo Options:
+	echo " -P Output to the PNG file foo.png instead of the terminal"
+	echo " -p Output to the postscript file foo.ps instead of the terminal"
+	echo " -a Output to the pdf file foo.pdf instead of the terminal"
+	echo " -e Output to the emf file foo.emf instead of the terminal"
+	echo " -m Multiple curves in a single diagram from different files"
+	echo " -M Multiple curves in a single diagram from a single file"		
+	echo " -S Multiple curves in a single diagram from a single column"
+	echo "    (the curve data must be separated by blank lines)"
+	echo " -r <intervals> (e.g. -r [5:10][0:100])."
+	echo " -R <aspect-ratio>"
+	echo " -s <size> size factor"
+	echo " -w <type> type of curve (lines,points,linespoints,...)"
+	echo " -x <x-axis-OPTIONS>"
+	echo " -y <y-axis-OPTIONS>"
+	echo " -t <titles> title(s) of the curve(s) (separated by @)"
+	echo " -h print this help message"
+	echo " -v print version information"
+	exit 1
+
+}
+
+# --------------------------------------------------------------------------
+# We plot different plots from the same file,
+# the different curves being in different columns
+# Seperate them into different files and recursively call the script
+# --------------------------------------------------------------------------
+
+plotMulFromMulCols ()
+{
+	YFILE=$1
+
+	# ---- Let's see how many columns we have in the file
+	nocols=`head -1 $YFILE | awk '{print NF }'`
+	col=1
+	YFILES=""
+	
+	# ---- Traverse the columns and put them into seperate files
+	while [ "$col" -le "$nocols" ]
+	do
+		COM="cat $YFILE | awk '{print \$$col}' > /tmp/Source$col"
+		eval $COM
+		YFILES="$YFILES /tmp/Source$col"			
+		col=`expr $col + 1`
+	done
+	
+	# ---- Call the script recursively
+	COM="$SCRIPTNAME $ALLOPTIONS -m $YFILES"
+	eval $COM	
+}
+
+# --------------------------------------------------------------------------
+# We plot different plots from the same file,
+# the different curves being in the same column but separated by
+# blank lines
+# Seperate them into different files and recursively call the script
+# --------------------------------------------------------------------------
+
+plotMulFromSeqCol ()
+{
+	YFILE=$1
+	TMPPREFIX=/tmp/eplot-S.$$	
+	SCRIPTFILE=/tmp/eplot-S.scriptfile.$$
+	
+	# ---- Traverse the file and put the curves into seperate files	
+	CNT=0
+	FIRST=1
+	rm -f $SCRIPTFILE	
+	cat $YFILE | while read i
+	do	
+		# ---- We got a blank line
+    	if [ -z "$i" ] 
+		then			
+			FIRST=1
+		
+		# ---- We got real data
+		else
+			# ---- The first data in a new file, create the file
+			if [ "$FIRST" -ne 0 ]
+			then
+				CNT=`expr $CNT + 1`
+				CURFILE="$TMPPREFIX""$CNT"
+				rm -f $CURFILE
+				printf " $CURFILE" >> $SCRIPTFILE
+				FIRST=0
+			fi			
+			echo $i >> $CURFILE
+		fi
+	done
+		
+	# ---- Call the script recursively
+	COM="$SCRIPTNAME $ALLOPTIONS -m `cat $SCRIPTFILE`"
+	rm -f $SCRIPTFILE
+	eval $COM	
+}
+
+# --------------------------------------------------------------------------
+# Check the option for validity
+# --------------------------------------------------------------------------
+
+processOption ()
+{
+	if [ "`echo $2 | cut -c1-1`" == "-" ]
+	then
+		echo "Option \"$1\" needs an argument!"
+		exit 1
+	fi		
+}
+
+# --------------------------------------------------------------------------
+# Initialization
+# --------------------------------------------------------------------------
+
+SCRIPTNAME=$0
+
+TMPFILE=/tmp/egplot.$$
+
+PS=""
+INTERVAL=""
+MUL=0
+MULSINGLE=0
+MULSEQUENTIAL=0
+OPTIONS=""
+DOPDF=0
+LINETYPE="lines"
+TITLESTRING=""
+HAVETITLE=0
+SIZESIZE=""
+SIZERATIO=""
+ALLOPTIONS=""
+DIDSPECIFYSIZE=0
+
+HADOPTIONS=0 
+[ $# -gt 0 ] && HADOPTIONS=1
+
+# --------------------------------------------------------------------------
+# Argument processing
+# --------------------------------------------------------------------------
+
+while [ "$HADOPTIONS" -eq 1 ]
+do
+	HADOPTIONS=0
+	
+	# ---- Do we create PNG output?
+	if [ "$1" = "-P" ]
+	then
+		PS="set terminal png ; set output \"foo.png\" ;"		
+		ALLOPTIONS="$ALLOPTIONS $1"
+		shift
+		HADOPTIONS=1
+	fi
+	
+	# ---- Do we create EMF output?
+	if [ "$1" = "-e" ]
+	then
+		PS="set terminal emf \"helvetica\" 16 ; set output \"foo.emf\" ;"
+		ALLOPTIONS="$ALLOPTIONS $1"
+		shift
+		HADOPTIONS=1
+	fi
+
+	# ---- Do we create postscript output?
+	if [ "$1" = "-p" ]
+	then
+		PS="set terminal postscript ; set output \"foo.ps\" ;"
+		ALLOPTIONS="$ALLOPTIONS $1"
+		shift
+		HADOPTIONS=1
+	fi
+	
+	# ---- Do we create PDF output? First we create postscript
+	# ---- A conversion is done afterwards
+	if [ "$1" = "-a" ]
+	then
+		PS="set terminal postscript ; set output \"foo.ps\" ;"
+		ALLOPTIONS="$ALLOPTIONS $1"
+		shift
+		HADOPTIONS=1
+		DOPDF=1
+	fi
+	
+	# ---- Multiple curves in one window with different files?
+	if [ "$1" = "-m" ]
+	then
+		MUL=1
+		shift
+		HADOPTIONS=1
+	fi
+	
+	# ---- Multiple curves in one window from the same file,
+	# ---- data in different columns?
+	if [ "$1" = "-M" ]
+	then
+		MULSINGLE=1
+		shift
+		HADOPTIONS=1
+	fi
+	
+	# ---- Multiple curves in one window from the same file,
+	# ---- data in the same column?
+	if [ "$1" = "-S" ]
+	then
+		MULSEQUENTIAL=1
+		shift
+		HADOPTIONS=1
+	fi
+	
+	if [ "$1" = "-w" ]
+	then
+		LINETYPE=$2
+		ALLOPTIONS="$ALLOPTIONS $1 $2"
+		processOption $1 $2|| exit 1
+		shift
+		shift
+		HADOPTIONS=1
+	fi
+
+	if [ "$1" = "-r" ]
+	then
+		INTERVAL=$2
+		ALLOPTIONS="$ALLOPTIONS $1 $2"
+		processOption $1 $2|| exit 1
+		shift
+		shift
+		HADOPTIONS=1
+	fi
+	
+	if [ "$1" = "-x" ]
+	then
+		OPTIONS="$OPTIONS set xlabel \"$2\";"
+		ALLOPTIONS="$ALLOPTIONS $1 $2"
+		processOption $1 $2|| exit 1
+		shift
+		shift
+		HADOPTIONS=1
+	fi   
+	
+	if [ "$1" = "-y" ]
+	then
+		OPTIONS="$OPTIONS set ylabel \"$2\";"
+		ALLOPTIONS="$ALLOPTIONS $1 $2"
+		processOption $1 $2|| exit 1
+		shift
+		shift
+		HADOPTIONS=1
+	fi 
+	
+	if [ "$1" = "-t" ]
+	then
+		TITLESTRING=$2
+		HAVETITLE=1
+		ALLOPTIONS="$ALLOPTIONS $1 \"$2\""
+		processOption $1 $2|| exit 1
+		shift
+		shift
+		HADOPTIONS=1
+	fi   
+	
+	if [ "$1" = "-R" ]
+	then
+		SIZERATIO="$2"
+		DIDSPECIFYSIZE=1
+		ALLOPTIONS="$ALLOPTIONS $1 $2"
+		processOption $1 $2|| exit 1
+		shift
+		shift
+		HADOPTIONS=1
+	fi 
+	
+	if [ "$1" = "-s" ]
+	then
+		SIZESIZE="$2"
+		DIDSPECIFYSIZE=1
+		ALLOPTIONS="$ALLOPTIONS $1 $2"
+		processOption $1 $2|| exit 1
+		shift
+		shift
+		HADOPTIONS=1
+	fi 
+	
+	if [ "$1" = "-h" ]
+	then
+		usage
+		exit 0
+	fi 
+	
+	if [ "$1" = "-v" ]
+	then
+		echo "egplot version $VERSION"
+		echo "Written by Christian Wolf"
+		echo "License: GPL; this is free software. There is absolutely NO warranty!!"
+		exit 0
+	fi 
+	
+	if [ "$HADOPTIONS" -eq 0 -a "`echo $1 | cut -c1-1`" == "-" ]
+	then
+		echo "unknown option \"$1\""
+		exit 1
+	fi
+	
+done
+
+# ---- Set the size and the aspect ratio
+if [ "$DIDSPECIFYSIZE" -ne 0 ]
+then	
+	# [ -z "$SIZESIZE" ] && SIZESIZE=1	
+	OPTIONS="$OPTIONS set size "
+	[ ! -z "$SIZERATIO" ] && OPTIONS="$OPTIONS ratio $SIZERATIO "
+	[ ! -z "$SIZESIZE" ]  && OPTIONS="$OPTIONS $SIZESIZE,$SIZESIZE "
+	OPTIONS="$OPTIONS;"
+fi
+
+# --------------------------------------------------------------------------
+# Input = standard input
+# --------------------------------------------------------------------------
+
+if [ -z "$1" ]
+then
+	
+	# ---- Read all the input and put it into a file
+	FILE="/tmp/gplot_tmp.$$"
+	while read i
+	do
+    	echo $i
+	done > $FILE	
+	
+	# ---- Multiple plots from multiple columns
+	if [ "$MULSINGLE" -ne 0 ]
+	then
+		plotMulFromMulCols $FILE
+		exit 0
+	fi
+	
+	# ---- Multiple plots from a single column
+	if [ "$MULSEQUENTIAL" -ne 0 ]
+	then
+		plotMulFromSeqCol $FILE
+		exit 0
+	fi		
+	
+	# ---- We plot only a single plot	
+	[ ! -z "$TITLESTRING"] && TITLESTRING="title \"$TITLESTRING\""
+	COM="$PS $OPTIONS plot $INTERVAL \"$FILE\" $TITLESTRING with $LINETYPE"
+	echo $COM >&2
+	echo $COM | gnuplot -persist
+	rm -f $FILE	
+	
+
+# --------------------------------------------------------------------------
+# At least one file has been given
+# --------------------------------------------------------------------------
+
+else
+
+	# ---- Multiple plots from a single column
+	if [ "$MULSEQUENTIAL" -ne 0 ]
+	then
+		plotMulFromSeqCol $1
+		exit 0
+	fi	
+
+	# ---- Multiple curves in one plot, from seperated files
+	if [ "$MUL" -eq 1 ]
+	then	
+
+		# ---- The command header
+		COLOR=1
+		COM="$PS $OPTIONS"
+		if [ "$GNUPLOT4ORNEWER" -eq 1 ]
+		then
+			echo "gnuplot >= 4"
+			COM="$COM `cat $0 | grep ^set | grep 'style line'` "
+		else
+			echo "gnuplot < 4"
+			COM="$COM `cat $0 | grep ^set | grep linestyle` "
+		fi
+		COM="$COM set multiplot ; plot $INTERVAL "
+
+		
+		# ---- Prepare the titlestrings: separate the global
+		# ---- string into different lines of a temp file
+		if [ "$HAVETITLE" -ne 0 ]
+		then
+			echo "$TITLESTRING" | \
+				awk -F@ '{ for(i=1;i<=NF;++i) print $i }' > $TMPFILE
+			NOTITLES=`cat $TMPFILE | wc -l`
+		fi
+		
+		# ---- The plotting commands for each file
+		FIRST=1
+		while [ ! -z "$1" ]
+		do
+			if [ "$FIRST" -eq 1 ]
+			then
+				FIRST=0
+			else
+				COM="$COM , "
+			fi	
+		
+			# ---- Prepare the title for this plot
+			THISTITLE=""
+			if [ "$HAVETITLE" -ne 0 ]
+			then
+				if [ "$COLOR" -gt "$NOTITLES" ]
+				then
+					echo "You did not specify enough titles for the given number of plots!"
+					exit 1
+				fi
+				THISTITLE="title \""`\cat $TMPFILE | sed -n "$COLOR,$COLOR"p`"\""
+			fi
+			
+			COM="$COM \"$1\" $THISTITLE with $LINETYPE ls $COLOR"
+			COLOR=`expr $COLOR + 1`
+			shift
+		done
+		echo $COM >&2
+		echo $COM | gnuplot -persist	
+	else
+	
+		# ---- Multiple curves in one plot, 
+		# ---- from seperated columns in a single file
+		if [ "$MULSINGLE" -ne 0 ]
+		then
+			plotMulFromMulCols $1
+			exit 0
+		fi		
+		
+		# ---- Each curve in its own plot
+		while [ ! -z "$1" ]
+		do		
+			# remove the comments and show them in an own window
+			grep "^#" "$1" > $TMPFILE
+			if [ $? -eq 0 ] 
+			then
+				( $TEXTVIEWER $TMPFILE && rm -f $TMPFILE ) & 
+			else
+				rm -f $TMPFILE
+			fi
+			
+			# plot the data			
+			[ ! -z "$TITLESTRING"] && TITLESTRING="title \"$TITLESTRING\""
+			COM="$PS $OPTIONS plot $INTERVAL \"$1\" $TITLESTRING with $LINETYPE"			
+			echo $COM >&2
+			echo $COM | gnuplot -persist
+			shift
+		done
+	fi
+fi
+
+# ---- DO WE CREATE PDF OUTPUT?
+if [ "$DOPDF" -ne 0 ]
+then
+
+	echo "BBB: $DOPDF"
+
+	COM="ps2epsi foo.ps"
+	echo $COM >&2
+	eval $COM
+	COM="epstopdf foo.epsi"
+	echo $COM >&2
+	eval $COM
+	COM="rm -f foo.ps foo.epsi"
+	echo $COM >&2
+	eval $COM
+fi
+
+exit 0
+
+set style line 1 lt 1 lw 1 pt 1 ps 0.5 ; 
+set style line 2 lt 3 lw 1 pt 1 ps 0.5 ;
+set style line 3 lt 7 lw 1 pt 1 ps 0.5 ;
+set style line 4 lt 4 lw 1 pt 4 ps 0.5 ;
+set style line 5 lt 5 lw 1 pt 4 ps 0.5 ;
+set style line 6 lt 6 lw 1 pt 2 ps 0.5 ;
+set style line 7 lt 2 lw 1 pt 4 ps 0.5 ;
+set style line 8 lt 8 lw 1 pt 4 ps 0.5 ;
+
+set linestyle 1 lt 1 lw 1 pt 1 ps 0.5 ; 
+set linestyle 2 lt 3 lw 1 pt 1 ps 0.5 ;
+set linestyle 3 lt 7 lw 1 pt 1 ps 0.5 ;
+set linestyle 4 lt 4 lw 1 pt 4 ps 0.5 ;
+set linestyle 5 lt 5 lw 1 pt 4 ps 0.5 ;
+set linestyle 6 lt 6 lw 1 pt 2 ps 0.5 ;
+set linestyle 7 lt 2 lw 1 pt 4 ps 0.5 ;
+set linestyle 8 lt 8 lw 1 pt 4 ps 0.5 ;

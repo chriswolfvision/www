@@ -1,0 +1,57 @@
+/***************************************************************************************
+ * main.css
+ * Style file for publication lists
+ * Author: christian wolf chriswolf@gmx.at
+ * Begin: 17.4.2005
+ ***************************************************************************************/
+ 
+body {
+	margin-left: 8%; 
+}
+
+H2 {
+	margin-left: -3%;
+}
+
+.navmenu {
+	margin-left: -3%;
+}
+
+/***************************************************************************************
+ * The types
+ ***************************************************************************************/
+ 
+span.t-author {
+}
+
+span.t-title {
+	font-weight:bold; 	
+}
+
+span.t-medium {
+	font-style:italic;
+}
+
+.t-abstract { 
+	display: none;
+	margin-left: +4%;
+	margin-right: +4%;
+	margin-top: +0.5em;
+	margin-bottom: +0.5em;
+	font-style:italic;
+}
+
+.t-bibtex { 
+	display: none;
+	margin-left: +4%;
+	margin-right: +4%;
+	margin-top: +0.5em;
+	margin-bottom: +0.5em;
+	font-style:italic;
+}
+
+.t-emph { 
+	font-weight:bold;
+	color: #f90101; 	
+}
+

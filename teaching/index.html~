@@ -1,0 +1,336 @@
+<!-- ****************************************************************************************
+  Author: Christian Wolf
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>Christian Wolf: Enseignement(Teaching)</title>
+	<LINK REL=stylesheet HREF="../main.css" TYPE="text/css">
+	<link rel="shortcut icon" href="../graphics/favicon.ico">
+	<LINK REL=stylesheet HREF="teaching.css" TYPE="text/css">
+</head>
+<body>
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+<!-- ****************************************************************************************
+  The nav menu box
+  ******************************************************************************************* -->
+
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="../index.html">Main</a></li>
+		<li> <a href="../research/index.html">Research</a></li>
+		<li> <a href="../teaching/index.html">Teaching</a></li>
+		<li> <a href="../cv/index.html">CV</a></li>
+		<li> <a href="../publications/index_bydate.html">Publications</a></li>
+		<li> <a href="../publications/pres.html">Presentations</a></li>
+		 
+		<li> <a href="../software/index.html">Software</a></li>
+		<li> <a href="http://mady.n.free.fr/chris/noah">Private</a></li>
+	</ul>
+</div>  
+
+<h1>Enseignement - Teaching</h1>
+
+<!-- ****************************************************************************************
+ - THE UFR BOX
+  ******************************************************************************************* -->
+ 
+ <div class="ufr-box">
+	<br> 	
+	<p>INSA de Lyon</p>
+	<p>Premier cycle, D. Informatique</p>
+	<div class="breaker"> </div>
+ </div>
+  
+<!-- ****************************************************************************************
+ - List of classes
+  ******************************************************************************************* -->
+
+<h2>
+	<span class="t-type">TD</span> 
+	<span class="t-title">Introduction &agrave; la micromachine </span>
+	<span class="t-year">(IF - 3&egrave;me ann&eacute;e)</span> 
+</h2>	
+<h2>
+	<span class="t-type">TP</span> 
+	<span class="t-title">Micromachine </span>
+	<span class="t-year">(IF - 3&egrave;me ann&eacute;e)</span> 
+</h2>	
+	
+	<table>
+	<TR>
+		<TD><a href="http://intranet-if.insa-lyon.fr/micromachine"><img alt="" src="logo_micromachine.jpg"></a></TD>
+		<TD>Voir le <a href="http://intranet-if.insa-lyon.fr/micromachine">site du module micromachine</a>.</TD>
+	</TR>
+	</table>
+<h2>
+	<span class="t-type">Cours</span> 
+	<span class="t-title">Video analysis</span>
+	<span class="t-year">(TC - 4&egrave;me ann&eacute;e)</span> 
+</h2>
+	<ul>
+		<li>Video analysis : recognition of indivual and group actions; gesture recognition; space-time interest points; Bags of words models; HMMs; background subtraction; ego-motion; sports activities recognition; time of flight cameras</li>
+		<li>The slides of the lecture <a href="video/tc-video-tip.pdf">[PDF]</a></li>
+	</ul>
+
+<h2>
+	<span class="t-type">Seminar</span> 
+	<span class="t-title">Video analysis: activity detection and recognition</span>
+	<span class="t-year">(IF - 5&egrave;me ann&eacute;e)</span> 
+</h2>
+	<ul>
+		<li>Video analysis : recognition of indivual and group actions; gesture recognition; sports activities recognition; crowd behavior analysis; space-time interest points; Bags of words models and extensions; HMMs; background subtraction; optical flow; tracking and Kalman filtering; ego-motion;  time of flight cameras</li>
+		<li>The slides of the first lecture <a href="video/seminaire-if-video-cours1.pdf">[PDF]</a></li>
+		<li>The slides of the second lecture <a href="video/seminaire-if-video-cours2.pdf">[PDF]</a></li>
+		<li>The slides of the third lecture <a href="video/seminaire-if-video-cours3.pdf">[PDF]</a></li>				
+	</ul>
+
+	<table>
+	<TR>
+		<TD><a href="video/index.html"><img alt="" src="logo_video.png"></a></TD>
+		<TD><a href="video/index.html">The exercise (TP) session</a>.</TD>
+	</TR>
+	</table>
+
+<h2>
+	<span class="t-type">Cours, TD et TP</span> 
+	<span class="t-title"> Lani&egrave;re SCAN - Groupe 71 </span>
+	<span class="t-year">(PC - 2&egrave;me ann&eacute;e)</span> 
+</h2>
+	Algorithmics and the Pascal programming language:
+	<ul>
+		<li>Input/output</li>
+		<li>Pointers</li>
+    	<li>Object oriented programming</li>
+     	<li>User interface design: event based programming</li>
+		<li>Dynamic data structures: lists, trees, graphs</li>
+		<li>Mini projet </li>
+	</ul>
+
+	<h3>Mini-projects</h3>
+	
+	Example codes and tutorials:
+	<ul>
+		<li> Animation, multiple moving objects managed by a class hierarchy and virtual "move()" functions. User interactin: 
+			 <a href="pc-miniprojects/tutorials/tutorial_cwolf_flying_sheep.zip">[ZIP]</a></li>		
+		<li>How to move graphics with the mouse (possible large animataions!) - paint directly on the canvas of the form
+			 <a href="pc-miniprojects/tutorials/mousemove_onformdirect.tgz">[TAR-GZ]</a></li>		
+		<li>How to use TStringGrids, and do a (small!) animation with a timage, and how to use timers
+			<a href="pc-miniprojects/tutorials/tutorial.tgz">[TAR-GZ]</a></li>
+		<li>How to stretch an image <a href="pc-miniprojects/tutorials/tutorial_stretch.tgz">[TAR-GZ]</a></li>
+		<li>How to use a color dialog<a href="pc-miniprojects/tutorials/tutorial_tcolordialog.tgz">[TAR-GZ]</a></li>
+	</ul>
+
+	<table>
+	<TR>
+		<TD><a href="pc-miniprojects/index.html"><img alt="" src="logo_miniprojets.png"></a></TD>
+		<TD><a href="pc-miniprojects/index.html">Screenshots of previous miniprojects</a></TD>
+	</TR>
+	</table>
+	
+	A couple of (hopefully) useful links:
+	<ul>
+		<li>A cute java applet which visualizes <a href="http://www.cs.usfca.edu/~galles/visualization">how various data structures work.</a></li>
+		<li><a href="http://wiki.lazarus.freepascal.org/index.php/Lazarus_Documentation">Lazarus documentation</a></li>
+		<li><a href="http://cipcnet.insa-lyon.fr/moodle/mod/resource/view.php?id=2408">Dialogs</a></li>
+		<li><a href="http://delphi.about.com/library/bluc/text/uc052102a.htm">Delphi/Lazarus: Graphics programming</a></li>
+		<li><a href="http://delphi.about.com/od/vclusing/a/dragdrop.htm">Delphi/Lazarus: programming drag and drop</a></li>
+	</ul>
+
+<h2>
+	<span class="t-type">TD et TP</span> 
+	<span class="t-title"> Lani&egrave;re M - Groupe 52 </span>
+	<span class="t-year">(PC - 2&egrave;me ann&eacute;e)</span> 
+</h2>
+	cf. lani&egrave;re SCAN.
+
+
+<!-- ****************************************************************************************
+ - THE UFR BOX
+  ******************************************************************************************* -->
+ 
+ <div class="ufr-box"> 
+	<br> 	
+	<p>Teaching material for previously taught classes</p>
+	<div class="breaker"> </div>
+ </div>
+
+<h2>
+	<span class="t-type">TP</span> 
+	<span class="t-title">Khepera - Coupleur S&eacute;rie et E/S </span>
+	<span class="t-year">(IF - 3&egrave;me ann&eacute;e)</span> 
+</h2>	
+	<ul>
+		<li>Programmation, en C sur VxWorks, du coupleur Z85230 responsable de la gestion de la ligne s&eacute;rie: 
+		Connexion, d&eacute;connexion et E/S en mode polling (attente active). Application: communication VxWorks/robot khepera.</li>
+		<li>Le sujet <a href="khepera-coupleur/sujet.pdf">[PDF]</a></li>
+	</ul>
+</h2>
+
+<h2>
+	<span class="t-type">TP</span> 
+	<span class="t-title">Khepera - automates </span>
+	<span class="t-year">(INSA-Lyon, Bac+3, 2005-2007)</span> 
+</h2> 	
+	<ul>
+		<li>Conception, sur papier, des couches physique (OSI-1) et liaison (OSI-2) 
+		d'une connexion serie en mode ma&icirc;tre-&eacute;sclave pour le robot khepera.
+		R&eacute;alisation d'un automate fini.</li>		
+		<li>Le sujet <a href="khepera-automates/sujet.pdf">[PDF]</a></li>
+	</ul>
+</h2>
+
+<h2>
+	<span class="t-type">TP</span> 
+	<span class="t-title">Khepera - t&eacute;l&eacute;communication </span>
+	<span class="t-year">(INSA-Lyon, IF, Bac+3, 2005-2008)</span> 
+</h2>	
+	Programmation, en C sur VxWorks, de la couche liaison (OSI-2) d'une connexion 
+	serie en mode ma&icirc;tre-&eacute;sclave pour le robot khepera. Programmation des automates con&ccedil;us dans le TP "automates".
+	<ul>
+		<li>Le sujet <a href="khepera-telecom/sujet.pdf">[PDF]</a></li>
+		<li>Les sources a compl&eacute;ter <a href="khepera-telecom/to-complete.tar.gz">[TAR-GZ]</a></li>
+	</ul>
+</h2>
+
+
+<H2><a name="ibd"></a><span class="t-type">Cours</span> <span class="t-title">Introduction aux Bases de Donn&eacute;es</span> <span class="t-year">(ENSPS Strasbourg, Bac+4, 2004/2005)</span> </H2>
+<ul>
+  <li>Chapitre 1 : Introduction <a href="ibdsgbd/download/ibd_01_intro.pdf">[PDF]</a></li>
+  <li>Chapitre 2 : Stockage physique de donn&eacute;es, Indexation <a href="ibdsgbd/download/ibd_02_stockage.pdf">[PDF]</a></li>
+  <li>Chapitre 3 : Architecture de BD, Mod&eacute;lisation conceptionelle bas&eacute;e sur le mod&egrave;le E/A en notation UML <a href="ibdsgbd/download/ibd_03_modelesconceptuels.pdf">[PDF]</a></li>
+  <li>Chapitre 4 : Les anciens mod&egrave;les conceptuels (le mod&egrave;l hi&eacute;rarchique; le mod&egrave;le r&eacute;seau) <a href="ibdsgbd/download/ibd_04_ancienmodeles.pdf">[PDF]</a></li>
+  <li>Chapitre 5 : Le mod&egrave;le r&eacute;lationel, alg&egrave;bre relationelle <a href="ibdsgbd/download/ibd_05_modelrelationnel.pdf">[PDF]</a></li>
+  <li>Chapitre 6 : Le langage SQL <a href="ibdsgbd/download/ibd_06_sql.pdf">[PDF]</a> </li>
+  <li>Chapitre 7 : Normalisation <a href="ibdsgbd/download/ibd_07_normalisation.pdf">[PDF]</a></li>
+  <li>Annexe : &eacute;tude de cas : la vid&eacute;otheque <a href="ibdsgbd/download/ibd_annexe.pdf">[PDF]</a> </li>
+</ul>
+<ul>	
+  <li>Sujet de l'examen du 1 F&eacute;vrier 2005 : <a href="ibdsgbd/download/intero_ibd_050201.pdf">[PDF]</a> </li>
+</ul>
+<ul>
+  <li>References:
+	<ul>
+	<li>Georges Gardarin, &laquo; <em>Bases de Donn&eacute;es </em> &raquo;, Eyrolles 2001, ISBN 2-212-09283-0</li>
+	<li>Serge Miranda, &laquo; <em>Base de Donn&eacute;es - Architectures, mod&egrave;les relationnels et objets, SQL 3 </em> &raquo;, Dunod 2002, ISBN 2-10-005130-X </li>
+	<li>Judith S. Bowman, Sandra L. Emerson, Marcy Darnovsky, &laquo; <em>SQL </em> &raquo;, Campus Press 2002, ISBN 2-7440-1244-0 </li>
+	<li>MySQL Documentation&nbsp;:&#13;<a href="http://dev.mysql.com/doc/">http://dev.mysql.com/doc/</a></li>
+	</ul>
+  </li>
+</ul>
+<h2><span class="t-type">TP</span> Introduction aux Bases de Donn&eacute;es <span class="t-year">(ENSPS Strasbourg, Bac+4, 2004/2005)</span></h2>
+<ul>
+  <li>Conception d'un mod&egrave;le E/A, conception d'un mod&egrave;le relationel, impl&eacute;mentation en SQL sous "mySQL", conception de requ&ecirc;tes SQL</li>
+  <li>Sujet: <a href="ibdsgbd/download/idb_sujet.pdf">[PDF]</a></li>
+</ul>
+
+<h2><span class="t-type">Cours</span> <span class="t-title">Syst&egrave;mes de Gestion de Bases de Donn&eacute;es</span><span class="t-year"> (ENSPS Strasbourg, Bac+5, option GLSR, 2004/2005)</span></h2>
+<ul>
+  <li>Contenu comme le cours &quot;<a href="#ibd">Introduction aux Bases de Donn&eacute;e</a>s&quot;, plus le chapitre suivant:</li>
+  <li>Chapitre 8 : Les transactions <a href="ibdsgbd/download/sgbd_06_transactions.pdf">[PDF] </a></li>
+  <li>Sujet de l'examen du 20 Janvier 2005 : <a href="ibdsgbd/download/intero_sgbd_050120.pdf">[PDF]</a></li>
+</ul>
+
+<h2><span class="t-type">TP</span> <span class="t-title">Syst&egrave;mes de Gestion de Bases de Donn&eacute;es </span> <span class="t-year">(ENSPS Strasbourg, Bac+5, option GLSR, 2004/2005) </span></h2>
+<ul>
+  <li>Conception d'un mod&egrave;le E/A, conception d'un mod&egrave;le relationel, impl&eacute;mentation en SQL sous "mySQL", conception de requ&ecirc;tes SQL</li>
+  <li>Sujet: <a href="ibdsgbd/download/idb_sujet.pdf">[PDF]</a></li>
+</ul>
+
+<h2><span class="t-type">Cours</span> <span class="t-title">Programmation Orient&eacute; Objet </span> <span class="t-year">(ENSPS Strasbourg, Bac+4, 2004/2005)</span></h2>
+<ul>
+  <li>Impl&eacute;mentation en C++ d'un syst&egrave;me de traitement d'images.</li>
+</ul>
+
+<h2><span class="t-type">TD</span> <span class="t-title">Acquisition - Interface Graphique </span><span class="t-year">(ENSPS Strasbourg, Bac+4, 2004/2005)</span></h2>
+<ul>
+  <li>Impl&eacute;mentation en C++ d'un syst&egrave;me d'acquisistion d'images par cam&eacute;ra.</li>
+  <li>Syst&egrave;me d'acquisition: Matrox Imaging Library (MIL); Frame grabber: Matrox Meteor II.</li>
+  <li>Graphical User Interface: Borland C++ Builder 4 </li>
+</ul>
+
+
+    <h2  ><a name="CVision"></a><span class="t-type">Cours</span> <span class="t-title">Vision Industrielle  </span> <span class="t-year">(INSA-Lyon, GI, Bac+4, 2002-2004)</span></h2>
+    <ul>
+	  <li>Chapter 1: <strong>Introduction</strong>: Motivation, human vision, history, digital images, methodology</li>
+      <li>Chapter 2: <strong>Image Acquisition</strong>: Image formation, sensors, cameras, scanners, illumination, color</li>
+      <li>Chapter 3: <strong>The Fourier Transform</strong>: Noise, Fourier transformation, image filtering in the frequency domain, correlation [<a href="vision/download/vision_03_fourier_en.pdf">PDF</a>]</li>
+      <li>Chapter 4: <strong>Image Processing</strong>: Linear and non linear filtering, histograms [<a href="vision/download/vision_04_filter_en.pdf">PDF</a>]</li>
+      <li>Chapter 5: <strong>Image Analysis:</strong> Thresholding, gradients, laplacian, edge detection, region segmentation [<a href="vision/download/vision_05_analysis_en.pdf">PDF</a>]</li>
+      <li>Chapter 6: <strong>Mathematical Morphology &amp; 3D</strong>: Binary images, erosion, dilation, opening, closing, neighborhood transformations, skeleton, thinning, Shape from X [<a href="vision/download/vision_06_morpho_en.pdf">PDF</a>]</li>
+    </ul>
+	
+    <ul>
+      <li>Sujet de l'examen 2003/2004: <a href="vision/download/intero20032004.pdf">[PDF</a>]</li>
+      <li>Sujet de l'examen 2002/2003: <a href="vision/download/intero20022003.pdf">[PDF]</a></li>
+    </ul>
+    <ul>
+      <li>Note: The PDF files have been optimized for printing, so they have been exported in gray levels instead of color (let's use a computer vision term since we are here to learn vision). Hint: the graphical complexity of the slides is quite high, so sometimes it is a good idea to set the printing options to "Level 1" if you have a postscript printer in order to obtain good results (or any results at all).</li>
+    </ul>
+	
+    <h2><a name="TPVision"></a><span class="t-type">TP</span> <span class="t-title">Vision Industrielle</span> <span class="t-year">(INSA-Lyon, GI, Bac+4, 2001-2004)</span></h2>
+    <ul>
+	  <li>Exemples: filtrage, seuillage, s&eacute;gmentation, morphologie math&eacute;matique (Web: <a href="http://telesun.insa-lyon.fr">telesun</a>) </li>
+      <li><a href="vision/tp2003_2004.html">Sujet du TP 2003/2004</a></li>
+      <li><a href="vision/tp2002_2003.html">Sujet du TP 2002/2003</a></li>
+    </ul>
+	
+    <h2  ><span class="t-type">TP</span> <span class="t-title">Probabilit&eacute; et Statistique</span> <span class="t-year">(INSA-Lyon, GI, Bac+3, 2002-2004)</span></h2>
+    <ul>
+	  <li>Lois de probabilit&eacute;s, variables et signaux al&eacute;atoires, r&eacute;gression lin&eacute;aire, estimation, test d'hypoth&egrave;ses (Matlab, Windows)
+	  </li>
+	  <li>Les donn&eacute;es:
+              <ul>
+                <li> L'echantillon: notes sur 20 mati&egrave;res pour 75 &eacute;tudiants: <a href="stat/download/notes">[txt/data]</a></li>
+                  <li>Le test de diff&eacute;rences premi&egrave;res: <a href="stat/download/diffpre.m">[Matlab]</a></li>
+                  <li> Le test Kolmogorov-Smirnov: <a href="stat/download/ks.m">[Matlab]</a></li>
+              </ul>
+      </li>
+    </ul>
+
+    <h2  ><span class="t-type">TP</span> <span class="t-title">Programmation en C</span> <span class="t-year">(INSA-Lyon, GI, Bac+3, 2001-2004)</span></h2>
+    <ul><li>Objets et actions &eacute;l&eacute;mentaires, structures de contr&ocirc;le, proc&eacute;dures et fonctions, structures it&eacute;ratives, structures r&eacute;cursives (Linux).      </li>
+    </ul>
+
+    <h2  ><span class="t-type">TP</span> <span class="t-title">Programmation en C++</span> <span class="t-year">(INSA-Lyon, GI, Bac+3, 2001-2004)</span></h2>
+    <ul><li>Programmation orient&eacute; objets avec C++ (Linux).
+      </li>
+    </ul>
+	
+    <h2  ><span class="t-type">TP</span> <span class="t-title">Multi-t&acirc;che</span> <span class="t-year">(INSA-Lyon, GI, Bac+3, 2001-2004)</span></h2>
+    <ul><li>Programmation de syst&egrave;mes multi-t&acirc;che, synchronisation (Linux). </li>
+      <li>Sujet: <a href="tpmultitaches/sujettpmultitaches.pdf">[PDF]</a></li>
+    </ul>
+	
+    <h2  ><span class="t-type">TP</span> <span class="t-title">Communication PC</span> <span class="t-year">(INSA-Lyon, GI, Bac+3, 2001-2004)</span></h2>
+    <ul><li>Signaux UNIX, temporisations, programmation du port s&eacute;rie (Linux). </li>
+      <li>Sujet: <a href="tpcom/sujettpcom.pdf">[PDF]</a></li>
+    </ul>
+	
+
+</body>
+</html>

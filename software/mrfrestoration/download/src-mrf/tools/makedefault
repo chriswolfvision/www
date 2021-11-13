@@ -1,0 +1,207 @@
+#!/usr/bin/ruby
+# **************************************************************************
+# usage: makedefault [-e] [-q] targetname [ C-Flags ] [ , libraries ]
+#
+# Compiles all the files in a directory with correct processing of the
+# dependencies. Glues all the files together and creates a single object
+# file.
+#
+# If the option -e is given, then an executable is created. Additional
+# flags for the compiler and libraries can be given after the target name.
+# the flags and the libararies are separated by a comma.
+#
+# For each headerfile which contains the keyword "Q_OBJECT", the
+# meta-object-compiler compiles a new cpp file.
+#
+# Author: Christian Wolf, christian.wolf@insa-lyon.fr
+
+# Changelog:
+# 2.02  11.04.2008: -Port to windows: remove echo command
+# 2.01  12.03.2008: -Bugfix: use ld instead of ar for executables
+# 2.00  28.04.2007: -Complete rewrite in ruby
+# 1.00  10.08.2000: -Start of project, initial version written in 
+#                    UNIX korn shell, sed, awk
+# **************************************************************************
+
+#Include the directory containing the script to the search path
+$LOAD_PATH << File.expand_path(File.dirname(__FILE__))
+
+require 'tempfile'
+require 'settings.rb'
+require 'lib.rb'
+
+$MF="Makefile.makedefault"
+
+# ---- Check if we already have an old makefile. Restore the commands
+# ---- and check if the are equal -> then we don't need to build the
+# ---- makefile
+
+printf "Entry makedefault.\n"
+
+# ---- Check whether the given file contains a given key word
+def fileContains(i,str)
+  begin
+			file = File.open(i) 
+		rescue
+			$stderr.printf "*** cannot open file '%s' for reading!\n",i
+			exit 1
+		end		
+    found=false
+		file.each_line do |line| 
+      if line.index(str) != nil
+          found=true
+      end
+    end		
+		file.close  
+    found
+end
+
+begin
+	file = File.open($MF)
+	newarg=arr2str(ARGV)
+	oldarg=file.gets[2..-1]
+	oldarg["\n"]=""
+	file.close
+
+	# ---- We already have a valid makefile
+	if newarg==oldarg
+		printf "Using existing makefile.\n"	
+		runCom $MAKE+" -f "+$MF,true
+		exit
+	end
+rescue
+end
+
+# ---- Argument processing
+if ARGV.length<1
+    printf "usage: makedefault [-e] targetname [ C-Options ] [ , Libraries ]"
+    exit 1
+end
+
+# ---- Store the command line arguments as comment in the makefile
+# ---- so that the next run can check the validity
+printf "Creating new makefile.\n"	
+begin
+	File.unlink "$MF"
+rescue 
+end
+
+begin
+	makefile=File.open($MF,"w")
+	makefile.printf "# "+arr2str(ARGV)
+rescue					
+	$stderr.printf "Cannot open file "+$MF+" for writing!\n"
+	exit 1
+end
+
+
+# ---- Argument processing
+hadoptions=false 
+hadoptions=true if ARGV.length > 0
+cmdcreate="ar -cr"
+cmdindex="ranlib"
+libs=""
+
+while hadoptions
+	hadoptions=false
+	
+	# ---- we produce an executable
+	if ARGV[0] == "-e"
+    	cmdcreate="$(CC) -o"
+    	libs="$(LIBS)"
+    	ARGV.shift
+		cmdindex=""
+		hadoptions=true
+	end
+end
+
+target=ARGV[0]
+ARGV.shift 
+
+# ---- Create the C-Flags and Library strings
+inLFlagsSection=false
+cflags=""
+lflags=""
+ARGV.each do |arg|
+    if arg=="," 
+		inLFlagsSection=true
+    else
+		if inLFlagsSection
+			lflags=lflags+" "+arg
+		else
+			cflags=cflags+" "+arg
+			
+		end
+	end
+end
+
+# Apply the meta object compiler and create the new cpp files
+printf "Checking for QT Objects: "
+haveqt=false
+qtfiles=Array.new
+Dir["*.h"].each do |i|
+
+	printf "["+i
+	
+	# ---- Check whether the file contains the word Q_OBJECT
+  if fileContains(i,"Q_OBJECT")
+	#if system("cat "+i+" | grep Q_OBJECT > /dev/null 2> /dev/null")		
+		printf "--Q_OBJECT found"
+		qtfiles.push(i) 
+	end
+	printf "]"
+	
+end
+printf "\n"
+
+# For each .h file containing a QT object call moc		
+qtfiles.each do |i|
+	
+	runCom $MOC+" "+i+" > moc_"+noSuffix(i)+".cpp",false
+	haveqt=true
+end
+
+if haveqt
+	cflags=cflags+" -I"+$QTDIR+"/include"
+	lflags=lflags+" "+$QTLIBS
+end
+
+# ---- Include the makefile options
+makefile.printf  "
+CC	=	gcc
+CFLAGS  =       "+cflags+"
+LIBS	=	"+lflags+"
+
+OBJS     =	"
+
+# ---- Include the rule for the main target
+Dir["*.{c,cc,cpp,C}"].each do |i|
+	makefile.printf noSuffix(i)+".o "
+end
+
+makefile.printf "\n\n"+target+":	$(OBJS)\n"
+makefile.printf "	"+cmdcreate+" "+target+" $(OBJS) "+libs+"\n"
+
+if not cmdindex==""
+	makefile.printf "	"+cmdindex+" "+target+"\n"
+end
+makefile.printf "\n"
+
+# ---- Include the rules for the sources files
+makefile.close
+Dir["*.{c,cc,cpp,C}"].each do |i|
+	runCom $COMPILER+" "+cflags+" -M "+i+" >> "+$MF,false
+  
+  begin
+	makefile=File.open($MF,"a")
+	makefile.printf "\t$(CC) $(CFLAGS) -c #{i}\n\n"
+  makefile.close
+rescue					
+	$stderr.printf "Cannot open file "+$MF+" for writing!\n"
+	exit 1
+end
+	
+end
+
+# ---- Start the build process
+runCom $MAKE+" -f "+$MF,false

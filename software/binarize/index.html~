@@ -1,0 +1,160 @@
+<!-- ****************************************************************************************
+  eplot
+  Author: Christian Wolf
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>C++ code for document image binarization</title>
+	<link rel=stylesheet href="../../main.css" type="text/css">
+	<link rel=stylesheet href="../software.css" type="text/css">
+	<link rel="shortcut icon" href="../../graphics/favicon.ico">
+</head>
+<body>
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+<!-- ****************************************************************************************
+  The nav menu box
+  ******************************************************************************************* -->
+
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="index.html">Main</a></li>
+		<li><a href="../index.html">Other software</a></li>
+		<li><a href="../../index.html">The author</a></li>				
+	</ul>
+</div>  
+
+<h1>C++ code for document image binarization</h1>
+
+<center>
+<h3>Ranked #5/43 at the 
+	<a href="http://www.cvc.uab.es/icdar2009/papers/3725b375.pdf">
+	DIBCO 2009 competition
+	</a>
+</h3>
+</center>
+
+<center>
+<p>
+<table>
+	<TR>
+	<TD><img src="ss_binarize_annotated.png" alt=""></TD>	
+	</TR>
+</table>
+</p>
+</center>
+
+<p style="border: 2px solid #90600b; padding: 1em;">
+<b><em>You need to cite the <a href="../../publications/index.html#icpr2002v">ICPR 2002 paper</a> in all publications which use this code</em></b>.
+</p>
+
+<p>
+This uses an improved contrast maximization version of Niblack/Sauvola et al's method to binarize document images. It is also able to perform the more classical Niblack as well as Sauvola et al. methods. Details can be found in the <a href="../../publications/index.html#icpr2002v">ICPR 2002 paper</a>. 
+</p>
+
+<h2>Usage:</h2>
+
+<p>
+The executable is called on the command line and only reads and writes PGM files. Under Linux you can use for instance "convert" (part of the ImageMagick package) to convert to and from the PGM format. The first argument chooses between one of several methods, the first and the second argument specify, respectively, the input and the output file:
+</p>
+
+<pre>
+usage: binarize [ -x <winx> -y <winy> -k <parameter> ] [ version ] <inputimage> <outputimage>
+
+version: n   Niblack (1986)         needs white text on black background
+         s   Sauvola et al. (1997)  needs black text on white background
+         w   Wolf et al. (2001)     needs black text on white background
+         W   Wolf (2007)            needs black text on white background
+
+Default version: w (Wolf et al. 2001)
+Default value for "k": 0.5
+
+example:
+       binarize w in.pgm out.pgm
+       binarize in.pgm out.pgm
+       binarize s -x 50 -y 50 -k 0.6 in.pgm out.pgm
+</pre>
+
+<p>
+The best working method is 'w', the one which performed 5th in the  
+<a href="http://www.cvc.uab.es/icdar2009/papers/3725b375.pdf"> DIBCO 2009 competition </a>
+</p>
+
+
+<p>
+If no further arguments are provided, than the window sizes are estimated automatically. The argument -k sets the "k" parameter from all 3 papers. IMPORTANT! Note, that the parameter should be set differently according!
+</p>
+
+<h2 id="compilation">Compilation</h2>
+
+<p>
+The code has been developed under Linux. No project files are provided for Windows, although the code should in principle compile under Windows. 
+</p>
+
+<p>
+Linux: The sources come with their own compilation scripts, which are in the "tools" subdirecty. Just set a PATH to this directory, go to "src" and type "make".
+</p>
+
+<h2 id="download">Download</h2>
+
+<table class="downloadlist">
+	<tr>
+		<td>File</td>		
+		<td>Download</td>
+		<td>Remark</td>
+	</tr>
+	<tr class="firstfile">
+		<td>binarize.tgz</td>				
+		<td><a href="download/binarize.tgz">http</a></td>
+		<td>Tarball of C++ sources</td>
+	</tr>
+	<tr class="firstfile">
+		<td>binarize</td>				
+		<td><a href="download/binarize">http</a></td>
+		<td>Linux executable</td>
+	</tr>
+</table>
+
+<h2 id="licence">Licence</h2>
+
+<p>
+Permission is granted for anyone to copy, use, modify, or distribute this
+program and accompanying programs and documents for any purpose, provided
+this copyright notice is retained and prominently displayed, along with
+a note saying that the original programs are available from my web page.
+</p>
+<p>
+The programs and documents are distributed without any warranty, express 
+or implied.  As the programs were written for research purposes only, they 
+have not been tested to the degree that would be advisable in any 
+important application.  
+</p>
+<p>
+All use of these programs is entirely at the user's own risk.
+</p>
+
+<h2 id="author">Credits</h2>
+
+<p>
+This code was written by <a href="../../index.html">Christian Wolf</a>.
+</p>
+
+<p style="border: 2px solid #90600b; padding: 1em;">
+<b><em>You need to cite the <a href="../../publications/index.html#icpr2002v">ICPR 2002 paper</a> in all publications which use this code</em></b>.
+</p>
+
+</body>
+</html>

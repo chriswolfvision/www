@@ -1,0 +1,47 @@
+H2 {
+	margin-left: -3%;
+}
+
+span.t-type {
+	color: #660000; 
+	text-decoration: underline overline; 
+	width: 100px;
+}
+span.t-title {
+	font-style: italic; 
+	font-weight:bold
+}
+span.t-year {
+	font-size: 70%;
+}
+
+/***************************************************************************************
+ * the ufr box
+ ***************************************************************************************/
+
+.ufr-box {
+	border-style: solid;
+	border-width: thin;
+	border-color: #660000; 
+	padding: 1ex;
+	width: 60%; 
+	height: auto; 
+	min-height: 110px;
+	margin-top: 2ex;
+	margin-bottom: 2ex;
+	margin-left: 20%; 
+}
+.ufr-box img {
+	border-style: none;
+	padding: 1ex;
+	float: left;
+}
+
+.ufr-box p {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-weight: bold;
+	font-size: larger;
+	color: #660000; 
+}

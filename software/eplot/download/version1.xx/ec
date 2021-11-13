@@ -1,0 +1,63 @@
+#!/bin/ksh
+# **************************************************************************
+# ec (say "extract column")
+# Written by Christian Wolf
+#
+# This program is free software; you can redistribute it and/or modify  
+# it under the terms of the GNU General Public License as published by  
+# the Free Software Foundation; either version 2 of the License, or     
+# (at your option) any later version.                                   
+#                                                                         
+# This program is distributed in the hope that it will be useful,       
+# but WITHOUT ANY WARRANTY; without even the implied warranty of        
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         
+# GNU General Public License for more details.                          
+#                                                                         
+# You should have received a copy of the GNU General Public License     
+# along with this program; if not, write to the                         
+# Free Software Foundation, Inc.,                                       
+# 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.   
+#
+# Changelog:
+# 03.07.2005: changed syntax: allow multiple rows to be selected
+# xx.xx.2002: start of project
+# **************************************************************************
+
+VERSION="1.0 03.07.2005"
+
+usage ()
+{
+	echo "usage: $0 [ -<separator> ] { <column-number> }"
+	exit 1
+}
+
+# ---- Check Arguments
+[ "$#" -lt 1 ] && usage
+[ "$1" == "-h" ] && usage
+if [ "$1" == "-v" ]
+then
+	echo "ec version $VERSION"
+	echo "Written by Christian Wolf"
+	echo "License: GPL; this is free software. There is absolutely NO warranty!!"
+	exit 0
+fi
+
+# ---- A custom separator has been defined
+if [ "`echo $1 | cut -c1-1`" == "-" ]
+then
+	SEP="-F\"`echo $1 | cut -c2-`\""
+	shift
+else
+	SEP=""
+fi
+
+# ---- Create the awk command string
+COM="awk $SEP '{ print "
+for i in $*
+do
+	COM="$COM \$$i \" \" "
+done
+COM="$COM }'"
+
+# ---- Execute it
+eval $COM

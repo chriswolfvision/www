@@ -1,0 +1,5 @@
+- Include problems
+- for local variables
+- using namespace std;
+- .cc -> .cpp
+- Mathematical functions: ::log ::sqrt

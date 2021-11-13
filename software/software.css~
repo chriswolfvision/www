@@ -1,0 +1,56 @@
+/***************************************************************************************
+ * software.css
+ * style for software discription pages
+ * 
+ * Written by Christian Wolf
+ * Begin: 29.6.2005
+ ***************************************************************************************/
+
+IMG { 
+	border-style: none;
+	text-align: center;
+	padding: 1em;
+}
+ 
+ul {
+	list-style-type:circle;
+}
+
+h3 {
+	font-size: smaller;
+}
+
+table {
+	margin: 1em;
+	padding: 0em;
+}
+
+
+.graybox td, td.graybox { 
+	border: 1px solid #cccccc;
+	background-color:#FFFFFF;	
+	padding: 0em;
+}
+
+
+table.downloadlist {
+	background-color:#FFFFFF;		
+	padding: 0;
+}
+
+.downloadlist td, td.downloadlist { 
+	border: 1px solid #cccccc; 
+	padding: 0.1em;
+	text-align:left;
+}
+
+.firstfile td{
+ 	padding-top: 1ex;
+ 	border-top: solid 2px #aaaaaa;
+}
+
+pre {	
+	font-family: "Courier New", Courier, monospace;
+	border: 1px solid #cccccc;
+}	
+

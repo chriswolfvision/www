@@ -1,0 +1,236 @@
+	/*
+		labRecto.write ("kmeans_saved");
+		{	Image tmp (labRecto);
+			brightenImage(tmp);
+			tmp.write ("kmeans_saved_b");
+		}
+		for (int y=0; y<labRecto.ysize; ++y)
+		for (int x=0; x<labRecto.xsize; ++x)
+			labRecto.set(x,y, (labRecto.get(x,y)==0 ? 1 : 0));
+		
+		labRecto.write ("kmeans_saved_rev");						
+		{	Image tmp (labRecto);
+			brightenImage(tmp);
+			tmp.write ("kmeans_saved_rev_b");
+		}
+		*/
+		
+		// labRecto.read ("kmeans_saved_rev");
+	
+	
+	/*
+	#warning slow prior using parameter less term explicitely!!!
+	{	float f=0;
+		Vector<float> plt(this->noMRFParams);
+		
+		// Create the label
+		unsigned int lb=0;
+		if (this->lab->get(x-1, y-1)) lb += CL_MASK_NW;
+		if (this->lab->get(x+0, y-1)) lb += CL_MASK_NO;
+		if (this->lab->get(x+1, y-1)) lb += CL_MASK_NE;
+		if (this->lab->get(x-1, y+0)) lb += CL_MASK_WE;
+		if (this->lab->get(x+0, y+0)) lb += CL_MASK_S;
+		if (this->lab->get(x+1, y+0)) lb += CL_MASK_EA;
+		if (this->lab->get(x-1, y+1)) lb += CL_MASK_SW;
+		if (this->lab->get(x+0, y+1)) lb += CL_MASK_SO;
+		if (this->lab->get(x+1, y+1)) lb += CL_MASK_SE;		
+		
+		parameterLessTermOfEnergy(lb, plt);
+		for (unsigned int i=0; i<this->noMRFParams; ++i)
+			f += plt[i]*this->MRFParams[i];
+			
+		return f;
+	}
+	*/
+
+/***********************************************************************
+ * Get the labeling at position (x,y).
+ * Not of a single clique, but of the whole neighborhood
+ * Unrolled for speed reasons
+ ***********************************************************************/
+
+template <class TI>  
+unsigned int MRFSegmenterAL8N<TI>::neighborhoodLabeling (int x, int y) 
+{
+	unsigned int lb=0;
+	if (this->lab->get(x-1, y-1)) lb += CL_MASK_NW;
+	if (this->lab->get(x+0, y-1)) lb += CL_MASK_NO;
+	if (this->lab->get(x+1, y-1)) lb += CL_MASK_NE;
+	if (this->lab->get(x-1, y+0)) lb += CL_MASK_WE;
+	if (this->lab->get(x+0, y+0)) lb += CL_MASK_S;
+	if (this->lab->get(x+1, y+0)) lb += CL_MASK_EA;
+	if (this->lab->get(x-1, y+1)) lb += CL_MASK_SW;
+	if (this->lab->get(x+0, y+1)) lb += CL_MASK_SO;
+	if (this->lab->get(x+1, y+1)) lb += CL_MASK_SE;
+	return lb;
+}
+
+// **********************************************************************
+// Get the maximum difference of energies found in the label image
+// **********************************************************************
+/*
+template <typename TI>
+float MRFSegmenter<TI>::getMaxDeltaE()
+{
+	DataSerie ds;	
+	int cnt;
+	unsigned char saveValue;
+	float curEnergy, chEnergy, maxDiff;
+	float rv;
+	int acc=0, rej=0;
+	
+	// Put all the clique labelings of the image in a data structure
+	set<unsigned int> labelings;
+	for (int y=1; y<lab->ysize-1; ++y) 
+	for (int x=1; x<lab->xsize-1; ++x) 
+		labelings.insert(neighborhoodLabeling(x,y));
+				
+	// A full sweep of the image, get all the energies
+	maxDiff=0;
+	for (int y=1; y<lab->ysize-1; ++y) 
+	for (int x=1; x<lab->xsize-1; ++x) 
+	{		
+		curEnergy = priorEnergy(x,y)*condEnergy(x,y);	
+				
+		saveValue = lab->get(x,y);
+		lab->set(x,y, (saveValue==0?1:0));
+		chEnergy = priorEnergy(x,y)*condEnergy(x,y);	
+		
+		// Only changes to worse are used
+		if (chEnergy>curEnergy)
+		{		
+			// The changed clique is in the image -> use it
+			if (labelings.find(neighborhoodLabeling(x,y))!=labelings.end())
+			{
+				float diffEnergy = chEnergy - curEnergy;
+				if (diffEnergy>maxDiff)
+					maxDiff=diffEnergy;		
+				ds.add(diffEnergy);	
+				++acc;
+			} 
+			else
+				++rej;
+		}
+			
+		lab->set(x,y,saveValue);
+	}
+	
+	HRULE; 
+	cerr << "labelings: " << labelings.size() << endl;	
+	cerr << "maxDeltaDifference=" << maxDiff << endl;
+	cerr << "accepted: " << acc << endl;
+	cerr << "rejected: " << rej << endl;
+	
+	// Create a histogram
+	Histogram<float> he (100, ds.getMin(), ds.getMax(), false);
+	cnt = ds.size();
+	for (int i=0; i<cnt; ++i)
+		he.add (ds[i]);
+		
+	cerr << "min= " << ds.getMin()
+		 << " max= " << ds.getMax()
+		 << " mean=" << ds.getMean()
+		 << " median=" << ds.getMedian()
+		 << " left=" <<	he.getBinCenter(he.getIndexPercLeft(5))
+		 << " right=" << he.getBinCenter(he.getIndexPercRight(5)) << endl;		 
+	cerr << "maxDeltaE=" 
+		 << he.getBinCenter(he.getIndexPercRight(5))-he.getBinCenter(he.getIndexPercLeft(5)) << endl;
+		 
+	rv = he.getBinCenter(he.getIndexPercRight(5))-he.getBinCenter(he.getIndexPercLeft(5));
+	if (isnan(rv))
+		throw EError ("MRFSegmenter::getMaxDeltaE(): result is NaN!");
+	
+	return rv;
+}
+*/
+
+/***********************************************************************
+ * Determine the recto label
+ * Method: connected component density
+ * DOES NOT WORK!!!!!!!!!!!!!!!!
+ ***********************************************************************/
+ 
+/*
+ 
+#define	INDICES2INT(x,y)		(y)*winxsize+(x)
+#define INT2INDEXX(x)			(x)%winxsize
+#define INT2INDEXY(x)			(x)/winxsize
+ 
+template <class TI>
+unsigned char MRFSegmenterBleedThrough<TI>::determineRectoLabel (int winxsize, int winysize)
+{
+	CComponentList * ccs;
+	CPixel *pp;
+	typedef Vector<unsigned int> CntVec;
+	unsigned int mxsize = (unsigned int) floor(this->lab->xsize/winxsize)+1,
+			     mysize = (unsigned int) floor(this->lab->ysize/winysize)+1;
+	unsigned char labelRecto, labelVerso;
+	
+	// Partition the label image into non-overlapping windows.
+	// For each window, store a vector which contains the for
+	// each class the counts of connected components
+	Matrix<CntVec>       H(mysize, mxsize, CntVec::createZero(R2RV_NO_CLASSES));
+	Vector<unsigned int> C(R2RV_NO_CLASSES, 0);
+	
+	// run a connected components analysis with 8-connected neigborhood
+	ccs = connectedComponents (*(this->lab), false);
+		
+	// Traverse the connected components and increase the counts
+	// in the windows in which they fall
+	for (CComponentList::iterator citer=ccs->begin(); citer!=ccs->end(); ++citer)
+	{
+		set<unsigned int> tWins;
+		unsigned char label;
+		
+		// The connected component is too small
+		if ((*citer)->count < MIN_PXLS_IN_CC)	
+			continue;
+			
+		// The connected component is part of the background
+		label = this->lab->get((*citer)->pixels->x,(*citer)->pixels->y);
+		if (label==0)	
+			continue;
+	
+		// Traverse the pixels of the connected component
+		// and see in which windows they fall
+		pp = (*citer)->pixels;
+		tWins.clear();
+		while (pp!=NULL)
+		{			
+			unsigned int ix = (pp->x)/winxsize;
+			unsigned int iy = (pp->y)/winysize;			
+			tWins.insert(INDICES2INT(ix,iy));
+			pp = pp->next;
+		}	
+		
+		// Travers the touched windows and increase the count of the label
+		for (set<unsigned int>::iterator witer=tWins.begin(); witer!=tWins.end(); ++witer)
+			++ H(INT2INDEXY(*witer),INT2INDEXX(*witer))[label];			
+	}
+	
+	// Traverse the windows. Check if all classes are present.
+	// If yes, the window is valid and we vote.
+	for (unsigned int y=0; y<mysize; ++y)
+	for (unsigned int x=0; x<mxsize; ++x)
+	{
+		unsigned int H1=H(y,x)[1];
+		unsigned int H2=H(y,x)[2];
+		
+		// Check if all classes are present in the window
+		if (H1>0 && H2>0)
+		{
+			if (H1>H2)
+				++C(1);
+			if (H2>H1)
+				++C(2);
+		}
+	}
+	
+	// Clean up
+	delete ccs;
+	
+	// use the label with the maximum vote count
+	return C(1)>C(2) ? 1 : 2;	
+}
+
+*/

@@ -1,0 +1,9 @@
+#!/usr/bin/ksh
+
+if [ $# -ne 3 ]
+then
+	echo "usage: $0 <include-pattern> <exclude-pattern> <file>"
+	exit 1
+fi
+
+grep $1 $3 | grep -v $2

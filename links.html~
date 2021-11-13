@@ -1,0 +1,258 @@
+<!-- ****************************************************************************************
+  Author: Christian Wolf
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>   
+	<link rel=stylesheet href="main.css" type="text/css">
+	<link rel=stylesheet href="portrait.css" type="text/css">
+	<link rel="shortcut icon" href="graphics/favicon.ico">
+  	<title>Christian Wolf - ULP - LSIIT - MIV, ENSPS </title>  
+</head>
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+<!-- ****************************************************************************************
+  The nav menu box
+  **************************************************************************************** -->
+  
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="index.html">Main</a></li>
+		<li> <a href="research/index.html">Research</a></li>
+		<li> <a href="teaching/index.html">Teaching</a></li>
+		<li> <a href="cv/index.html">CV</a></li>
+		<li> <a href="publications/index.html">Publications</a></li>
+		<li> <a href="publications/pres.html">Presentations</a></li>
+		<li> <a href="demos/index.html">Demos</a></li>
+		<li> <a href="software/index.html">Software</a></li>
+		<li> <a href="http://mady.n.free.fr/chris">Private</a></li>
+	</ul>
+</div> 
+
+<h1>Science links</h1>
+
+<!-- ***************************************************************************************	
+	 Publishers
+     *************************************************************************************** -->
+	 
+<div class="firstcolumn">
+
+<H4>Publishers</H4>
+<ul>
+<li><A HREF="http://ieeexplore.ieee.org/Xplore/DynWel.jsp">Welcome to IEEExplore</A></li>
+<li><A HREF="http://www.sciencedirect.com">ScienceDirect</A></li>
+<li><A HREF="http://link.springer.de/search.htm">SpringerLink - Search</A></li>
+<li><A HREF="http://journals.kluweronline.com/">Kluwer Online Gateway</A></li>
+<li><A HREF="http://www3.interscience.wiley.com/cgi-bin/simplesearch">Wiley - Search</A></li>
+<li><A HREF="http://www.jstor.org/">JSTOR - The Scholarly Journal Archive</A></li>
+</ul>
+
+<!-- ***************************************************************************************	
+	 Search engines
+     *************************************************************************************** -->
+
+<H4>Science search engines</H4>
+<ul>
+<li><A HREF="http://citeseer.ist.psu.edu/cs">CiteSeer</A></li>
+<li><A HREF="http://scholar.google.com">Google Scholar</A></li>
+<li><A HREF="http://www.scirus.com/srsapp">Scirus</A></li>
+<li><a href="http://oaister.umdl.umich.edu/cgi/b/bib/bib-idx?c=oaister;page=simple">OAIster</a></li>
+</ul>
+
+
+
+<H4>Journals (<a href="journalif.html">impact factors</a>)</H4>
+<ul>
+
+<!-- ***************************************************************************************	
+	 IEEE
+     *************************************************************************************** -->
+
+<li>IEEE - <A HREF="http://ieeexplore.ieee.org/xpl/RecentIssue.jsp?puNumber=34">T-PAMI</A>:
+	Transactions on Pattern Analysis and Machine Intelligence
+</li>
+<li>IEEE - <A HREF="http://ieeexplore.ieee.org/xpl/RecentIssue.jsp?puNumber=83">T-IP</A>:
+	Transactions on Image Processing
+</li>
+
+
+
+<!-- ***************************************************************************************	
+	 Springer
+     *************************************************************************************** -->
+	 
+<li>Springer - 
+	<A HREF="http://www.dcs.ex.ac.uk/paa/">PAA</A>: 
+	Pattern Analysis and Applications
+</li>
+<li> Springer - <A HREF="http://documents.cfar.umd.edu/IJDAR/">IJDAR</A>:
+	International Journal on Document Analysis and Recognition
+</li>
+
+<!-- ***************************************************************************************	
+	 Elsevier
+     *************************************************************************************** -->
+
+<li>Elsevier - <A HREF="http://www.elsevier.com/wps/product/cws_home/328">PR</A>
+	: Pattern Recognition
+</li>
+<li> Elsevier - <a
+	href="http://www.elsevier.com/wps/product/cws_home/505619">
+	PRL</a>: Pattern Recognition Letters
+</li>
+<li>Elsevier -
+	<A HREF="http://www.elsevier.com/wps/product/cws_home/525443">IVC:</A>
+	 Image and Vision Computing            
+</li>
+<li>Elsevier -
+	<A HREF="http://www.elsevier.com/wps/product/cws_home/622809">CVIU</A>:
+	Computer Vision and Image Understanding
+</li>
+
+<li>
+	Elsevier - <A HREF="http://www.elsevier.nl/locate/neucom">Neurocomputing</A>
+</li>
+
+<!-- ***************************************************************************************	
+	 Kluwer
+     *************************************************************************************** -->
+
+<li> Kluwer - <A HREF="http://www.kluweronline.com/issn/0920-5691">IJCV</A>
+	International Journal on Computer Vision
+</li>            
+<li>Kluwer - <A HREF="http://www.kluweronline.com/issn/0924-9907/">
+	Journal on Mathematical Imaging and Vision</A>
+</li>
+<li>
+	Kluwer - <A HREF="http://www.digimine.com/usama/datamine/">
+	Data Mining and Knowledge Discovery</A>
+</li>
+
+<!-- ***************************************************************************************	
+	 Academic Press
+     *************************************************************************************** -->
+
+<li> Academic Press - <A HREF="http://www.academicpress.com/cviu">CVIU</A>
+	Computer Vision and Image Understanding
+</li>
+<li>
+	Academic Press - <A HREF="http://www.academicpress.com/gmip">Graphical Models (formerly Graphical Models and Image Processing)</A>
+</li>
+<li> Academic Press - <A HREF="http://www.academicpress.com/jvcir">
+	Journal of Visual Communication and Image Representation</A>
+</li>
+
+<!-- ***************************************************************************************	
+	 Misc
+     *************************************************************************************** -->
+
+<li> <A HREF="http://www.jstor.org/journals/00359246.html">
+	Journal of the Royal Statistical Society</A>
+</li>
+<li> <A HREF="http://neco.mitpress.org/">MIT Press - Neural Computation</A>
+</li>
+<li> <A HREF="http://www.worldscinet.com/ijprai/ijprai.shtml">IJ PR &amp; AI</A>:
+	International Journal on Pattern Recognition and Artificial Intelligence
+</li>
+<li> <A HREF="http://www.traitementdusignal.fr/">Traitement du Signal</A>
+</li>
+<li> <A HREF="http://www.nature.com/nature/">Nature</A>
+</li>
+
+</ul>
+
+</div>
+
+<!-- ***************************************************************************************	
+	 ASTRO
+     *************************************************************************************** -->
+	 
+<div class="secondcolumn">
+
+<H4>Publishing tools</H4>
+<ul>
+<li><a href="http://latex-beamer.sourceforge.net">LaTeX-Beamer</a> - Creating stylish and modern presentations with LaTeX or PDFLaTeX</li>
+<li><A HREF="http://ooolatex.sourceforge.net">OOLaTeXEquation</A> - inserting LaTeX equations into open office documents</li>
+</ul>
+
+<H4>Free Science E-Books</H4>
+<ul>
+<li><A HREF="http://www.library.cornell.edu/nr/bookcpdf.html">Numerical Recipes in C</A>. William H. Press, Brian P. Flannery, Saul A. Teukolsky, William T. Vetterling; Cambridge University Press</li>
+<li><a href="http://www.inference.phy.cam.ac.uk/mackay/itila/">Information Theory, Inference and Learning Algorithms</a></li>
+<li><A HREF="http://www.dspguide.com">The Scientist and Engineer's Guide to Digital Signal Processing</A>
+by Steven W. Smith, Ph.D.California Technical Publishing </li>
+<li>NIST/SEMATECH<A HREF="http://www.itl.nist.gov/div898/handbook/"> e-Handbook of Statistical Methods</A></li>
+</ul>
+
+
+<H4>Astronomical image processing</H4>
+<ul>
+<li><A HREF="http://agile.gsfc.nasa.gov/docs/software/ftools/fv/">FV - a FITS image viewer</A></li>
+<li><a href="http://terapix.iap.fr/rubrique.php?id_rubrique=91/">Sextractor</a> </li>
+<li><a href="http://www.obs-nice.fr/paper/bijaoui/pagemvm.html">MVM (Multiscale Vision Model) </a></li>
+<li><a href="http://webast.ast.obs-mip.fr/hyperz">HyperZ</a> (redshift)</li>
+<li><a href="http://www.lam.oamp.fr/arnouts/LE_PHARE.html">Le Phare</a> (redshift et simulation)</li>
+<li><a href="http://galics.cosmologie.fr">Galics</a> (Simulations)</li>
+<li><a href="http://terapix.iap.fr/cplt/oldSite/soft/skymaker/">Skymaker</a> (Simulation)</li>
+<li><a href="http://odysseus.astro.utoronto.ca/~abraham/Morpheus/index.html">Morpheus</a> (Galaxy Morphology, by R. Abraham)</li>
+<li><a href="http://www.phys.vt.edu/~jhs/SIP">Sky Image Processor</a> (ONLINE software: java applet)</li>
+<li><a href="http://www.linuxlinks.com/Software/Scientific/Astronomy"> Misc software for Linux</a></li>
+</ul>
+
+<H4>Computer Vision</H4>
+
+<ul>
+<li><a href="http://www.cs.cmu.edu/%7Ecil/vision.html">The Computer Vision Homepage</a></li>
+<li><a href="http://www.ph.tn.tudelft.nl/Courses/FIP/frames/fip.html">Image Processing Fundamentals</a></li>
+<li><a href="http://www.dai.ed.ac.uk/CVonline/CVentry.htm">Computer Vision online</a></li>
+<li><a href="http://iris.usc.edu/Vision-Notes/bibliography/contents.html">
+USC  Annotated Computer Vision Bibliography</a></li>
+</ul>
+            
+<H4>Machine learning and pattern recognition</H4>
+
+<ul>
+<li><a href="http://www.mlnet.org/">MLnet</a></li>
+<li><a href="http://reinforcementlearning.ai-depot.com/Main.html"> Reinforcment learning warehouse</a></li>
+<li><a href="http://kernel-machines.org/">Kernel machines</a></li>
+<li><a href="http://www.learning-with-kernels.org/">Learning with kernels </a></li>
+<li><a href="http://www.csie.ntu.edu.tw/%7Ecjlin/libsvm/">LibSVM</a></li>
+</ul>
+
+<H4>Mathematics</H4>
+<ul>
+<li>The <a href="http://en.wikipedia.org/wiki/Category:Mathematics">Mathematics category</a> at 
+	<a href="http://wikipedia.org">wikipedia</a></li>
+<LI><a href="http://mathworld.wolfram.com/">Eric Weisstein's  world of Mathematics</a></LI>
+</ul>
+              
+
+<H4>Miscellaneous computer stuff</H4>
+<ul>
+<LI><a href="http://www.sgi.com/tech/stl/">STL</a>: Standard Template Library</LI>
+<li><a href="http://www-h.eng.cam.ac.uk/help/tpl/textprocessing/LaTeX_intro.html">Text Processing using LaTeX</a></li>
+</ul>
+          
+<H4>The ruby programming language</H4>
+<p>Great for scripting your scientific experiments: call lower level programs (e.g., C or C++), extract data from log files, <a href="software/eplot/index.html">reformat your data</a>, ...</p>
+<ul>
+<li><a href="http://www.ruby-lang.org/en">Ruby: Programmers' Best Friend</a></li>
+<li><a href="http://www.rubycentral.com/book">Programming Ruby: The Pragmatic Programmer's Guide</a></li>
+<li><a href="http://www.rubycentral.org">Ruby central</a></li>
+</ul>
+</div>
+
+</body>
+</html>

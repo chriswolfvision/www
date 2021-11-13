@@ -1,0 +1,811 @@
+<!-- ****************************************************************************************
+  eplot
+  Author: Christian Wolf
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>DetEval - Evaluation software for object detection algorithms</title>
+	<link rel=stylesheet href="../../main.css" type="text/css">
+	<link rel=stylesheet href="../software.css" type="text/css">
+	<link rel="shortcut icon" href="../../graphics/favicon.ico">
+</head>
+<body>
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+<!-- ****************************************************************************************
+  The nav menu box
+  **************************************************************************************** -->
+  
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="../../index.html">Main</a></li>
+		<li> <a href="../../research/index.html">Research</a></li>
+		<li> <a href="../../teaching/index.html">Teaching</a></li>
+		<li> <a href="../../cv/index.html">CV</a></li>
+		<li> <a href="../../publications/index_bydate.html">Publications</a></li>
+		<li> <a href="../../software/index.html">Other software</a></li>
+	</ul>
+</div>  
+
+<h1>DetEval - Evaluation software for object detection algorithms</h1>
+
+
+<p>
+DetEval is software for the evaluation of object detection algorithms. It reads XML files containing the detection results as well as the ground truth information and writes the evaluation output in XML or LaTeX format. Data for ROC curves in ASCII text format can be created, and PDF plots are supported. The criteria at which point an object is considered as detected are configurable, and graphs can be plotted showing detection performance with varying criteria.
+</p>
+
+<p>
+Details of the evaluation algorithm can be found in the <a href="../../publications/index.html#ijdar2006">scientific paper</a> published in the journal <a href="../../publications/index.html#ijdar2006">International Journal on Document Analysis and Recognition</a>. <b> It is highly recommended to read this paper, since important information can only be found there!!</b>.
+</p>
+
+<p style="border: 2px solid #90600b; padding: 1em;">
+<b><em>You need to cite the <a href="../../publications/index.html#ijdar2006">IJDAR paper</a> in all publications which describe work for which you used the DetEval tool</em></b>.
+</p>
+
+
+<h2>Introduction</h2>
+
+<p>
+DetEval takes as input two different sets of XML files, each one describing rectangles (bounding boxes) of object locations. One of the sets corresponds to ground truth rectangles, the other one to detected rectangles. The sets are matched, and performance measures are calculated.
+</p>
+
+
+<center>
+<img src="rectangles.png">
+</center>
+
+
+<p>
+Traditionally in evaluation of object detection algorithms, for a single detection file and its corresponding ground truth file, two values, recall and precision, can be calculated. They are defined as follows:
+</p>
+
+<center>
+	<img alt="recall and precision" src="r_and_p.png"/>
+</center>
+
+<p>
+Intuitively, recall tells us how many of our objects have been detected, and precision gives us information on the amount of false alarms. Both are higher if better and should be close to 1 for perfect systems.
+</p>
+
+<p>
+In order to be able to calculate these two measures (recall and precision), an evaluation tools needs to find out two things: 
+<ul>
+	<li>for each ground truth rectangle we need to know whether it has been correctly detected or not</li>
+	<li>for each detected rectangle we need to know whether it corresponds to a valid ground truth recangle or not</li>
+</ul>
+</p>
+
+<p>
+These decisions are not trivial, since detections are generally not 100% acurate. The amount of overlap between detection bounding boxes and ground truth bounding boxes determines whether an object has been detected or not. More precisely, the evaluation results depend on a set of user defined criteria, which will be used by all tools of this software. Plots can be created which give detection performance for different overlap requirements. The thresholds are described in more detail in the <a href="../../publications/index.html#ijdar2006">IJDAR research paper</a> (section 4.2, equation 10).
+</p>
+
+<p>
+DetEval has been developed to addresses the issue of combining quantity ("how many rectangles?") and quality ("how much of a rectangle?"). Its design has been guided by the following goals:
+</p>
+
+<ul>
+	<li> The approach should provide a quantitative evaluation: the evaluation measure should intuitively tell how many text rectangles have been detected correctly, and how many false alarms have been created.</li>
+	<li> approach should provide a qualitative evaluation: it should give an easy interpretation of the detection quality. </li>
+	<li> It should support one-to-one matches, one-to-many matches and many-to-one matches (splits and merges).</li>
+	<li> The measure must scale up to multiple images without losing its power and ease of interpretation.</li>
+</ul>
+
+<h2>The XML format</h2>
+
+</p>
+The XML format is the same for the detection results and for the ground truth. It is an extended version of the format developped for the ICDAR 2003 text detection competition. Here is an example for a dataset containing the results on two images. I think the format is quite self explaining:
+</p>
+
+<p>
+One rectangular bounding box is described by the tag  "taggedRectangle". Its geometry is described by x,y,width and height, modelType is a application dependend numerical value which encodes the type or class of the object.
+</p>
+
+<p>The result image and the groundtruth image must have the same name! However, if you decide to leave the directory path in the image names, the software can be configured to ignore the path or parts of it (see below). 
+</p>
+
+<pre style="font-size: smaller;">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;tagset&gt;
+  &lt;image&gt;
+    &lt;imageName&gt;images/image1.jpg&lt;/imageName&gt;
+    &lt;taggedRectangles&gt;
+      &lt;taggedRectangle x="1276" y="900" width="193" height="61" modelType="17"  /&gt;
+      &lt;taggedRectangle x="348" y="844" width="197" height="105" modelType="3"  /&gt;
+      &lt;taggedRectangle x="776" y="812" width="281" height="165" modelType="42"  /&gt;
+    &lt;/taggedRectangles&gt;
+  &lt;/image&gt;
+  &lt;image&gt;
+    &lt;imageName&gt;images/image2.jpg&lt;/imageName&gt;
+    &lt;taggedRectangles&gt;
+      &lt;taggedRectangle x="1036" y="972" width="75" height="29" modelType="1"  /&gt;
+      &lt;taggedRectangle x="110" y="964" width="411" height="45" modelType="2"  /&gt;
+      &lt;taggedRectangle x="1126" y="966" width="441" height="59" modelType="3"  /&gt;
+      &lt;taggedRectangle x="604" y="964" width="349" height="53" modelType="2"  /&gt;
+      &lt;taggedRectangle x="262" y="766" width="595" height="67" modelType="17"  /&gt;
+      &lt;taggedRectangle x="948" y="766" width="461" height="71" modelType="36"  /&gt;
+      &lt;taggedRectangle x="366" y="318" width="57" height="29" modelType="14"  /&gt;
+      &lt;taggedRectangle x="598" y="844" width="411" height="89" modelType="11"  /&gt;
+      &lt;taggedRectangle x="828" y="388" width="181" height="45" modelType="11"  /&gt;
+      &lt;taggedRectangle x="1004" y="292" width="197" height="109" modelType="14"  /&gt;
+      &lt;taggedRectangle x="844" y="8" width="581" height="233" modelType="31"  /&gt;
+    &lt;/taggedRectangles&gt;
+  &lt;/image&gt;
+&lt;/tagset&gt;  
+</pre>
+
+<h2>What can be calculated, and what you SHOULD calculate</h2>
+
+<p>
+The following list describes several ways to evaluate an object detection and localization algorithm. Each one of them is then described below in more detail.
+	<ul> 
+		<li><b>A) Single value, fixed contraints</b>: Calculate recall and precision values for a fixed set of quality constraints. These performance measures then depend on the contraints, different constraints give different performance values. </li>
+		<li><b>B) Integrated performance value</b>: Calculate recall and precision values for varying quality constraints. In particular, the area under curve is calculated. This is _NOT_ related to the area under curve commonly used in the context of ROC plots. </li>
+		<li><b>C) ROC plots</b>: the performance of a system when some algorithm specific parameter is varied. </li>
+		<li><b>D) Quantity/quality plots</b>: calculate recall and precision values and plot them as a function of quality constraints</li>
+	</ul>
+</p>
+
+
+<p>
+The different tools in this software suite can be parametrized with a single string containing the quality constraints on overlap between detections and ground truth as values separated by commas:
+</p>
+
+<table class="graybox">
+	<tr><td>1</td>	<td>Threshold tr (area recall) for one-to-one matches</td></tr>
+	<tr><td>2</td>	<td>Threshold tp (area precision) for one-to-one matches</td></tr>
+	<tr><td>3</td>	<td>Threshold tr (area recall) for one-to-many matches (splits)</td></tr>
+	<tr><td>4</td>	<td>Threshold tp (area precision) for one-to-many matches (splits)</td></tr>	
+	<tr><td>5</td>	<td>Threshold tp (area precision) for many-to-one matches (merges)</td></tr>
+	<tr><td>6</td>	<td>Threshold tr (area recall) for many-to-one matches (merges)</td></tr>
+	<tr><td>7</td>	<td>A binary parameter determining whether an additional border verification should be done (not mentioned in the paper; should remain set to 0 if you don't know what that means).</td></tr>
+	<tr><td>8</td>	<td>An additional threshold on the difference of the centers of two matching rectangles (not mentioned in the paper).</td></tr>
+</table>
+
+
+<h2 id="details">A) Run a single evaluation with fixed constraint parameters</h2>
+
+<p>
+A single performance value for fixed quality constraints (default values) can be calculated with the following command (where you need to replace filenames):
+</p>
+
+<pre>
+evalfixed detected.xml groundtruth.xml
+</pre>
+
+<p>
+This gives the following output:
+</p>
+
+<pre style="font-size: smaller;">
+[... Other output ...]
+  &lt;evaluation noImages="2"&gt;
+    &lt;icdar2003 r="0.655793" p="0.488678" hmean="0.560035" noGT="11" noD="14"/&gt;
+    &lt;score r="0.418182" p="0.271429" hmean="0.32919" noGT="11" noD="14"/&gt;
+  &lt;/evaluation&gt;
+</pre>
+
+<p>Each result detail is put in a an &lt;evaluation&gt; tag, which includes tags which different (complementary) information. The results calculated using the DetEval measure (described <a href="../../publications/index.html#ijdar2006">here</a>) are in the &lt;score&gt; tag. The results calculated using the measure proposed for the (older) ICDAR 2003 competition are in the &lt;icdar2003&gt; tag. 
+</p>
+
+<p>The results themselves are structured as follows: 'p' stands for precision, 'r' for recall and 'hmean' for the harmonic mean (f-score) between precision and recall. 'noGT' is the number of ground truth rectangles and 'noD' is the number of detected rectangles.
+</p>
+
+<p>
+The quality constraints can be changed, see the section on <a href="#underthehood">manually running the software</a>.
+</p>
+
+<p>
+For the windows version, the script "evalfixed" does not exist, this fixed performance value needs to be <a href="#underthehood">calculated manually</a>.
+</p>
+
+
+<h2 id="details">B) Calculating an integrated performance value</h2>
+
+<p>
+The integrated performance value corresponds to  recall and precision values for varying quality constraints. In particular, the area under curve is calculated. This is _NOT_ related to the area under curve commonly used in the context of ROC plots.<br>
+<b>You REALLY should read the IJDAR paper to understand this ...</b>
+</p>
+
+<pre>
+evalplots detected.xml groundtruth.xml
+</pre>
+
+<p>
+Gives the following output:
+</p>
+
+<pre>
+[...Other output...]
+Overall recall                  = 18.3
+Overall precision               = 15.9
+Final single performance value: = 17.0
+</pre>
+
+<p>
+Note that this command also produces quantity/quality plots as a side product, see <a href="#evalplots">here</a>.
+</p>
+
+
+
+
+
+<h2 id="rocplot">C) Creating ROC plots (applicable only if your detection algorithm is configurable!)</h2>
+
+<p>
+Usually, an object detection algorithm is supposed to be configurable with a detection parameter, which controls the amount of detection performed. More detection usually means more false alarms. The system can then be run for a large interval of parameters, which results in a range of pairs of recall and precision values. The ROC curve ("Receiver operation characteristics") gives precision on the y-axis for recall on the x-axis. It tells us the amount of false alarms we are forced to accept if we configure the system such that a required recall is produced.
+</p>
+
+<p>
+<b>
+Generating ROC curves only makes sense if your detection/localization algorithm is configurable with such a parameter, i.e. if you are able to produce multiple outputs, each one with a different parameter!
+</b>
+</p>
+
+<p>
+The script <em>rocplot</em> produces a ROC curve. It takes as arguments the groundtruth XML file as well as a list of detection XML files, where each detection XML files corresponds to a detection run for a single detection parameter value:
+</p>
+
+
+<b>
+<p>
+Rocplot is a script, there is a difference in syntax between Windows and Linux!<br>
+Linux: the commands do not have a suffix (rocplot)<br>
+Windows: the ruby commands have suffix .rb, (rocplot.rb)<br>
+</p>
+</b>
+
+<pre>
+rocplot groundtruth.xml { results-run1.xml }
+</pre>
+
+for instance:
+
+<pre>
+rocplot groundtruth.xml det-param-034.xml det-param-076.xml det-param-110.xml det-param-234.xml det-param-343.xml 
+</pre>
+
+or, simply
+
+<pre>
+rocplot groundtruth.xml det-param-*.xml
+</pre>
+
+<p>
+This will create a directory <em>roc-curve</em> with the following ASCII text files:
+</p>
+
+<table class="graybox">
+	<tr>
+		<td>roc-curve/Recall</td>		
+		<td>Object count recall as a function the detection parameter</td>       		
+	</tr>
+	<tr>
+		<td>roc-curve/Precision</td>		
+		<td>Object count precision as a function of the detection parameter</td>       		
+	</tr>
+	<tr>
+		<td>roc-curve/Harmonic Mean</td>		
+		<td>The harmonic mean of object count recall and precision as a function the detection parameter</td>
+	</tr>
+</table>
+
+<p>
+The data can be plotted using <em>Matlab</em>, <em>Excel</em> or <em>Gnuplot</em>. It can also be done automatically by the script by adding the doplot option, which creates outputs in PDF and PNG format:
+</p>
+
+<pre>
+rocplot --doplot=true groundtruth.xml { results-run1.xml }
+</pre>
+
+<p>
+This will create the two additional pdf files as well as two additinal png files:
+</p>
+
+<table class="graybox">
+	<tr>
+		<td>roc-curve/rocplot.pdf</td>		
+		<td>In format PDF: The ROC curve itself including the equal error rate diagonal line (recall=precision)</td>       		
+	</tr>
+	<tr>
+		<td>roc-curve/rocplot.png</td>		
+		<td>In format PNG: The ROC curve itself including the equal error rate diagonal line (recall=precision)</td>       		
+	</tr>
+	<tr>
+		<td>roc-curve/fileplot.pdf</td>		
+		<td>In format PDF: A curve showing recall and precision on the y-axis as a function of the detection parameter on the x-axis</td>       		
+	</tr>
+	<tr>
+		<td>roc-curve/fileplot.png</td>		
+		<td>In format PNG: A curve showing recall and precision on the y-axis as a function of the detection parameter on the x-axis</td>       		
+	</tr>
+</table>
+
+<p>Examples:</p>
+
+<table style="padding:0; margin:0;">
+<tr>
+	<td><img src="rocplot.png"></td>
+	<td><img src="fileplot.png"></td>
+</tr>
+</table>
+
+<p>
+Various properties of <em>rocplot</em> can be configured, as for example the detection quality constraints (see <a href="#qualityconstraints">above</a>), a list of ignored object types etc.:
+</p>
+
+<pre>
+usage: rocplot [ options ] groundtruth-xml { det-xmls } 
+
+Options are of the format --<option>=<value>
+
+Available options:
+dir-curve-roc ...... dirctory where the curve data is written
+                     (default: roc-curve)
+ignore-det ......... How many levels in the image name path do we ignore
+                     (detection-xml)
+ignore-gt .......... How many levels in the image name path do we ignore
+                     (groundtruth-xml)
+quality ............ Set the evaluation quality constraints:
+                     a,b,c,d,e,f,g,h,i,j
+                     Default values: 0.8,0.4,0.8,0.4,0.4,0.8,0,1
+object-types ....... Specify a comme separated list of object types which shall
+                     shall be loaded from the groundtruth, all other objects
+                     will be ignored in the groundtruth (but not in the 
+                     detection lists!). Default: all objects will be loaded.
+pdf ................ true if pdf plots shall be created automatically.
+                     (default: false)
+</pre>
+
+
+<h2 id="evalplots">D) Creating quality/quantity plots</h2>
+
+<p>
+The tool <em>evalplots</em> creates plots showing recall and precision for varying constraints on detection quality (related to the amount of overlap, see <a href="#qualityconstraints">above</a>). It takes as input files a single detection result XML file and a single ground truth result XML file and creates two directories <em>evalcurve-tr</em> and <em>evalcurve-tp</em> with ASCII files containing the data for the plots of Recall, Precision and their harmonic mean:
+</p>
+
+<pre>
+evalplots results-run1.xml groundtruth.xml
+</pre>
+
+<p>
+This will creates the following files:
+</p>
+
+<table class="graybox">
+	<tr>
+		<td>evalcurve-tr/Recall</td>		
+		<td>Object count recall as a function of tr (object area recall)</td>       		
+	</tr>
+	<tr>
+		<td>evalcurve-tr/Precision</td>		
+		<td>Object count precision as a function of tr (object area recall)</td>       		
+	</tr>
+	<tr>
+		<td>evalcurve-tr/Harmonic Mean</td>		
+		<td>The harmonic mean of object count recall and precision as a function of tr (object area recall)</td>
+	</tr>
+	<tr>
+		<td>evalcurve-tp/Recall</td>		
+		<td>Object count recall as a function of tp (object area precision)</td>       		
+	</tr>
+	<tr>
+		<td>evalcurve-tp/Precision</td>		
+		<td>Object count precision as a function of tp (object area precision)</td>       		
+	</tr>
+	<tr>
+		<td>evalcurve-tp/Harmonic Mean</td>		
+		<td>The harmonic mean of object count recall and precision as a function of tp (object area precision)</td>
+	</tr>
+</table>
+
+<p>
+The data can be plotted using <em>Matlab</em>, <em>Excel</em> or <em>Gnuplot</em>. As for the tool <a href="rocplot">rocplot</a>, plotting can be done automatically by the script using the doplot option:
+</p>
+
+<pre>
+evalplots --doplot=true results-run1.xml groundtruth.xml
+</pre>
+
+<p> Examples:</p>
+
+<table style="padding:0; margin:0;">
+<tr>
+	<td><img src="curvetr.png"></td>
+	<td><img src="curvetp.png"></td>
+</tr>
+</table>
+
+<p>
+Various properties of <em>evalplots</em> can be configured, as for example the ranges of the two varying parameters (tp and tr), the fixed value of the parameter which is not varied (tp is fixed when tr is varied, tr is fixed when tp is varied) etc.:
+</p>
+
+<pre>
+usage: evalplots [ options ] &lt;det-results-xml&gt; &lt;groundtruth-xml&gt;
+
+Options are of the format --&lt;option&gt;=&lt;value&gt;
+
+Available options:
+tr-beg ............. start of the range for the tp threshold (default: 0.1)
+tr-end ............. end   of the range for the tp threshold (default: 1.0)
+tr-stp ............. step  of the range for the tp threshold (default: 0.1)
+tr-stp ............. value of the tp threshold when it is fixed (default: 0.4)
+tp-beg ............. start of the range for the tp threshold (default: 0.1)
+tp-end ............. end   of the range for the tp threshold (default: 1.0)
+tp-stp ............. step  of the range for the tp threshold (default: 0.1)
+tp-stp ............. value of the tp threshold when it is fixed (default: 0.8)
+thr-center-diff .... threshold on the distance between the centers
+                     of two rectangles (default: 0.0)
+thr-border.......... threshold on the relative horizontal border
+                     difference of two rectangles (default: 0.0)
+dir-curve-tr ....... dirctory where the curve for varying tr is written
+                     (default: evalcurve-tr)
+dir-curve-tp ....... dirctory where the curve for varying tp is written
+                     (default: evalcurve-tp)
+ignore-det ......... How many levels in the image name path do we ignore
+                     (detection-xml)
+ignore-gt .......... How many levels in the image name path do we ignore
+                     (groundtruth-xml)                     
+object-types ....... Specify a comme separated list of object types which shall
+                     shall be loaded from the groundtruth, all other objects
+                     will be ignored in the groundtruth (but not in the 
+                     detection lists!). Default: all objects will be loaded.
+doplot ............. true if pdf and png plots shall be created automatically.
+                     (default: false)
+</pre>
+
+
+<h2 id="manualplots">Manually creating arbitrary plots</h2>
+
+<p>
+Often one wishes to compare results for different parameters of an object detection algorithm, thus also creating multiple evaluation results. The tool <em>readdeteval</em> provides an easy way to process these multiple experiments: 
+<ul>
+	<li>Run the experiments, where each experiment stores its results in its own detection result XML file.</li>
+	<li>Run <em>evaldetection</em> on each detection result file. This will produce an evaluation result XML file for each experiment.</li>
+	<li>Run <em>readdeteval</em> on each evaluation result file and concatenate the results of the different calls into a single global XML file. At each call of <em>readdeteval</em> provide the -p option followed by your parameter which you change from one experiment to another. This way,
+	the information on this parameter is included in the XML output. Your output file should look something like this (in this example, a parameter was changed from 0.05 to 0.1 and then to .15):
+	<pre style="font-size: smaller;"> 	
+	&lt;evaluation noImages="14" p=".05"&gt;
+		&lt;icdar2003 r="0.765916" p="0.272135" hmean="0.401585" noGT="35" noD="99"/&gt;
+		&lt;score r="0.925714" p="0.327273" hmean="0.483582" noGT="35" noD="99"/&gt;
+		&lt;scoreSurf r="0.907825" p="0.298267" hmean="0.449011" surfGT="92576" surfD="281770"/&gt;
+	&lt;/evaluation&gt;
+	&lt;evaluation noImages="14" p=".10"&gt;
+		&lt;icdar2003 r="0.765916" p="0.272135" hmean="0.401585" noGT="35" noD="99"/&gt;
+		&lt;score r="0.925714" p="0.327273" hmean="0.483582" noGT="35" noD="99"/&gt;
+		&lt;scoreSurf r="0.907825" p="0.298267" hmean="0.449011" surfGT="92576" surfD="281770"/&gt;
+	&lt;/evaluation&gt;
+	&lt;evaluation noImages="14" p=".15"&gt;
+		&lt;icdar2003 r="0.765916" p="0.272135" hmean="0.401585" noGT="35" noD="99"/&gt;
+		&lt;score r="0.925714" p="0.327273" hmean="0.483582" noGT="35" noD="99"/&gt;
+		&lt;scoreSurf r="0.907825" p="0.298267" hmean="0.449011" surfGT="92576" surfD="281770"/&gt;
+	&lt;/evaluation&gt;
+	</pre>
+	</li>
+	
+	<li>Add the header to the global XML file (please note that its &lt;evaluationSeries&gt;, not &lt;evaluationSet&gt;):
+	<pre style="font-size: smaller;">
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+	&lt;evaluationSeries&gt;
+	</pre>
+	</li>
+	
+	<li>Add the footer to the global XML file:
+	<pre style="font-size: smaller;">
+	&lt;/evaluationSeries&gt;
+	</pre>
+	</li>
+	
+	<li>Run <em>readdeteval</em> on the XML file. This will produce three ASCII text files containing the data for plots of precision, recall and the harmonic mean. This data can be plotted with standard software as <a href="http://www.gnuplot.info/">gnuplot</a>, <a href="http://public.research.att.com/~stat/xgobi/">xgobi</a>, or <a href="../eplot/index.html">eplot</a>.</li>
+</ul>
+</p>
+
+
+<h2 id="comparingresults">Comparing two detection evaluation results</h2>
+
+<p>
+After two test runs of an detection algorithm with two different parameters on a set of multiple test images, sometimes one wants to know which images produced different results, better or worse. This is is possible with the two tools already presented:
+<ul>
+	<li>Run the <em>evaldetection</em> tool on each detection result, producing two different evaluation result XML files.</li>
+	<li>Run the <em>readdeteval</em> tool once, specifying both evaluatoin result files as well as the -c option. This option enables the comparison mode of the tool and requires a comparison parameter, which may be one of the follwing:
+	<ul>
+		<li>a ... print all differences</li>
+        <li>g ... print only results for images where recall or precision is higher in the first evaluation result XML file than in the second one. </li>
+        <li>l ... print only results for images where recall or precision is lower in the first evaluation result XML file than in the second one. </li>   		
+	</ul>	
+	Example:
+	<pre>
+	readdeteval -c l evaluation-of-run1.xml evaluation-of-run2.xml
+	</pre>		
+	</li>	
+</ul>
+
+
+<h2 id="underthehood">Under the hood: manually run an evaluation / access to detailed data</h2>
+
+<p>
+The evaluation on a dataset is done in two steps: in a first evaluation step, the tool <em>evaldetection</em> produces detailed results for each entry (each image) and collects them in a single file. In a second step, the tool <em>readdeteval</em> reads the evaluation report and produces global performance numbers numbers (statistics).
+</p>
+
+<h3 id="firststep">Perform the evaluation on a data set</h3>
+
+<p>
+The executable <em>evaldetection</em> performs the actual evaluation for each entry in the data set, i.e. for each detection result of a single image, and produces a detailed report which is written to standard output. The input data is provided in two XML files, one containing the detection results and one containing the ground truth description. Various options change the default behaviour:
+</p>
+
+<pre>
+usage:  
+   evaldetection [options]  detection-xml groundtruth-xml
+
+   -p &lt;options&gt;   Set the evaluation parameters: 
+                  -p &lt;a&gt;,&lt;b&gt;,&lt;c&gt;,&lt;d&gt;,&lt;e&gt;,&lt;f&gt;,&lt;g&gt;,&lt;h&gt;,&lt;i&gt;,&lt;j&gt;
+                  Default values: 0.8,0.4,0.8,0.4,0.4,0.8,0,1
+   -d &lt;count&gt;     How many levels in the image name path do we ignore
+                  (detection-xml)
+   -g &lt;count&gt;     How many levels in the image name path do we ignore
+                  (groundtruth-xml)
+   -z             Ignore detected rectangles having zero coordinates
+   -v             Print version string
+</pre>
+
+<p>An example of a command could be:</p>
+
+<pre>
+evaldetection results-run1.xml groundtruth.xml > eval-details.xml
+</pre>
+
+<p>
+If the image filenames in the XML files and their paths are not correct, then the -d and -g options may be used to remove levels from the path. This is usefull if the XML file has been created on a different machine than the one where it is used, and if the author of the XML file entered the full path to directories which do not exist on the destination machine.
+</p>
+
+<p>
+The evaluation results are given in XML format, as the following example indicates:
+</p>
+
+<pre style="font-size: smaller;">
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;evaluationSet&gt;
+  &lt;evaluation noImages="1" imageName="images/image1.jpg"&gt;    
+    &lt;icdar2003 r="0.494285" p="0.494285" hmean="0.494285" noGT="3" noD="3"/&gt;
+    &lt;score r="0" p="0" hmean="0" noGT="3" noD="3"/&gt;
+  &lt;/evaluation&gt;
+  &lt;evaluation noImages="1" imageName="images/image1.jpg"&gt;    
+    &lt;icdar2003 r="0.716359" p="0.487149" hmean="0.579927" noGT="8" noD="11"/&gt;
+    &lt;score r="0.575" p="0.345455" hmean="0.431605" noGT="8" noD="11"/&gt;
+  &lt;/evaluation&gt;
+&lt;/evaluationSet&gt;
+</pre>
+
+<p>Each result detail is put in a an &lt;evaluation&gt; tag, which includes tags which different (complementary) information. The results calculated using our proposed evaluation measure (described <a href="../../publications/index.html#ijdar2006">here</a>) are in the &lt;score&gt; tag. The results calculated using the measure used in the framework of the ICDAR 2003 competition are in the &lt;icdar2003&gt; tag. 
+</p>
+
+<p>The results themselves are structured as follows: 'p' stands for precision, 'r' for recall and 'hmean' for the harmonic mean between precision and recall. 'noGT' is the number of ground truth rectangles and 'noD' is the number of detected rectangles.</p>
+
+<h3 id="secondstep">Calculate statistics on a set of evaluation results</h3>
+
+The detailed results produced by the <em>evaldetection</em> tool are not very usefull for experiments with large data sets. The tool <em>readdeteval</em> is able to read a lengthy XML file with detailed information and produce statistics on it:
+
+<pre>
+usage: readdeteval [ options ] input-xmlfile [ input-xmlfile2]
+
+  The XML file(s) must contain one of the following root-tags:
+    &lt;evaluationSet&gt;    Evaluations for different images: calculate the
+                       performance measures for the total set.
+    &lt;evaluationSeries&gt; Evaluations for different parameters. Create a
+                       plain text file for input to gnuplot.
+
+  OPTIONS:
+    [ -g ]             create a series with falling generality
+                       (only tresholded Prec or Rec / generality)
+    [ -M ]             treat mode estimation evaluation results
+    [ -n &lt;count&gt; ]     restrict number of evaluations to &lt;count&gt;
+    [ -p &lt;par-value&gt; ] print the given value into the "p" field
+                       when writing an output &lt;evaluation&gt; tag.
+    [ -s &lt;prefix&gt; ]    The prefix for the 3 files containing the
+                       the detailed output (recall,precision,hmean)
+    [ -c &lt;cmptype&gt; ]   compares two XML files (the second file must
+                       be specified!) cmptype:
+                       a ... all differences
+                       g ... results where rec or prec is greater in 
+                             the first file
+                       l ... results where rec or prec is less in 
+                             the first file
+    [ -L ]             print the output in LaTeX tabular format.
+</pre>
+
+<p>
+The output of the <em>readdeteval</em> command is an XML file (written to standard output) in the same format as the input files. This way, several outputs may be concatenated and resubmitted to the <em>readdeteval</em> command. The <em>noImages</em> field (number of images) is updated (i.e., summed) at each run. Additionally, general information is written to standard error.
+</p>
+
+<p>
+An example of a command could be:
+</p>
+
+<pre>
+readdeteval eval-details.xml
+</pre>
+
+<p>with the following example of results (standard error and standard output):</p>
+
+<pre style="font-size: smaller;">
+Total-Number-Of-Processed-Images: 2
+100% of the images contain text.
+Generality: 5.5
+Inverse-Generality: 0.181818
+</pre>
+
+<pre style="font-size: smaller;">
+  &lt;evaluation noImages="2"&gt;
+    &lt;icdar2003 r="0.655793" p="0.488678" hmean="0.560035" noGT="11" noD="14"/&gt;
+    &lt;score r="0.418182" p="0.271429" hmean="0.32919" noGT="11" noD="14"/&gt;
+  &lt;/evaluation&gt;
+</pre>
+
+<p>
+Creating result tables in a <a href="http://en.wikipedia.org/wiki/LaTeX">LaTeX</a> document can be done easy by providing the -L option, which changes the output to the following format:
+</p>
+
+<pre>
+ICDAR 65.6 &amp; 48.9 &amp; 56 \\
+CRISP 41.8 &amp; 27.1 &amp; 32.9 \\
+</pre>
+
+
+
+<h2 id="installation">Installation and usage</h2>
+
+<h3>Linux binaries (compiled for Ubuntu 14.04)</h3>
+
+<p>
+Download the .tgz file and extract the contents in the root directory. The files will automatically be placed into /usr/bin. 
+</p>
+
+<p>
+Assuming that it has been downloaded to /home/max/deteval-bin-linux.tgz :
+</p>
+
+<pre>
+cd /
+sudo tar xvfz /home/max/deteval-bin-linux.tgz
+</pre>
+
+<h3>Linux sources</h3>
+
+<p> 
+You will need the following packages:
+</p>
+
+<pre>
+sudo apt-get install libxml2 libxml-dev
+</pre>
+
+<p>
+Download the .tgz file and extract the contents into some folder. This will create a new subfolder "deteval-linux". Go there:
+</p>
+
+<pre>
+cd deteval-linux
+sudo ./build.sh
+</pre>
+
+That's it. All files are automatically installed into /usr/bin. They can be uninstalled with
+
+<h2>Differences between the UNIX (Linux/Mac OS) and Windows versions</h2>
+
+<center>
+<table style="width: 70%;">
+	<TR>
+		<TD><img src="tux-small.png"></TD><td> <img src="apple-logo.png"></TD>
+		<td>The commands do not have a suffix (rocplot, evalplots etc.)</td>
+		<TD><img src="windows-small.png"></TD>
+		<td>The ruby commands have suffix .rb, (rocplot.rb, evalplots.rb)</td>
+	</TR>
+</table>
+</center>
+
+
+<h2 id="requirements">Requirements</h2>
+
+<p>
+Requirement: the ruby programming language must be installed, as well as libxml2-dev. Plotting from the command line requires gnuplot as well as the epstopdf tool. For ubuntu all packages are in the repository:
+</p>
+
+<pre>
+sudo apt-get install ruby 
+sudo apt-get install libxml2 libxml2-dev  
+sudo apt-get install gnuplot
+sudo apt-get install texlive-extra-utils
+</pre>
+
+For windows, the ruby language can be downloaded <a href="http://www.ruby-lang.org/en">here</a>.
+
+<h2 id="download">Download</h2>
+
+<table class="downloadlist">
+  <tr>
+    <td>File</td>   
+    <td>Download</td>
+    <td>Remark</td>
+  </tr>
+  <tr>
+    <td>deteval-linux.tgz</td>       
+    <td><a href="download/deteval-linux.tgz">[TGZ]</a></td>
+    <td>Linux binaries for Ubuntu 14.04</td>
+  </tr>
+  <tr>
+    <td>deteval-macos.zip</td>       
+    <td><a href="download/deteval-macos.zip">[ZIP]</a></td>
+    <td>Mac OS binaries for Mavericks</td>
+  </tr>
+  <tr>
+    <td>deteval-setup.exe</td>       
+    <td><a href="download/deteval-setup.exe">[EXE]</a></td>
+    <td>Windows binaries (functioning, but not maintained anymore)</td>
+  </tr>
+  <tr>
+    <td>deteval-src-unix.tgz</td>        
+    <td><a href="download/deteval-src-unix.tgz">[TGZ]</a></td>
+    <td>Sources for Linux/MacOS including compilation and install scripts.</td>
+  </tr>
+  <tr>
+    <td>Test samples</td>        
+    <td><a href="download/testxmls.tgz">[TGZ]</a></td>
+    <td>Two test files (detection and groundtruth) for testing</td>
+  </tr>
+</table>
+
+<h2 id="author">Licence</h2>
+
+<p>
+<a href="http://en.wikipedia.org/wiki/GNU_General_Public_License">Gnu Public License (GPL)</a>
+</p>
+
+<p>
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+</p>
+
+<p>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+</p>
+
+<p>
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the
+Free Software Foundation, Inc.,
+59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+</p>
+
+<h2 id="author">Credits</h2>
+
+<p>
+DetEval was written by <a href="../../index.html">Christian Wolf</a>, the windows port and the GUI have been written by Matthieu Bacconnier. Send comments, suggestions and bug reports to the follwing address:
+</p>
+
+<p>christian.wolf (at) liris.cnrs.fr</p>
+
+<p style="border: 2px solid #90600b; padding: 1em;">
+<b><em>You need to cite the <a href="../../publications/index.html#ijdar2006">IJDAR paper</a> in all publications which describe work for which you used the DetEval tool</em></b>.
+</p>
+
+
+
+</body>
+</html>

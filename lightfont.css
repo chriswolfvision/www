@@ -1,0 +1,17 @@
+.lightfont {
+	font-family: 'GillSans-Light', 'Gill Sans', 'Gill Sans MT', "Palatino Linotype", "Book Antiqua", Palatino, 'Trebuchet MS', sans-serif;
+	font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 300;
+    font-size: 110%; 
+}
+
+.mediumfont {
+	font-family: 'GillSans-Light', 'Gill Sans', 'Gill Sans MT', "Palatino Linotype", "Book Antiqua", Palatino, 'Trebuchet MS', sans-serif;
+	font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 310;
+    font-size: 110%; 
+}

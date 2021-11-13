@@ -1,0 +1,365 @@
+<!-- ****************************************************************************************
+  Author: Christian Wolf
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<link rel=stylesheet href="../main.css" type="text/css">
+	<link rel=stylesheet href="publications.css" type="text/css">
+    	<link rel="shortcut icon" href="../graphics/favicon.ico">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Christian Wolf - Presentations</title>
+</head>
+<body>
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+<!-- ****************************************************************************************
+  The nav menu box
+  ******************************************************************************************* -->
+
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="../index.html">Main</a></li>
+		<li> <a href="../research/index.html">Research</a></li>
+		<li> <a href="../teaching/index.html">Teaching</a></li>
+		<li> <a href="../cv/index.html">CV</a></li>
+		<li> <a href="../publications/index_bydate.html">Publications</a></li>
+		<li> <a href="../publications/pres.html">Presentations</a></li>
+		 
+		<li> <a href="../software/index.html">Software</a></li>
+		<li> <a href="http://mady.n.free.fr/chris/noah">Private</a></li>
+	</ul>
+</div>  
+
+<!-- ****************************************************************************************
+  Main Contents
+  ******************************************************************************************* -->
+  
+   
+
+<h1>Presentations and Posters</h1>
+
+<p align="center">Presentations and posters held during conferences are in the 
+  <a href="../publications/index.html">publications</a> section.</p>
+
+
+<ul>
+	<li class="lang-french">	  	
+		<span class="t-title">
+			Maintien des personnes âgées à domicile - enjeux scientifiques et technologiques liés à la vision par ordinateur,
+		</span>
+		<span class="t-date">
+			July 08th, 2011, 
+		</span>
+		<span class="t-place">
+			Ecole d'été "Intelligence ambiante", Session Enjeux sociétaux, scientifiques et technologiques du maintien des personnes âgées à domicile.
+		</span> 		
+		<ul class="reflink-box">
+			<LI><a href="../papers/etia2011.pdf">PDF</a></LI>
+		</ul>				
+  	</li>
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Activity recognition in videos,	
+		</span>
+		<span class="t-date">
+			April 14th, 2011, 
+		</span>
+		<span class="t-place">
+			Seminar at the LSIIT Laborary, Strasbourg, team MIV.
+		</span> 		
+		<ul class="reflink-box">
+			<LI><a href="../papers/pres-110414.pdf">PDF</a></LI>
+		</ul>				
+  	</li>
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Activity recognition in videos,	
+		</span>
+		<span class="t-date">
+			March 29th, 2011, 
+		</span>
+		<span class="t-place">
+			Seminar at Telecom SudParis, Paris, team Biosecure.
+		</span> 		
+		<ul class="reflink-box">
+			<LI><a href="../papers/pres-110414.pdf">PDF</a></LI>
+		</ul>				
+  	</li>
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Activity recognition in videos,	
+		</span>
+		<span class="t-date">
+			Octobre 7th, 2010, 
+		</span>
+		<span class="t-place">
+			Journée du département image du LIRIS : 
+			"de la vision au mouvement : capture, analyse et interprétation"
+		</span> 		
+		<ul class="reflink-box">
+			<LI><a href="../papers/pres-journeeliris-101007.pdf">PDF</a></LI>
+		</ul>				
+  	</li>
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Activity recognition in videos,	
+		</span>
+		<span class="t-date">
+			June 14th, 2010, 
+		</span>
+		<span class="t-place">
+			Réunion du GdR Robotique sur le thème "Interaction homme/robot"</a>
+		</span> 		
+		<ul class="reflink-box">
+			<LI><a href="../papers/pres-gdr-robots-100614.pdf">PDF</a></LI>
+		</ul>				
+  	</li>
+	<li class="lang-english">	  	
+		<span class="t-title">
+			A tutorial on optimization with graph cuts - with applications in image and mesh processing and computer vision,
+		</span>
+		<span class="t-date">
+			April 4th, 2010, 
+		</span>
+		<span class="t-place">
+			Seminar LIRIS</a>
+		</span> 		
+		<ul class="reflink-box">
+			<LI><a href="../papers/tutorial-graphcuts-100404.pdf">PDF</a></LI>
+		</ul>				
+  	</li>
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Shape and activity matching and classification,
+		</span>
+		<span class="t-date">
+			February 11th, 2010, 
+		</span>
+		<span class="t-place">
+			Réunion du projet ANR Sattic</a>
+		</span> 		
+		<ul class="reflink-box">
+			<LI><a href="../papers/pres-sattic-100210.pdf">PDF</a></LI>
+		</ul>				
+  	</li>
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Shape matching and correspondence through global energy minimization
+		</span>
+		<span class="t-date">
+			March 10th, 2009, 
+		</span>
+		<span class="t-place">
+			Réunion du projet ANR Sattic</a>
+		</span> 		
+		<ul class="reflink-box">
+			<LI><a href="../papers/pres-sattic-090310.pdf">PDF</a></LI>
+		</ul>				
+  	</li>	
+
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Better restore the recto side of a document with an estimation of the verso side: Markov model
+and inference with graph cuts.	
+		</span>
+		<span class="t-date">
+			June 24th, 2008, 
+		</span>
+		<span class="t-place">
+			Journée thématique du GRCE et du GDR I3 - Théme 6: 'Approches Statistiques, Reconnaissance des Formes et Analyse d'Images'</a>
+		</span> 		
+		<ul class="reflink-box">
+			<LI><a href="../papers/pres-gdri3-080624.pdf">PDF</a></LI>
+		</ul>				
+  	</li>
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Research activities	
+		</span>
+		<span class="t-date">
+			January 8th, 2008, 
+		</span>
+		<span class="t-place">
+			ANR Sattic</a>
+		</span> 		
+		<ul class="reflink-box">
+			<LI><a href="../papers/pres-anr-sattic-080108.pdf">PDF</a></LI>
+		</ul>				
+  	</li>	
+
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Quality, quantity and generality in the evaluation of object detection algorithms.
+		</span>
+		<span class="t-date">
+			December 15th, 2005, 
+		</span>
+		<span class="t-place">
+			GDR ISIS: <a href="http://gdr-isis.org/rilk/gdr/ReunionListe?r=401">
+			Journée évaluation des traitements dans un système de vision</a>
+		</span> 		
+		<ul class="reflink-box">
+			<LI><a href="../papers/gdr2005eval.pdf">PDF</a></LI>
+		</ul>				
+  	</li>	
+
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Text detection and extraction from audio-visual documents for semantic indexing.
+		</span>
+		<span class="t-date">
+			June 3rd, 2004, 
+		</span>
+		<span class="t-place">
+			laboratory <a href="http://www.greyc.unicaen.fr/">GREYC.</a>
+		</span> 
+		<span class="t-notes">
+			Emphasis on modeling and evaluation
+		</span>
+		<ul class="reflink-box">
+			<LI><a href="../papers/presgreyc2004.ppt">Powerpoint</a></LI>
+		</ul>				
+  	</li>	
+	
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Text detection and extraction from audio-visual documents for semantic indexing.
+		</span>
+		<span class="t-date">
+			July 1st, 2004
+		</span>
+		<span class="t-place">
+			<a href="http://www.foxstream.fr">FoxStream</a>
+		</span> 
+		<span class="t-notes">
+			Emphasis on modeling and evaluation
+		</span>
+		<ul class="reflink-box">
+		<LI><a href="../papers/presfoxstream2004.ppt">Powerpoint</a></LI>
+		</ul>				
+  	</li>
+
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Text detection and extraction from audio-visual documents for semantic indexing.	
+		</span>
+		<span class="t-date">
+			July 17th, 2003
+		</span>
+		<span class="t-place">
+			<a href="http://www-clips.imag.fr/mrim/User/catherine.berrut/GT35.IRI.I3">
+			GdR-PRC I3 / GT 3.5:</a> Indexation et Recherche d'Informations
+		</span> 
+		<ul class="reflink-box">
+		<LI><a href="../papers/GdrI3-2003.pdf">PDF</a></LI>
+		</ul>				
+  	</li>
+
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Indexing and Retrieval of Video for TREC 2002
+		</span>
+		<span class="t-date">
+			September 27th, 2002
+		</span>
+		<span class="t-place">
+			<a href="http://lamp.cfar.umd.edu/"> 
+        		Language and Media Processing Laboratory</a> at 
+			<a href="http://www.umd.edu">University of Maryland</a>
+		</span> 
+		<ul class="reflink-box">
+		<LI><a href="../papers/lamp2002pr2.ppt">Powerpoint</a></LI>
+		</ul>				
+  	</li>
+	
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Detection and Extraction of Artificial 
+        		Text for Semantic Indexing
+		</span>
+		<span class="t-date">
+			September 27th, 2002
+		</span>
+		<span class="t-place">
+			<a href="http://www.dagstuhl.de/DATA/Seminars/02/#02021">
+			Seminar on Content-Based Image and Video Retrieval</a> at 
+			<a href="http://www.dagstuhl.de">Schlo&szlig; Dagstuhl</a>, Germany
+		</span>
+		<ul class="reflink-box">
+		<li><a href="../papers/dagstuhl2002.ppt">Powerpoint</a></LI>
+		</ul>				
+  	</li>
+
+	<li class="lang-english">	  	
+		<span class="t-title">
+			Detection and Extraction of Artificial 
+        		Text from Videos
+		</span>
+		<span class="t-date">
+			September 27th, 2002
+		</span>
+		<span class="t-place">
+			<a href="http://lamp.cfar.umd.edu/"> 
+        		Language and Media Processing Laboratory</a> at 
+			<a href="http://www.umd.edu">University of Maryland</a>
+		</span> 
+		<ul class="reflink-box">
+		<LI><a href="../papers/lamppr1.ppt">Powerpoint</a></LI>
+		</ul>				
+  	</li>
+
+	<li class="lang-german">	  	
+		<span class="t-title">
+			Auf der Suche nach der Semantik - 
+			Inhaltsbasierte Indizierung von Bildern und Video
+		</span>
+		<span class="t-date">
+			November 17th, 2000
+		</span>
+		<span class="t-notes">
+			Presentation for the 
+			<a href="http://www.prip.tuwien.ac.at/Teaching/PripPreis/preis2000.html">
+			PRIP Preis 2000</a>: Price of the 
+			<a href="http://www.prip.tuwien.ac.at">Pattern Recognition and 
+			Image Processing group</a> (PRIP) at 
+			<a href="http://www.tuwien.ac.at">Vienna University of Technology</a>,
+			organised in collaboration with industries, 
+        		awarded for the best research activities
+		</span>
+		<ul class="reflink-box">
+		<LI><a href="../papers/presprippreis.ppt">Powerpoint</a></LI>
+		</ul>				
+  	</li>
+	
+	<li class="lang-french">	  	
+		<span class="t-title">
+			Indexation et recherche dans 
+        		les bases de donn&eacute;es de documents audiovisuels
+		</span>
+		<span class="t-date">
+			2000
+		</span>
+		<span class="t-place">
+			Carrefour Rhone Alpes 2000
+		</span> 
+		<ul class="reflink-box">
+		<LI><a href="../papers/rhonealpes2000.ppt">Powerpoint</a></LI>
+		</ul>				
+  	</li>
+</ul>	
+
+</body>
+</html>

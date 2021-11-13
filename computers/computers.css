@@ -1,0 +1,22 @@
+/***************************************************************************************
+ * main.css
+ * Main style file
+ ***************************************************************************************/
+
+
+table.computers {
+	padding-right: 1em;
+}
+ 
+.computers td {
+	padding-right: 1em;
+	padding-left: 2em;
+	border-bottom: 1px solid #bbbbbb;
+}
+
+.computersfirstrow td{
+	border-bottom: 3px solid #660000;
+	font-weight: bold;
+	font-size: 110%;
+}
+

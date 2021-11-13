@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+<channel>
+<title>RSS Feed for my wordcloud</title>
+<link>http://liris.cnrs.fr/christian.wolf/wordcloud.html</link>
+<description>A wordcloud of my research activities</description>
+<lastBuildDate>Mon, 22 Nov 2010 21:13:00 GMT</lastBuildDate>
+<language>en-us</language>
+
+<item>
+<title>A wordcloud of my research activities</title>
+<link>http://liris.cnrs.fr/christian.wolf/wordcloud.txt</link>
+<guid>http://liris.cnrs.fr/christian.wolf/wordcloud.html</guid>
+<pubDate>Mon, 22 Nov 2010 21:13:00 GMT</pubDate>
+<description>[CDATA[ This is the description. ]]</description>
+
+</item>
+</channel>
+</rss>
+
