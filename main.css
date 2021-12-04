@@ -12,7 +12,7 @@ BODY {
 a:link {color:#90600b; text-decoration: none; }
 a:active {color: #90600b; text-decoration: none; }
 a:visited {color: #a0802b; text-decoration: none; }
-a:hover {color: #000099; text-decoration: underline; }
+a:hover {color: #44a3c0; text-decoration: underline; }
 
 .firstcolumn {
 	width: 40%;
@@ -196,7 +196,7 @@ li.bib-empty {
 .navmenunew a:link {color: white; text-decoration: none; }
 .navmenunew a:active {color: #a0802b; text-decoration: none; }
 .navmenunew a:visited {color: white; text-decoration: none; }
-.navmenunew a:hover {color: #bbbbbb; text-decoration: underline; }
+.navmenunew a:hover {color: #44a3c0; text-decoration: none; }
 
 /***************************************************************************************
  * the nav menu
