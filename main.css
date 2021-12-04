@@ -164,6 +164,41 @@ li.bib-empty {
 }
 
 /***************************************************************************************
+ * the new nav menu
+ ***************************************************************************************/
+ 
+ .navmenunew {
+ 	text-align: center;
+	/* border-style: solid;
+	border-width: 1px;
+	border-color: #bbbbbb;	*/
+	margin-top: 1em;
+	/* padding: 3px; */
+}
+
+.navmenunew ul, .navmenunew li {
+	display: inline;
+	padding-left: 0.8ex;
+	padding-right: 0.8ex;
+	border-left: 1px solid #bbbbbb;
+	color: white;
+}
+
+.navmenunew ul, .navmenunew li.first {
+	border-left: none;
+	background-color: black;
+}
+
+.navmenunew p {
+	display: inline;	
+}
+
+.navmenunew a:link {color: white; text-decoration: none; }
+.navmenunew a:active {color: #a0802b; text-decoration: none; }
+.navmenunew a:visited {color: white; text-decoration: none; }
+.navmenunew a:hover {color: #bbbbbb; text-decoration: underline; }
+
+/***************************************************************************************
  * the nav menu
  ***************************************************************************************/
  
