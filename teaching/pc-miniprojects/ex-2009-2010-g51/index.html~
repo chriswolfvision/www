@@ -1,0 +1,97 @@
+<!-- ****************************************************************************************
+  Author: Christian Wolf
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>INSA - Examples for computer science mini projects</title>
+	<link rel=stylesheet href="../../../main.css" type="text/css">
+	<link rel="shortcut icon" href="../../../graphics/favicon.ico">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<!-- ********************************************************************************************
+  The nav menu box	
+************************************************************************************************* -->
+
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="../../../index.html">Main</a></li>
+		<li> <a href="../../../research/index.html">Research</a></li>
+		<li> <a href="../../../teaching/index.html">Teaching</a></li>
+		<li> <a href="../../../cv/index.html">CV</a></li>
+		<li> <a href="../../../publications/index.html">Publications</a></li>
+		<li> <a href="../../../publications/pres.html">Presentations</a></li>
+		<li> <a href="../../../demos/index.html">Demos</a></li>
+		<li> <a href="../../../software/index.html">Software</a></li>
+		<li> <a href="http://mady.n.free.fr/chris/noah">Private</a></li>
+	</ul>
+</div>  
+
+<!-- ********************************************************************************************
+  Main contents
+************************************************************************************************* -->
+
+<h1>Examples for computer science miniprojects</h1>
+
+<h1>2009/2010 : Group 51</h1>
+
+<center>
+<a href="../index.html">Other years/groups</a>
+</center>
+
+
+<h3>Electrical circuits (Moata Omar, Heusch Mathieu, Rendu Quentin, Daurelle Sebastien )</h3>
+
+<center>
+<table>
+	<TR>
+		<TD><a href="circuit-serie.avi"><img alt="" src="../imgs/video.png"></a></TD>
+		<TD><a href="circuit-serie.avi">Video: serial circuit (.avi)</a></TD>
+	</TR>
+	<TR>
+		<TD><a href="circuit-parallele.avi"><img alt="" src="../imgs/video.png"></a></TD>
+		<TD><a href="circuit-parallele.avi">Video: parallel circuit (.avi)</a></TD>
+	</TR>
+</table>
+</center>
+
+<img src="circuit1.png">
+
+<h3>Prey - Predator (POTHIN Raphaël, TRIVINO Gaëtan, DEMICHELI Léo, NOEL Céline) </h3>
+
+<img src="predator.jpg">
+
+<h3>Space shuttle (ALEXANDRE Julie, JOLY Luc, LAFOSSE Julien, PERRICHON Armelle) </h3>
+
+<img src="shuttle.png">
+
+<h3>Satellite (HARTI Imane, DOUDET Clément, JACQUEMIN Thibault, CHASTEL Romain) </h3>
+
+<img src="../imgs/satellite.png">
+
+<h3>Laser (DOYEN Florian, CARRADOT Malo, RAQUAI Yacine) </h3>
+
+<img src="../imgs/notavailable.png">
+
+<h3>Tracjectory (Aribert-Desjardins, Advinin, Paulet, Pourprix)</h3>
+
+<img src="../imgs/notavailable.png">
+
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!-- ****************************************************************************************
+  Author: Christian Wolf
+  ******************************************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>INSA - Examples for computer science mini projects</title>
+	<link rel=stylesheet href="../../../main.css" type="text/css">
+	<link rel="shortcut icon" href="../../../graphics/favicon.ico">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<!-- ********************************************************************************************
+  The nav menu box	
+************************************************************************************************* -->
+
+<div class="navmenu">
+	<ul>
+		<li class="first"><a href="../../../index.html">Main</a></li>
+		<li> <a href="../../../research/index.html">Research</a></li>
+		<li> <a href="../../../teaching/index.html">Teaching</a></li>
+		<li> <a href="../../../cv/index.html">CV</a></li>
+		<li> <a href="../../../publications/index.html">Publications</a></li>
+		<li> <a href="../../../publications/pres.html">Presentations</a></li>
+		<li> <a href="../../../demos/index.html">Demos</a></li>
+		<li> <a href="../../../software/index.html">Software</a></li>
+		<li> <a href="http://mady.n.free.fr/chris/noah">Private</a></li>
+	</ul>
+</div>  
+
+<!-- ********************************************************************************************
+  Main contents
+************************************************************************************************* -->
+
+<h1>Examples for computer science miniprojects</h1>
+
+<h1>2010/2011 : Group 71</h1>
+
+<center>
+<a href="../index.html">Other years/groups</a>
+</center>
+
+
+<h3>Liquid Story (Lionel PARREAUX, Jordan VINCENT, Pierre  CURIS, Najoua EL OUADIE) </h3>
+
+<p>
+Realization of an interactive physics engine and creation of a game based on this engine. Particles represent small units of matter. Every physical model is constructed upon the use of particles, along with another concept, that is: the Link.
+A link can be seen as a constraint between two particles. Links are to maintain some particles at a certain minimum or maximum distance, but in order to make them react in a more or less “realistic” way, they should not only modify the particles’ positions, but also their speeds. This means links will be responsible for some acceleration and deceleration of the particles; thus they can be regarded as exerting a force on these particles
+</p>
+
+<center>
+<table>
+	<TR>
+		<TD><a href="http://www.youtube.com/watch?v=ktTCHGqC0ok"><img alt="" src="../../../graphics/video_100.jpg"></a></TD>
+		<TD><a href="http://www.youtube.com/watch?v=ktTCHGqC0ok">a video illustrating the program (MPEG 4)</a></TD>
+	</TR>
+</table>
+</center>
+
+<img src="liquidstory1.png">
+
+<img src="liquidstory2.png">
+
+<h3>Sheep and wolves (Nicolas REYNOLDS, Mathieu JASKULKE) </h3>
+
+<p>
+Simulation of predator/victime roles (sheep and wolves) on different terrain. Includes different map generators (interactive user generated as well as random with probabilistic models).
+</p>
+
+<img src="sheep1.png">
+
+<img src="sheep2.png">
+
+<img src="sheep3.png">
+
+<img src="sheep4.png">
+
+
+
+<h3>Tower defense (Gauderic GAUTIER, Sarah ROUBACH, Quentin ORAIN and Nathan VANDON) </h3>
+
+<p>
+A tower defense game featuring a shortest path A* algorithm.
+</p>
+
+<center>
+<table>
+	<TR>
+		<TD><a href="tower.mp4"><img alt="" src="../../../graphics/video_100.jpg"></a></TD>
+		<TD><a href="tower.mp4">a video illustrating the program (MPEG 4)</a></TD>
+	</TR>
+</table>
+</center>
+
+<img src="tower.png">
+
+<h3>Magnetic Golf (Mederic Ragon, Alexandre Vienne, Cédric Robert, Louison Méhu ) </h3>
+
+<p>
+A mini golf game using different (and possibly magnetic) balls and magnets.
+</p>
+
+<img src="golf1.png">
+
+<img src="golf2.png">
+
+
+
+
+<h3>Maze (Axelle BOYER, Antoine CATTEAU, Augustin CORREIIA, Camille LEFEBVRE) </h3>
+
+<p>
+Simulation of mazes with different types of mazes. Interactive solving by the user or automatic solving by the computer.
+</p>
+
+<img src="maze.png">
+
+<h3>Amoeba (Mathilde GIACALONE, Neville JUNKIN, Joseph CHONG, Klervi GOLHEN) </h3>
+
+<p>
+Simulation of amoeba populations including aggregation modeling.
+</p>
+
+<img src="amoeba.png">
+
+<h3>Ants (Baptiste MAINGRET, Théophile SCHOULLER) </h3>
+
+<p>
+Simulation of ant movement including pheromone modeling</p>
+
+<img src="ants.png">
+
+
+
+<!-- ****************************************************************************************
+  For google analytics
+  **************************************************************************************** -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1423815-1";
+urchinTracker();
+</script>
+
+</body>
+</html>
