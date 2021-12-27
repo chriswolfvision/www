@@ -44,13 +44,14 @@ urchinTracker();
 <h1>Publications</h1>
 
 
-<div style="text-align: center">
-	By Type |
-	<a href="index_bydate.html">by Date</a> |	
-	<a href="http://dblp.uni-trier.de/pers/hd/w/Wolf_0001:Christian">DBLP</a> |
-	<a href="http://scholar.google.com/citations?user=idYS1AIAAAAJ&hl=en">Google citations page</a>
+<div class="navmenunew">
+	<ul>
+	<li class="first" style="color: gray;">By Type</li>
+	<li><a href="index_bydate.html">by Date</a></li>
+	<li><a href="http://dblp.uni-trier.de/pers/hd/w/Wolf_0001:Christian">DBLP</a> </li>
+	<li><a href="http://scholar.google.com/citations?user=idYS1AIAAAAJ&hl=en">Google citations page</a></li>
+	</ul>
 </div>
-
 
 <!-- ****************************************************************************************
   ARXIV
@@ -61,6 +62,36 @@ urchinTracker();
 <h2>ArXiv pre-prints (a subset of papers currently under review)</h2>
 
 <dl>
+	<dt><img src="../graphics/bib_arxiv.gif"></dt>
+	<dd id="arxiv2021graphrl" class="bib-arxive">
+		<span class="t-author">
+			<a href="https://github.com/edbeeching">Edward Beeching<a>,			
+			Maxim Peter, Philippe Marcotte,
+			<a href="http://perso.citi-lab.fr/jdibangoy">Jilles Dibangoye</a>,
+			<a href="http://perso.citi-lab.fr/osimonin/">Olivier Simonin</a>,
+			Joshua Romoff and
+			<a href="../index.html">Christian Wolf</a>.
+			
+	  	</span>
+	  	<span class="t-title">
+		  	Graph augmented Deep Reinforcement Learning in the GameRLand3D environment.
+		</span>
+		<span class="t-medium">
+			To appear in AAAI Workshop on Reinforcement Learning in Games.
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('arxiv2021graphrl');">
+			Abstract</a>
+			</li>								
+      		</ul>
+		<div class="t-abstract">
+			<p>
+			We address planning and navigation in challenging 3D video games featuring maps with disconnected regions reachable by agents using special actions. In this setting, classical symbolic planners are not applicable or diffi- cult to adapt. We introduce a hybrid technique combin- ing a low level policy trained with reinforcement learn- ing and a graph based high level classical planner. In addition to providing human-interpretable paths, the ap- proach improves the generalization performance of an end-to-end approach in unseen maps, where it achieves a 20% absolute increase in success rate over a recurrent end-to-end agent on a point to point navigation task in yet unseen large-scale maps of size 1km×1km. In an in- depth experimental study, we quantify the limitations of end-to-end Deep RL approaches in vast environments and we also introduce “GameRLand3D”, a new bench- mark and soon to be released environment built with the Unity engine able to generate complex procedural 3D maps for navigation tasks. An overview video is available <a href="https://www.youtube.com/watch?v=H0WAHvEeVyc">here</a>.
+		    </p>
+		</div>
+  	</dd>
+
 	<dt><img src="../graphics/bib_arxiv.gif"></dt>
 	<dd id="arxiv2021edwardgodot" class="bib-arxive">
 		<span class="t-author">
