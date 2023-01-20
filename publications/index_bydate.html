@@ -53,6 +53,36 @@
 <h2>2023</h2>
 
 <dl>
+		<dt class="conference">c76</dt>
+	<dd id="iclr2023" class="bib-conference">
+		<span class="t-author">
+			<a href="https://scholar.google.com/citations?user=IC0ceIgAAAAJ&hl=en">Steeven Janny<a>,
+			<a href="https://www.linkedin.com/in/aur%C3%A9lien-b%C3%A9n%C3%A9teau/?originalSubdomain=fr">Aurélien Bénéteau<a>,			
+            <a href="https://scholar.google.com/citations?user=KOXeslUAAAAJ&hl=en">Madiha Nadri<a>,
+            <a href="https://perso.liris.cnrs.fr/julie.digne">Julie Digne</a>,
+            <a href="http://cedric.cnam.fr/~thomen">Nicolas Thome</a>,
+            <a href="../index.html">Christian Wolf</a>.
+	  	</span>
+	  	<span class="t-title">
+		    EAGLE: Large-scale Learning of Turbulent Fluid Dynamics with Mesh Transformers.
+		</span>
+		<span class="t-medium">
+			In International Conference on Learning Representations (ICLR), 2023.
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('iclr2023');">Abstract</a>
+			</li>
+			<li><a href="https://openreview.net/forum?id=mfIX4QpsARJ">Openreview-Link</a></li>			
+			<li><a href="https://eagle-dataset.github.io/">Project + Benchmark dataset</a></li>
+      		</ul>
+		<div class="t-abstract">
+			<p>
+			Estimating fluid dynamics is classically done through the simulation and integration of numerical models solving the Navier-Stokes equations, which is computationally complex and time-consuming even on high-end hardware. This is a notoriously hard problem to solve, which has recently been addressed with machine learning, in particular graph neural networks (GNN) and variants trained and evaluated on datasets of static objects in static scenes with fixed geometry. We attempt to go beyond existing work in complexity and introduce a new model, method and benchmark. We propose EAGLE: a large-scale dataset of ∼1.1 million 2D meshes resulting from simulations of unsteady fluid dynamics caused by a moving flow source interacting with nonlinear scene structure of varying geometries, with 600 different scenes of three different types in total. To perform future forecasting of pressure and velocity on the challenging EAGLE dataset, we introduce a new mesh transformer. It leverages node clustering, graph pooling and global attention to learn long-range dependencies between spatially distant data points without needing a large number of iterations, as existing GNN methods do. We show that our transformer outperforms state-of-the-art performance on, both, existing synthetic and real datasets and on EAGLE. Finally, we highlight that our approach learns to attend to airflow, integrating complex information in a single iteration.
+		    </p>
+		</div>
+  </dd>
+
 		<dt class="conference">c75</dt>
 		<dd id="icra2022assem" class="bib-conference">
 		<span class="t-author">						
@@ -67,7 +97,7 @@
 		    Multi-Object Navigation in real environments using hybrid policies.
 		</span>
 		<span class="t-medium">
-			In International Conference on Robotics and Automation (ICRA), 2023 (TO APPEAR).
+			In International Conference on Robotics and Automation (ICRA), 2023.
 		</span>				
   </dd>	
 </dl>
