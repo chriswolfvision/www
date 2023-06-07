@@ -23,8 +23,7 @@
 
 <div class="navmenunew">
 	<ul>
-		<li class="first"><a href="../index.html">Main</a></li>
-		<li> <a href="../teaching/index.html">Teaching</a></li>
+		<li class="first"><a href="../index.html">Main</a></li>		
 		<li> <a href="../publications/index_bydate.html">Publications</a></li>
 		<li> <a href="../publications/pres.html">Talks</a></li>        
 	</ul>
@@ -52,9 +51,36 @@
 
 <dl>
 
-	<dl>
+	<dt><img src="../graphics/bib_arxiv.gif"></dt>
+	<dd id="autonerf" class="bib-arxive">
+		<span class="t-author">						
+			<a href="https://europe.naverlabs.com/people_user/guillaume-bono/">Guillaume Bono</a>, 
+			<a href="https://europe.naverlabs.com/people_user/leonid-antsfeld/">Leonid Antsfeld</a>, 
+			<a href="https://www.assemsadek.com/">Assem Sadek</a>, 
+			<a href="https://europe.naverlabs.com/people_user/gianluca-monaci/">Gianluca Monaci</a> and			
+			<a href="../index.html">Christian Wolf</a>.
+	  	</span>
+	  	<span class="t-title">
+		    Learning with a Mole: Transferable latent spatial representations for navigation without reconstruction
+		</span>
+		<span class="t-medium">
+			pre-print arxiv:2306.03857, 2023.
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('autonerf');">
+			Abstract</a>
+			</li>															
+			<li><a href="https://arxiv.org/abs/2306.03857">ArXiv-Link</a></li>				
+			</ul>
+		<div class="t-abstract">
+			<p>
+				Agents navigating in 3D environments require some form of memory, which should hold a compact and actionable representation of the history of observations useful for decision taking and planning. In most end-to-end learning approaches the representation is latent and usually does not have a clearly defined interpretation, whereas classical robotics addresses this with scene reconstruction resulting in some form of map, usually estimated with geometry and sensor models and/or learning. In this work we propose to learn an actionable representation of the scene independently of the targeted downstream task and without explicitly optimizing reconstruction. The learned representation is optimized by a blind auxiliary agent trained to navigate with it on multiple short sub episodes branching out from a waypoint and, most importantly, without any direct visual observation. We argue and show that the blindness property is important and forces the (trained) latent representation to be the only means for planning. With probing experiments we show that the learned representation optimizes navigability and not reconstruction. On downstream tasks we show that it is robust to changes in distribution, in particular the sim2real gap, which we evaluate with a real physical robot in a real office building, significantly improving performance.
+		  </p>
+		</div>
+  </dd>
 
-	<dl>
+
 	<dt><img src="../graphics/bib_arxiv.gif"></dt>
 	<dd id="autonerf" class="bib-arxive">
 		<span class="t-author">						
