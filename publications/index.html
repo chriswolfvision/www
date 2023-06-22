@@ -1313,7 +1313,35 @@ Invited talks/seminars <a href="pres.html">[ARE HERE]</a>.
 
 <dl>
 
-	<dl>
+	<dt class="conference">c77</dt>
+	<dd id="iros2023" class="bib-conference">
+		<span class="t-author">						
+			<a href="https://www.linkedin.com/in/sombit-dey-a1b0b4152/?originalSubdomain=in">Sombit Dey<a>,
+			<a href="https://www.assemsadek.com">Assem Sadek<a>,
+			<a href="https://europe.naverlabs.com/people_user/gianluca-monaci/">Gianluca Monaci</a>,
+			<a href="https://europe.naverlabs.com/people_user/Boris-Chidlovskii/">Boris Chidlovskii<a> and
+			<a href="../index.html">Christian Wolf</a>.
+	  	</span>
+	  	<span class="t-title">
+		    Learning whom to trust in navigation: dynamically switching between classical and neural planning.
+		</span>
+		<span class="t-medium">
+			In International Conference on Intelligent Robots and Systems (IROS), 2023.
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('iros2023');">
+			Abstract</a>
+			</li>															
+     </ul>
+		<div class="t-abstract">
+			<p>
+			Navigation of terrestrial robots is typically ad- dressed either with localization and mapping (SLAM) followed by classical planning on the dynamically created maps, or by machine learning (ML), often through end-to-end training with reinforcement learning (RL) or imitation learning (IL). Recently, modular designs have achieved promising results, and hybrid algorithms that combine ML with classical planning have been proposed. Existing methods implement these combi- nations with hand-crafted functions, which cannot fully exploit the complementary nature of the policies and the complex regularities between scene structure and planning performance.
+			Our work builds on the hypothesis that the strengths and weaknesses of neural planners and classical planners follow some regularities, which can be learned from training data, in particular from interactions. This is grounded on the assumption that, both, trained planners and the mapping algorithms underlying classical planning are subject to failure cases depending on the semantics of the scene and that this dependence is learnable: for instance, certain areas, objects or scene structures can be reconstructed easier than others. We propose a hierarchical method composed of a high-level planner dynamically switching between a classical and a neural planner. We fully train all neural policies in simulation and evaluate the method in both simulation and real experiments with a LoCoBot robot, showing significant gains in performance, in particular in the real environment. We also qualitatively conjecture on the nature of data regularities exploited by the high-level planner.
+		    </p>
+		</div>
+  </dd>
+  
 		<dt class="conference">c76</dt>
 		<dd id="iclr2023" class="bib-conference">
 		<span class="t-author">
