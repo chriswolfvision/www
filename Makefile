@@ -2,7 +2,8 @@ all:
 	@echo "usage: make publish"
 
 publish:
-	echo "do a commit and push!"
+	git commit -a -m "stuff"
+	git push
 
 check:
 	ls papers/* | ./scripts/findunref.sh .
