@@ -130,7 +130,7 @@
 		}
 		function masquer_aide()
 		{
-			// masque la bulle d'aide (d�clench� par un onmouseout sur le <span>)
+			// masque la bulle d'aide (declenche par un onmouseout sur le <span>)
 			g_bulle_aide.style.visibility = "hidden";
 			this.style.color = "#000000";
 
