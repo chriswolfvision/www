@@ -52,27 +52,36 @@
 <h2>2024</h2>
 
 <dl>
-<dt class="conference">c79</dt>
-	<dd id="3dv2024" class="bib-conference">
-		<span class="t-author">		
-		  <a href="https://europe.naverlabs.com/people_user/gianluca-monaci/">Gianluca Monaci</a>,
-			<a href="https://europe.naverlabs.com/people_user/leonid-antsfeld/">Leonid Antsfeld</a>,
-			<a href="https://europe.naverlabs.com/people_user/Boris-Chidlovskii/">Boris Chidlovskii<a> and
+
+	<dt class="conference">c82</dt>
+	<dd id="croconav" class="bib-arxive">
+		<span class="t-author">						
+			<a href="https://scholar.google.com/citations?user=IC0ceIgAAAAJ&hl=en">Steeven Janny<a>,
+      <a href="https://madihanadri.github.io/">Madiha Nadri<a>,
+      <a href="https://perso.liris.cnrs.fr/julie.digne">Julie Digne</a> and     
 			<a href="../index.html">Christian Wolf</a>.
 	  	</span>
 	  	<span class="t-title">
-		    Zero-BEV: Zero-shot Projection of any First-Person Modality to BEV Maps.
+		    Space and time continuous physics simulation from partial observations,
 		</span>
 		<span class="t-medium">
-			In International Conference on 3D Vision (3DV), 2024.
-		</span>		
+			In International Conference on Learning Representations (ICLR), 2024 (spotlight presentation).			
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('croconav');">
+			Abstract</a>
+			</li>															
+			<li><a href="https://openreview.net/forum?id=4yaFQ7181M">Openreview</a></li>							
+			</ul>
+		<div class="t-abstract">
+			<p>
+				Modern techniques for physical simulations rely on numerical schemes and mesh-refinement methods to address trade-offs between precision and complexity, but these handcrafted solutions are tedious and require high computational power. Data-driven methods based on large-scale machine learning promise high adaptivity by integrating long-range dependencies more directly and efficiently. In this work, we focus on computational fluid dynamics and address the shortcomings of a large part of the literature, which are based on fixed support for computations and predictions in the form of regular or irregular grids. We propose a novel setup to perform predictions in a continuous spatial and temporal domain while being trained on sparse observations. We formulate the task as a double observation problem and propose a solution with two interlinked dynamical systems defined on, respectively, the sparse positions and the continuous domain, which allows to forecast and interpolate a solution from the initial condition. Our practical implementation involves recurrent GNNs and a spatio-temporal attention observer capable of interpolating the solution at arbitrary locations. Our model not only generalizes to new initial conditions (as standard auto-regressive models do) but also performs evaluation at arbitrary space and time locations. We evaluate on three standard datasets in fluid dynamics and compare to strong baselines, which are outperformed in classical settings and the extended new task requiring continuous predictions.
+		  </p>
+		</div>
   </dd>
-</dl>
 
-<h2>2023</h2>
-
-<dl>
-	<dt><img src="../graphics/bib_arxiv.gif"></dt>
+	<dt class="conference">c81</dt>
 	<dd id="croconav" class="bib-arxive">
 		<span class="t-author">						
 			<a href="https://europe.naverlabs.com/people_user/guillaume-bono/">Guillaume Bono</a>, 
@@ -85,13 +94,14 @@
 		    End-to-End (Instance)-Image Goal Navigation through Correspondence as an Emergent Phenomenon,
 		</span>
 		<span class="t-medium">
-			pre-print arXiv:2309.16634, 2023.
+			In International Conference on Learning Representations (ICLR), 2024.			
 		</span>
 		<ul class="reflink-box">
         	<li class="first">
 			<a href="javascript:;" onClick="displayAbstractOf('croconav');">
 			Abstract</a>
 			</li>															
+			<li><a href="https://openreview.net/forum?id=cphhnHjCvC">Openreview</a></li>				
 			<li><a href="https://arxiv.org/abs/2309.16634">ArXiv</a></li>				
 			</ul>
 		<div class="t-abstract">
@@ -101,7 +111,8 @@
 		</div>
   </dd>
 
-  <dt><img src="../graphics/bib_arxiv.gif"></dt>
+
+	<dt class="conference">c80</dt>
 	<dd id="mole" class="bib-arxive">
 		<span class="t-author">						
 			<a href="https://europe.naverlabs.com/people_user/guillaume-bono/">Guillaume Bono</a>, 
@@ -114,14 +125,15 @@
 		    Learning with a Mole: Transferable latent spatial representations for navigation without reconstruction
 		</span>
 		<span class="t-medium">
-			pre-print arxiv:2306.03857, 2023.
+			In International Conference on Learning Representations (ICLR), 2024.			
 		</span>
 		<ul class="reflink-box">
         	<li class="first">
 			<a href="javascript:;" onClick="displayAbstractOf('mole');">
 			Abstract</a>
 			</li>															
-			<li><a href="https://arxiv.org/abs/2306.03857">ArXiv</a></li>				
+			<li><a href="https://openreview.net/forum?id=8HCARN2hhw">Openreview</a></li>				
+			<li><a href="https://arxiv.org/abs/2306.03857">ArXiv</a></li>
 			</ul>
 		<div class="t-abstract">
 			<p>
@@ -129,6 +141,29 @@
 		  </p>
 		</div>
   </dd>
+
+<dt class="conference">c79</dt>
+	<dd id="3dv2024" class="bib-conference">
+		<span class="t-author">		
+		  <a href="https://europe.naverlabs.com/people_user/gianluca-monaci/">Gianluca Monaci</a>,
+			<a href="https://europe.naverlabs.com/people_user/leonid-antsfeld/">Leonid Antsfeld</a>,
+			<a href="https://europe.naverlabs.com/people_user/Boris-Chidlovskii/">Boris Chidlovskii<a> and
+			<a href="../index.html">Christian Wolf</a>.
+	  	</span>
+	  	<span class="t-title">
+		    Zero-BEV: Zero-shot Projection of any First-Person Modality to BEV Maps.
+		</span>
+		<span class="t-medium">
+			In International Conference on 3D Vision (3DV), 2024 (spotlight).
+		</span>		
+  </dd>
+</dl>
+
+<h2>2023</h2>
+
+<dl>
+	
+  
 
 	<dt><img src="../graphics/bib_arxiv.gif"></dt>
 	<dd id="autonerf" class="bib-arxive">
