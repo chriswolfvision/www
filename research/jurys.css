@@ -9,6 +9,11 @@ span.student {
 span.type {
 	font-weight:bold; 	
 }
+
+span.title {
+	color: #660033;
+}
+
 span.student-sup {
 	font-weight:bold; 	
 	color: #1b8ac0;
