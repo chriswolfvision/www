@@ -53,36 +53,9 @@
 
 <dl>
 
-	<dt><img src="../graphics/bib_arxiv.gif"></dt>
-	<dd id="autonerf" class="bib-arxive">
-		<span class="t-author">						
-			<a href="https://scholar.google.fr/citations?user=NAI5mi4AAAAJ&hl=fr">Pierre Marza</a>, 
-			<a href="https://perso.liris.cnrs.fr/laetitia.matignon/">Laetitia Matignon</a>, 
-			<a href="http://perso.citi-lab.fr/osimonin/">Olivier Simonin</a> and			
-			<a href="../index.html">Christian Wolf</a>.			
-	  	</span>
-	  	<span class="t-title">
-		    Task-conditioned adaptation of visual features in multi-task policy learning.
-		</span>
-		<span class="t-medium">
-			pre-print arxiv:2402.07739, 2024.
-		</span>
-		<ul class="reflink-box">
-        	<li class="first">
-			<a href="javascript:;" onClick="displayAbstractOf('autonerf');">
-			Abstract</a>
-			</li>															
-			<li><a href="https://arxiv.org/abs/2402.07739">ArXiv</a></li>				
-			<li><a href="https://pierremarza.github.io/projects/task_conditioned_adaptation/">Project-page</a></li>
-      		</ul>
-		<div class="t-abstract">
-			<p>
-				Successfully addressing a wide variety of tasks is a core ability of autonomous agents, which requires flexibly adapting the underlying decision-making strategies and, as we argue in this work, also adapting the underlying perception modules. An analogical argument would be the human visual system, which uses top-down signals to focus attention determined by the current task. Similarly, in this work, we adapt pre-trained large vision models conditioned on specific downstream tasks in the context of multi-task policy learning. We introduce task-conditioned adapters that do not require finetuning any pre-trained weights, combined with a single policy trained with behavior cloning and capable of addressing multiple tasks. We condition the policy and visual adapters on task embeddings, which can be selected at inference if the task is known, or alternatively inferred from a set of example demonstrations. To this end, we propose a new optimization-based estimator. We evaluate the method on a wide variety of tasks of the CortexBench benchmark and show that, compared to existing work, it can be addressed with a single policy. In particular, we demonstrate that adapting visual features is a key design choice and that the method generalizes to unseen tasks given visual demonstrations.
-		  </p>
-		</div>
-  </dd>
+	
 
-	<dt><img src="../graphics/bib_arxiv.gif"></dt>
+  <dt class="conference">c84</dt>
 	<dd id="fmnav09" class="bib-arxive">
 		<span class="t-author">						
 			<a href="https://europe.naverlabs.com/people_user/guillaume-bono/">Guillaume Bono</a>, 
@@ -97,7 +70,7 @@
 		    Learning to navigate efficiently and precisely in real environments.
 		</span>
 		<span class="t-medium">
-			pre-print arxiv:2401.14349, 2024.
+			In International Conference on Computer Vision and Pattern Recognition (CVPR),  2024.
 		</span>
 		<ul class="reflink-box">
         	<li class="first">
@@ -109,6 +82,35 @@
 		<div class="t-abstract">
 			<p>
 				In the context of autonomous navigation of terrestrial robots, the creation of realistic models for agent dynamics and sensing is a widespread habit in the robotics literature and in commercial applications, where they are used for model based control and/or for localization and mapping. The more recent Embodied AI literature, on the other hand, focuses on modular or end-to-end agents trained in simulators like Habitat or AI-Thor, where the emphasis is put on photo-realistic rendering and scene diversity, but high-fidelity robot motion is assigned a less privileged role. The resulting sim2real gap significantly impacts transfer of the trained models to real robotic platforms. In this work we explore end-to-end training of agents in simulation in settings which minimize the sim2real gap both, in sensing and in actuation. Our agent directly predicts (discretized) velocity commands, which are maintained through closed-loop control in the real robot. The behavior of the real robot (including the underlying low-level controller) is identified and simulated in a modified Habitat simulator. Noise models for odometry and localization further contribute in lowering the sim2real gap. We evaluate on real navigation scenarios, explore different localization and point goal calculation methods and report significant gains in performance and robustness compared to prior work.
+		  </p>
+		</div>
+  </dd>
+
+  <dt class="conference">c83</dt>
+	<dd id="autonerf" class="bib-arxive">
+		<span class="t-author">						
+			<a href="https://scholar.google.fr/citations?user=NAI5mi4AAAAJ&hl=fr">Pierre Marza</a>, 
+			<a href="https://perso.liris.cnrs.fr/laetitia.matignon/">Laetitia Matignon</a>, 
+			<a href="http://perso.citi-lab.fr/osimonin/">Olivier Simonin</a> and			
+			<a href="../index.html">Christian Wolf</a>.			
+	  	</span>
+	  	<span class="t-title">
+		    Task-conditioned adaptation of visual features in multi-task policy learning.
+		</span>
+		<span class="t-medium">
+			In International Conference on Computer Vision and Pattern Recognition (CVPR),  2024.
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('autonerf');">
+			Abstract</a>
+			</li>															
+			<li><a href="https://arxiv.org/abs/2402.07739">ArXiv</a></li>				
+			<li><a href="https://pierremarza.github.io/projects/task_conditioned_adaptation/">Project-page</a></li>
+      		</ul>
+		<div class="t-abstract">
+			<p>
+				Successfully addressing a wide variety of tasks is a core ability of autonomous agents, which requires flexibly adapting the underlying decision-making strategies and, as we argue in this work, also adapting the underlying perception modules. An analogical argument would be the human visual system, which uses top-down signals to focus attention determined by the current task. Similarly, in this work, we adapt pre-trained large vision models conditioned on specific downstream tasks in the context of multi-task policy learning. We introduce task-conditioned adapters that do not require finetuning any pre-trained weights, combined with a single policy trained with behavior cloning and capable of addressing multiple tasks. We condition the policy and visual adapters on task embeddings, which can be selected at inference if the task is known, or alternatively inferred from a set of example demonstrations. To this end, we propose a new optimization-based estimator. We evaluate the method on a wide variety of tasks of the CortexBench benchmark and show that, compared to existing work, it can be addressed with a single policy. In particular, we demonstrate that adapting visual features is a key design choice and that the method generalizes to unseen tasks given visual demonstrations.
 		  </p>
 		</div>
   </dd>
@@ -525,7 +527,7 @@
 		    Learning Reduced Nonlinear State-Space Models: an Output-Error Based Canonical Approach
 		</span>
 		<span class="t-medium">
-			To appear in Control and Decision Conference (CDC), 2022.
+			In Control and Decision Conference (CDC), 2022.
 		</span>
 		<ul class="reflink-box">
         	<li class="first">
@@ -644,7 +646,7 @@
 		  	Graph augmented Deep Reinforcement Learning in the GameRLand3D environment.
 		</span>
 		<span class="t-medium">
-			To appear in AAAI Workshop on Reinforcement Learning in Games, 2022.
+			In AAAI Workshop on Reinforcement Learning in Games, 2022.
 		</span>
 		<ul class="reflink-box">
         	<li class="first">
@@ -674,7 +676,7 @@
 		  	Godot Reinforcement Learning Agents.
 		</span>
 		<span class="t-medium">
-			To appear in AAAI Workshop on Reinforcement Learning in Games, 2022.
+			In AAAI Workshop on Reinforcement Learning in Games, 2022.
 		</span>
 		<ul class="reflink-box">
         	<li class="first">
@@ -860,7 +862,7 @@
 		    How Transferrable are Reasoning Patterns in VQA?
 		</span>
 		<span class="t-medium">
-			To appear in International Conference on Computer Vision and Pattern Recognition (CVPR), 2021 (*=equal contribution).
+			In International Conference on Computer Vision and Pattern Recognition (CVPR), 2021 (*=equal contribution).
 		</span>
 		<ul class="reflink-box">
         	<li class="first">
@@ -894,7 +896,7 @@
 		    Roses Are Red, Violets Are Blue... but Should VQA Expect Them To?
 		</span>
 		<span class="t-medium">
-			To appear in International Conference on Computer Vision and Pattern Recognition (CVPR), 2021.
+			In International Conference on Computer Vision and Pattern Recognition (CVPR), 2021.
 		</span>
 		<ul class="reflink-box">
         	<li class="first">
@@ -925,7 +927,7 @@
 		    SSTVOS: Sparse Spatiotemporal Transformers for Video Object Segmentation
 		</span>
 		<span class="t-medium">
-			To appear in International Conference on Computer Vision and Pattern Recognition (CVPR), 2021 (oral presentation).
+			In International Conference on Computer Vision and Pattern Recognition (CVPR), 2021 (oral presentation).
 		</span>
 		<ul class="reflink-box">
         	<li class="first">
@@ -1042,7 +1044,7 @@
 		  	Learning to plan with uncertain topological maps.  
 		</span>
 		<span class="t-medium">
-			To appear in European Conference on Computer Vision (ECCV), 2020 (spotlight, 5% acceptance rate).
+			In European Conference on Computer Vision (ECCV), 2020 (spotlight, 5% acceptance rate).
 		</span>
 		<ul class="reflink-box">
         	<li class="first">
@@ -1073,7 +1075,7 @@
 		    EgoMap: Projective mapping and structured egocentric memory for Deep RL.
 		</span>
 		<span class="t-medium">
-			To appear in European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD), 2020.
+			In European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD), 2020.
 		</span>
 		<ul class="reflink-box">
         	<li class="first">
@@ -1104,7 +1106,7 @@
 		    Data-driven multi-model control for a waste heat recovery system.
 		</span>
 		<span class="t-medium">
-			To appear in Control and Decision Conference (CDC), 2020.
+			In Control and Decision Conference (CDC), 2020.
 		</span>
 		<ul class="reflink-box">
         	<li class="first">
@@ -1195,7 +1197,7 @@
 		    Deep Reinforcement Learning on a Budget: 3D Control and Reasoning Without a Supercomputer.
 		</span>
 		<span class="t-medium">
-			To appear in International Conference on Pattern Recognition (ICPR), 2020.
+			In International Conference on Pattern Recognition (ICPR), 2020.
 		</span>
 		<ul class="reflink-box">
         	<li class="first">
