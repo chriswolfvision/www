@@ -48,6 +48,38 @@
 	<span class="conference">arxiv pre-print</span>.
 </div>
 
+<h2>2026</h2>
+<dl>
+	<dt class="conference">c88</dt>
+	<dd id="sliding3dv2026" class="bib-arxive">
+		<span class="t-author">
+			<a href="https://europe.naverlabs.com/people_user/gianluca-monaci/">Gianluca Monaci</a>,
+			<a href="https://scholar.google.fr/citations?user=LSxIJ5cAAAAJ&hl=fr">Philippe Weinzaepfel<a>
+			and
+			<a href="../index.html">Christian Wolf</a>.
+	  	</span>
+	  	<span class="t-title">
+		    What does really matter in image goal navigation?
+		</span>
+		<span class="t-medium">
+			In International Conference on 3D Vision (3DV), 2026  (Oral presentation).
+		</span>
+		<ul class="reflink-box">
+        	<li class="first">
+			<a href="javascript:;" onClick="displayAbstractOf('sliding3dv2026');">
+			Abstract</a>
+			</li>
+			<li><a href="https://arxiv.org/abs/2507.01667">ArXiv</a></li>
+      		</ul>
+		<div class="t-abstract">
+			<p>
+				Image goal navigation requires two different skills: firstly, core navigation skills, including the detection of free space and obstacles, and taking decisions based on an internal representation; and secondly, computing directional information by comparing visual observations to the goal image. Current state-of-the-art methods either rely on dedicated image-matching, or pre-training of computer vision modules on relative pose estimation. In this paper, we study whether this task can be efficiently solved with end-to-end training of full agents with RL, as has been claimed by recent work. A positive answer would have impact beyond Embodied AI and allow training of relative pose estimation from reward for navigation alone. In a large study we investigate the effect of architectural choices like late fusion, channel stacking, space-to-depth projections and cross-attention, and their role in the emergence of relative pose estimators from navigation training. We show that the success of recent methods is influenced up to a certain extent by simulator settings, leading to shortcuts in simulation. However, we also show that these capabilities can be transferred to more realistic setting, up to some extend. We also find evidence for correlations between navigation performance and probed (emerging) relative pose estimation performance, an important sub skill.
+		    </p>
+		</div>
+  	</dd>
+
+</dl>
+
 <h2>2025</h2>
 
 <dl>
@@ -110,35 +142,6 @@
 		<div class="t-abstract">
 			<p>
 			 One key aspect of spatially aware robots is the ability to "find their bearings", i.e. to correctly situate themselves in previously seen spaces. In this work, we focus on this particular scenario of continuous robotics operations, where information observed before an actual episode start is exploited to optimize efficiency. We introduce a new model, Kinaema, and agent, capable of integrating a stream of visual observations while moving in a potentially large scene, and upon request, processing a query image and predicting the relative position of the shown space with respect to its current position. Our model does not explicitly store an observation history, therefore does not have hard constraints on context length. It maintains an implicit latent memory, which is updated by a transformer in a recurrent way, compressing the history of sensor readings into a compact representation. We evaluate the impact of this model in a new downstream task we call "Mem-Nav". We show that our large-capacity recurrent model maintains a useful representation of the scene, navigates to goals observed before the actual episode start, and is computationally efficient, in particular compared to classical transformers with attention over an observation history.
-		    </p>
-		</div>
-  	</dd>
-
-
-	<dt><img src="../graphics/bib_arxiv.gif"></dt>
-	<dd id="arxiv2025sliding" class="bib-arxive">
-		<span class="t-author">
-			<a href="https://europe.naverlabs.com/people_user/gianluca-monaci/">Gianluca Monaci</a>,
-			<a href="https://scholar.google.fr/citations?user=LSxIJ5cAAAAJ&hl=fr">Philippe Weinzaepfel<a>
-			and
-			<a href="../index.html">Christian Wolf</a>.
-	  	</span>
-	  	<span class="t-title">
-		    What does really matter in image goal navigation?
-		</span>
-		<span class="t-medium">
-			pre-print arxiv:2507.01667, 2025.
-		</span>
-		<ul class="reflink-box">
-        	<li class="first">
-			<a href="javascript:;" onClick="displayAbstractOf('arxiv2025sliding');">
-			Abstract</a>
-			</li>
-			<li><a href="https://arxiv.org/abs/2507.01667">ArXiv</a></li>
-      		</ul>
-		<div class="t-abstract">
-			<p>
-				Image goal navigation requires two different skills: firstly, core navigation skills, including the detection of free space and obstacles, and taking decisions based on an internal representation; and secondly, computing directional information by comparing visual observations to the goal image. Current state-of-the-art methods either rely on dedicated image-matching, or pre-training of computer vision modules on relative pose estimation. In this paper, we study whether this task can be efficiently solved with end-to-end training of full agents with RL, as has been claimed by recent work. A positive answer would have impact beyond Embodied AI and allow training of relative pose estimation from reward for navigation alone. In a large study we investigate the effect of architectural choices like late fusion, channel stacking, space-to-depth projections and cross-attention, and their role in the emergence of relative pose estimators from navigation training. We show that the success of recent methods is influenced up to a certain extent by simulator settings, leading to shortcuts in simulation. However, we also show that these capabilities can be transferred to more realistic setting, up to some extend. We also find evidence for correlations between navigation performance and probed (emerging) relative pose estimation performance, an important sub skill.
 		    </p>
 		</div>
   	</dd>
