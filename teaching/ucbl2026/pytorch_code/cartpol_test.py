@@ -10,18 +10,20 @@ env.reset()
 
 print("Left/Right arrows; 'ESC' to quit.")
 
-running = True
-while running:
+while True:
     action = None
-    keys = pygame.key.get_pressed()
-
-    if keys[pygame.K_LEFT]:
-        action = 0
-    elif keys[pygame.K_RIGHT]:
-        action = 1
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                action = 0
+                break
+            elif event.key == pygame.K_RIGHT:
+                action = 1
+                break
 
     if action is not None:
         obs, reward, term, succ, info = env.step(action)
+        print ("obs:", obs)
 
         if term:
             print("\n" + "="*20 + "\n  EPISODE FAILED!\n" + "="*20 + "\n" )
@@ -34,9 +36,8 @@ while running:
             print("Time Limit Reached (Success!)")
             env.reset()
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
-            running = False
+    if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
+        break
 
 env.close()
 pygame.quit()

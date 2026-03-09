@@ -22,6 +22,7 @@ class StudentNet(nn.Module):
             nn.Linear(state_dim, 32),
             nn.ReLU(),
             nn.Linear(32, action_dim)
+            # No need for softmax, its included in the loss
         )
     def forward(self, x):
         return self.net(x)
@@ -59,10 +60,7 @@ def visualize_agent(model, episodes=2, max_steps_per_episode=30, env_name="CartP
 
     render_env.close()
 
-def behavior_cloning(exp_states, exp_act, num_epochs):
-    States=4
-    Actions=2
-    model = StudentNet(States, Actions).to(DEVICE)
+def behavior_cloning(model, exp_states, exp_act, num_epochs):
     optimizer = optim.Adam(model.parameters(), lr=1e-3)
     criterion = nn.CrossEntropyLoss()
 
@@ -100,6 +98,11 @@ def get_args():
         help="Run behavior cloning",
     )
     parser.add_argument(
+        "--vis",
+        action="store_true",
+        help="Visualize agent",
+    )
+    parser.add_argument(
         "--max_len",
         type=int,
         default=100,
@@ -116,9 +119,14 @@ def get_args():
 if __name__ == "__main__":
     args = get_args()
 
+    States=4
+    Actions=2
+    student = StudentNet(States, Actions).to(DEVICE)
+
     if args.rl:
         print ("Code for teacher training not provided ...")
 
+    exp_states = None
     if args.load:
         print ("Loading trajectories from file.")
         d=np.load("traj.npz")
@@ -126,11 +134,18 @@ if __name__ == "__main__":
         exp_act=d["exp_act"]
 
     if args.bc:
-        print ("Training student with behavior cloning.")
-        exp_states = torch.tensor(exp_states, dtype=torch.float32).to(DEVICE)
-        exp_act = torch.tensor(exp_act, dtype=torch.long).to(DEVICE)
-        student = behavior_cloning(exp_states, exp_act, args.bc_epochs)
-        print ("Student trained, visualizing...")
+        if exp_states is None:
+            print ("No data loaded, can't train.")
+        else:
+            print ("Training student with behavior cloning.")
+            exp_states = torch.tensor(exp_states, dtype=torch.float32).to(DEVICE)
+            exp_act = torch.tensor(exp_act, dtype=torch.long).to(DEVICE)
+            student = behavior_cloning(student, exp_states, exp_act, args.bc_epochs)
+
+    if args.vis:
+        print ("Visualize policy...")
         visualize_agent(student, max_steps_per_episode=args.max_len)
+    else:
+        print ("No visualization requested. If you need one: --vis")
 
     print ("Done.")
